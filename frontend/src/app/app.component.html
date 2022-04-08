@@ -1,0 +1,50 @@
+<!--Sidebar-->
+<div id="sidebar" class="sidebar">
+    <!--Sidebar Navbar-->
+    <mat-toolbar class="side-navbar">
+        <span style="text-align: center; width: 100%;">NIAZ BIN SIRAJ</span>
+    </mat-toolbar>
+
+    <!--Profile Photo-->
+    <div class="flex-column-center" style="background-color: #1e2c3b;">
+        <figure class="image is-128x128" style="margin-top: 10px; margin-bottom: 10px;">
+            <img class="is-rounded" src="../assets/images/dp.jpg">
+        </figure>
+        <h6 style="color: white; margin-bottom: 10px;">Software Engineer</h6>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!--Menu Buttons-->
+    <div class="buttons" style="width: 100%;">
+        <button *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+            <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
+            <span style="margin-left: 15px;">{{menuItem.title}}</span>
+        </button>
+    </div>
+</div>
+
+<div id="main" class="main">
+    <mat-toolbar class="main-navbar">
+        <button mat-icon-button (click)="ToggleSidebar()">
+            <mat-icon aria-hidden="false" aria-label="menu icon">menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-toolbar class="main-navbar-mobile">
+        <button mat-icon-button (click)="ToggleMenuOnMobile()">
+            <mat-icon aria-hidden="false" aria-label="menu icon">menu</mat-icon>
+        </button>
+        <span>NIAZ BIN SIRAJ</span>
+    </mat-toolbar>
+
+    <div id="menu" class="menu-mobile" style="height: 0px; padding: 0px;">
+        <div class="buttons" style="width: 100%;">
+            <button *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+                <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
+                <span style="margin-left: 15px;">{{menuItem.title}}</span>
+            </button>
+        </div>
+    </div>
+
+    <span>Hello</span>
+</div>
