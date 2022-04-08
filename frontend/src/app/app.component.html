@@ -16,7 +16,7 @@
 
     <!--Menu Buttons-->
     <div class="buttons" style="width: 100%;">
-        <button *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+        <button (click)="OnClickMenuButton(menuItem.id)" *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
             <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
             <span style="margin-left: 15px;">{{menuItem.title}}</span>
         </button>
@@ -39,12 +39,22 @@
 
     <div id="menu" class="menu-mobile" style="height: 0px; padding: 0px;">
         <div class="buttons" style="width: 100%;">
-            <button *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+            <button (click)="OnClickMenuButton(menuItem.id)" *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
                 <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
                 <span style="margin-left: 15px;">{{menuItem.title}}</span>
             </button>
         </div>
     </div>
 
-    <span>Hello</span>
+    <section id="about">
+        <app-about-page></app-about-page>
+    </section>
+
+    <section id="experience">
+        <app-experience-page></app-experience-page>
+    </section>
+
+    <section id="projects">
+        <app-projects-page></app-projects-page>
+    </section>
 </div>

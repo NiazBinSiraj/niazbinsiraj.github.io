@@ -27,12 +27,16 @@
     background-color: lighten($color: #1b242f, $amount: 10);
     color: white;
     height: 65px;
+    position: fixed;
+    z-index: 1;
 }
 
 .main-navbar-mobile {
     background-color: lighten($color: #1b242f, $amount: 10);
     color: white;
     height: 65px;
+    position: fixed;
+    z-index: 1;
 }
 
 .main {
@@ -78,9 +82,7 @@
 }
 
 .menu-button:focus{
-    background-color: #edf2f7;
-    opacity: 1;
-    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #edf2f7 8px), repeating-linear-gradient(#ffffff55, #ffffff);
+    background-color: $bg-color;
     color: #1b242f;
     border: 0px;
 }

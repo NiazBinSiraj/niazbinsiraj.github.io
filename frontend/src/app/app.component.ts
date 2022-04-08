@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,17 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private viewportScroller: ViewportScroller){}
   
   menuItems = [
-    {icon: "person", title: "About"},
-    {icon: "person", title: "Experience"},
-    {icon: "person", title: "Projects"},
-    {icon: "person", title: "Skills"},
-    {icon: "person", title: "Education"},
-    {icon: "person", title: "CP Profile"},
-    {icon: "person", title: "Blog"},
-    {icon: "person", title: "Contact"},
-    {icon: "person", title: "Resume"}
+    {icon: "person", title: "About", id: "about"},
+    {icon: "trending_up", title: "Experience", id: "experience"},
+    {icon: "code", title: "Projects", id: "projects"},
+    {icon: "bar_chart", title: "Skills", id:"skills"},
+    {icon: "school", title: "Education", id:"education"},
+    {icon: "emoji_events", title: "CP Profile", id: "cpprofile"},
+    {icon: "edit", title: "Blog", id: "blog"},
+    {icon: "email", title: "Contact", id: "contact"},
+    {icon: "description", title: "Resume", id: "resume"}
   ];
   
   title = 'frontend';
@@ -57,5 +60,10 @@ export class AppComponent {
     {
       console.log("Not found this HTML Element");
     }
+  }
+
+  OnClickMenuButton(elementId: string): void
+  {
+    this.viewportScroller.scrollToAnchor(elementId);
   }
 }

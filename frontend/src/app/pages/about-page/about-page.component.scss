@@ -1,0 +1,11 @@
+@import "../../../bulmaStyles.scss";
+
+.text {
+    text-align: justify;
+    font-family: Roboto;
+    font-size: 23px;
+    line-height: 40px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}

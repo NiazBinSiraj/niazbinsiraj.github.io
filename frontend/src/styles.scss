@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+html{
+    scroll-behavior: smooth;
+}
 html, body { height: 100%; }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #edf2f7;
-    opacity: 1;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #edf2f7 8px ), repeating-linear-gradient( #ffffff55, #ffffff );
+    background-color: #e0e0e0;
 }
