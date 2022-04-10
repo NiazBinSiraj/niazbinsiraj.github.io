@@ -1,14 +1,19 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 
+//Variables
 $breakpoint-mobile: 768px;
 $bg-color: #e0e0e0;
+$primary-color: #1e2c3b;
 
+
+//Font Face
 @font-face {
     font-family: "Roboto";
     src: url(./assets/fonts/Roboto-Light.ttf);
 }
 
+//Classes
 .section-header {
     display: flex;
     flex-direction: column;
