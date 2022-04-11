@@ -14,7 +14,7 @@
     </div>
     <mat-divider></mat-divider>
 
-    <!--Menu Buttons-->
+    <!--Sidebar Menu Buttons-->
     <div class="buttons" style="width: 100%;">
         <button (click)="OnClickMenuButton(menuItem.id)" *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
             <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
@@ -60,6 +60,10 @@
 
     <section id="skills">
         <app-skills-page></app-skills-page>
+    </section>
+
+    <section id="certifications">
+        <app-certifications></app-certifications>
     </section>
 
     <section id="education">

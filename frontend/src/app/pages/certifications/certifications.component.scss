@@ -1,0 +1,15 @@
+@import "../../../bulmaStyles.scss";
+
+.card-container {
+    position: relative;
+}
+
+.project-title {
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-size: 20px;
+    color: $primary-color;
+    font-weight: 10 !important;
+    line-height: 25px;
+    height: 125px;
+}

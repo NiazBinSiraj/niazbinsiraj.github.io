@@ -1,0 +1,34 @@
+{
+    "skills" : [
+        {
+            "category" : "Language",
+            "contents" : [
+                {
+                    "title": "C++",
+                    "logo_url": "../../../assets/images/skills/cpp.jpg",
+                    "level": 2
+                },
+                {
+                    "title": "C#",
+                    "logo_url": "../../../assets/images/skills/csharp.jpg",
+                    "level": 2
+                }
+            ]
+        },
+        {
+            "category" : "Framework",
+            "contents" : [
+                {
+                    "title": "Unity",
+                    "logo_url": "../../../assets/images/skills/unity.jpg",
+                    "level": 2
+                },
+                {
+                    "title": "Angular",
+                    "logo_url": "../../../assets/images/skills/angular.jpg",
+                    "level": 2
+                }
+            ]
+        }
+    ]
+}

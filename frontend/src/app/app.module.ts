@@ -18,6 +18,7 @@ import { CpprofilePageComponent } from './pages/cpprofile-page/cpprofile-page.co
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ResumePageComponent } from './pages/resume-page/resume-page.component';
+import { CertificationsComponent } from './pages/certifications/certifications.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ResumePageComponent } from './pages/resume-page/resume-page.component';
     CpprofilePageComponent,
     BlogPageComponent,
     ContactPageComponent,
-    ResumePageComponent
+    ResumePageComponent,
+    CertificationsComponent
   ],
   imports: [
     BrowserModule,

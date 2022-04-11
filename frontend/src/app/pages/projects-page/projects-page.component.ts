@@ -17,7 +17,7 @@ export class ProjectsPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.projects = Projects;
+    this.projects = Projects.projects;
     for(let i=0; i<this.projects.length; i+=3)
     {
       this.project_col1.push(this.projects[i]);

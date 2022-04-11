@@ -15,8 +15,9 @@ export class AppComponent {
     {icon: "trending_up", title: "Experience", id: "experience"},
     {icon: "code", title: "Projects", id: "projects"},
     {icon: "bar_chart", title: "Skills", id:"skills"},
-    {icon: "school", title: "Education", id:"education"},
+    {icon: "star", title: "Certifications", id: "certifications"},
     {icon: "emoji_events", title: "CP Profile", id: "cpprofile"},
+    {icon: "school", title: "Education", id:"education"},
     {icon: "edit", title: "Blog", id: "blog"},
     {icon: "email", title: "Contact", id: "contact"},
     {icon: "description", title: "Resume", id: "resume"}
