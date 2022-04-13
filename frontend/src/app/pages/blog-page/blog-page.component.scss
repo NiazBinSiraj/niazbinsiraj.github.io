@@ -1,0 +1,14 @@
+@import "../../../bulmaStyles.scss";
+
+.blog-bg {
+    border-radius: 0px;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/images/blogbg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
