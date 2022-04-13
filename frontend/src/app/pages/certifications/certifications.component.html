@@ -1,0 +1,53 @@
+<div class="page-container">
+    <div class="section-header">
+        <h1 class="section-title">
+            CERTIFICATIONS
+        </h1>
+    </div>
+
+    <div class="content page-content">
+        <div class="columns">
+            <div class="column" *ngFor="let col of [].constructor(3); let i=index;">
+                <div *ngFor="let certification of certifications; let j=index;">
+                    <div *ngIf="j%3 == i" class="card-container">
+                        <div class="card" style="position: block; height: auto; border-radius: 0px; margin-top: 30px;">
+                            <div class="card-image">
+                                <figure class="image is-4by3" style="margin: 0px;">
+                                    <img src="{{certification.photo_url}}" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <header class="card-header">
+                                <div class="card-header-title project-title">
+                                    {{certification.title}}
+                                </div>
+                            </header>
+                            <div class="card-content" style="padding: 15px;">
+                                <div class="content" style="text-align: justify; color: black; font-size: 17px; height: 30px;">
+                                    {{certification.description}}
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <div class="level is-mobile" style="width: 100%;">
+                                    <div class="level-left">
+                                        <div class="level-item">
+                                            <div class="card-footer-item">
+                                                {{certification.issued_by}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="level-right" style="margin: 10px;">
+                                        <div class="level-item">
+                                            <div class="card-footer-item" style="padding: 0px;">
+                                                {{certification.issue_date}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

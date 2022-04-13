@@ -1,0 +1,62 @@
+{
+    "skilllevels":[
+        {
+            "level": 1,
+            "title": "Novice",
+            "description": [
+                "Has minimal or textbook knowledge without connecting it to the practice",
+                "Needs close supervision or guidance",
+                "Has little or no idea of how to deal with complexity",
+                "Tends to look at actions in isolation"
+            ]
+        },
+
+        {
+            "level": 2,
+            "title": "Advanced Beginner",
+            "description": [
+                "Has basic knowledge of key aspects of the practice",
+                "Straightforward tasks are likely to be done to an acceptable standard",
+                "Is able to achieve some steps using own judgment, but needs supervision for the overall task",
+                "Appreciates complex situations, but is only able to achieve partial resolution",
+                "Sees actions as a series of steps"
+            ]
+        },
+
+        {
+            "level": 3,
+            "title": "Competent",
+            "description": [
+                "Has good working and background knowledge of area of practice",
+                "Results can be achieved for open tasks, though may lack refinement",
+                "Is able to achieve most tasks using own judgement",
+                "Copes with complex situations through deliberate analysis and planning",
+                "Sees actions at least partly in terms of longer-term goals"
+            ]
+        },
+
+        {
+            "level": 4,
+            "title": "Proficient",
+            "description": [
+                "Depth of understanding of discipline and area of practice",
+                "Fully acceptable standard achieved routinely, results are also achieved for open tasks",
+                "Able to take full responsibility for own work (and that of others where applicable)",
+                "Deals with complex situations holistically, confident decision-making",
+                "Sees the overall picture and how individual actions fit within it"
+            ]
+        },
+
+        {
+            "level": 5,
+            "title": "Expert",
+            "description": [
+                "Authoritative knowledge of discipline and deep tacit understanding across area of practice",
+                "Excellence achieved with relative ease",
+                "Able to take responsibility for going beyond existing standards and creating own interpretations",
+                "Holistic grasp of complex situations, moves between intuitive and analytical approaches with ease",
+                "Sees overall picture and alternative approaches, has vision of what may be possible"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+<!--Sidebar-->
+<div id="sidebar" class="sidebar">
+    <!--Sidebar Navbar-->
+    <mat-toolbar class="side-navbar">
+        <span style="text-align: center; width: 100%;">NIAZ BIN SIRAJ</span>
+    </mat-toolbar>
+
+    <!--Profile Photo-->
+    <div class="flex-column-center" style="background-color: #1e2c3b;">
+        <figure class="image is-128x128" style="margin-top: 10px; margin-bottom: 10px;">
+            <img class="is-rounded" src="../assets/images/dp.jpg">
+        </figure>
+        <h6 style="color: white; margin-bottom: 10px;">Software Engineer</h6>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!--Sidebar Menu Buttons-->
+    <div class="buttons" style="width: 100%;">
+        <button (click)="OnClickMenuButton(menuItem.id)" *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+            <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
+            <span style="margin-left: 15px;">{{menuItem.title}}</span>
+        </button>
+    </div>
+</div>
+
+<div id="main" class="main">
+    <mat-toolbar class="main-navbar">
+        <button mat-icon-button (click)="ToggleSidebar()">
+            <mat-icon aria-hidden="false" aria-label="menu icon">menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-toolbar class="main-navbar-mobile">
+        <button mat-icon-button (click)="ToggleMenuOnMobile()">
+            <mat-icon aria-hidden="false" aria-label="menu icon">menu</mat-icon>
+        </button>
+        <span>NIAZ BIN SIRAJ</span>
+    </mat-toolbar>
+
+    <div id="menu" class="menu-mobile" style="height: 0px; padding: 0px;">
+        <div class="buttons" style="width: 100%;">
+            <button (click)="OnClickMenuButton(menuItem.id)" *ngFor="let menuItem of menuItems; let i=index;" class="button menu-button">
+                <mat-icon aria-hidden="false">{{menuItem.icon}}</mat-icon>
+                <span style="margin-left: 15px;">{{menuItem.title}}</span>
+            </button>
+        </div>
+    </div>
+
+    <section id="about">
+        <app-about-page></app-about-page>
+    </section>
+
+    <section id="experience">
+        <app-experience-page></app-experience-page>
+    </section>
+
+    <section id="projects">
+        <app-projects-page></app-projects-page>
+    </section>
+
+    <section id="skills">
+        <app-skills-page></app-skills-page>
+    </section>
+
+    <section id="certifications">
+        <app-certifications></app-certifications>
+    </section>
+
+    <section id="cpprofile">
+        <app-cpprofile-page></app-cpprofile-page>
+    </section>
+
+    <section id="education">
+        <app-education-page></app-education-page>
+    </section>
+
+    <section id="blog">
+        <app-blog-page></app-blog-page>
+    </section>
+
+    <section id="contact">
+        <app-contact-page></app-contact-page>
+    </section>
+
+    <section id="resume">
+        <app-resume-page></app-resume-page>
+    </section>
+</div>

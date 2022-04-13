@@ -1,0 +1,26 @@
+[
+    {
+        "company" : "Upwork",
+        "company_url" : "https://upwork.com",
+        "designation" : "Freelance Game Developer",
+        "address" : "Remote",
+        "date" : "Oct 2020 - Mar 2021",
+        "description" : "Upwork, formerly Elance-oDesk, is an American freelancing platform. Upwork connects businesses with independent professionals and agencies around the globe.",
+        "contributions" : [
+            "Made a clone of this game https://play.google.com/store/apps/details?id=com.game.ball.push"
+        ]
+    },
+
+    {
+        "company" : "Freelancer",
+        "company_url" : "https://freelancer.com",
+        "designation" : "Freelance Game Developer",
+        "address" : "Remote",
+        "date" : "Oct 2020 - Mar 2021",
+        "description" : "Freelancer is a marketplace where employers and employees are able to find each other.",
+        "contributions" : [
+            "Made a sprite stretchable in Unity.",
+            "Implemented a feature in an existing Unity project which showed shortest path using Line Renderer in realtime by applying A* Search algorithm."
+        ]
+    }
+]

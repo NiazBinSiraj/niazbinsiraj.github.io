@@ -1,0 +1,45 @@
+<div class="page-container">
+    <div class="section-header">
+        <h1 class="section-title">
+            EXPERIENCE
+        </h1>
+    </div>
+    
+    <div class="content page-content">
+        <div class="card" style="margin-top: 40px; border-radius: 0px;" *ngFor="let experience of experiences">
+            <header class="card-header level is-mobile">
+                <div class="level-left" style="margin-left: 20px;">
+                    <div class="level-item card-title">
+                        {{experience.company}}
+                    </div>
+                </div>
+                <div class="level-right" style="margin-right: 50px;">
+                    <div class="level-item">
+                        <b style="font-family: Roboto;">
+                            {{experience.designation}}
+                        </b>
+                    </div>
+                </div>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p style="font-style: italic; font-size: 15px; line-height: 23px;">
+                        {{experience.description}}
+                    </p>
+                    <ul>
+                        <li *ngFor="let contribution of experience.contributions" style="font-size: 18px; color: black; margin-bottom: 10px; line-height: 25px;">{{contribution}}</li>
+                    </ul>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <div class="level">
+                    <div class="level-left" style="margin-left: 5px;">
+                        <div class="card-footer-item level-item">
+                            <p>{{experience.date}}</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

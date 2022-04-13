@@ -1,0 +1,196 @@
+<div class="page-container">
+    <div class="section-header">
+        <h1 class="section-title">
+            PROJECTS
+        </h1>
+    </div>
+
+    <div class="content page-content">
+        <div class="columns">
+            <div id="col-1" class="column">
+                <div class="card-container" *ngFor="let project of project_col1">
+                    <div class="card" style="position: block; height: auto; border-radius: 0px; margin-top: 30px;">
+                        <div class="card-image">
+                            <figure class="image is-4by3" style="margin: 0px;">
+                                <img src="{{project.cover}}" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <div class="card-header-title project-title">
+                                {{project.title}}
+                            </div>
+                        </header>
+                        <div class="card-content" style="padding: 15px;">
+                            <div class="content" style="text-align: justify; color: black; font-size: 17px;">
+                                {{project.description}}
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <div class="level is-mobile" style="width: 100%;">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <div class="card-footer-item">
+                                            {{project.type}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="level-right" style="margin: 10px;">
+                                    <div class="level-item" *ngFor="let tool_logo of project.tool_image_url">
+                                        <div class="card-footer-item" style="padding: 0px;">
+                                            <figure class="image is-24x24" style="margin: 0px;">
+                                                <img src="{{tool_logo}}">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <div class="card overlay" style="border-radius: 0px;">
+                        <header class="card-header">
+                            <div class="card-header-title">
+                                ACCOMPLISHMENTS
+                            </div>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul>
+                                    <li *ngFor="let accomplishment of project.accomplishments" style="margin-bottom: 10px;" [innerHtml]="accomplishment" ></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="card-footer" style="position: absolute; bottom: 0; width: 100%;">
+                            <a href="{{project.project_url}}" class="card-footer-item">View Online</a>
+                            <a href="{{project.github_url}}" class="card-footer-item">Source Code</a>
+                            <a href="{{project.video_url}}" class="card-footer-item">Video</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div id="col-2" class="column">
+                <div class="card-container" *ngFor="let project of project_col2">
+                    <div class="card" style="position: block; height: auto; border-radius: 0px; margin-top: 30px;">
+                        <div class="card-image">
+                            <figure class="image is-4by3" style="margin: 0px;">
+                                <img src="{{project.cover}}" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <div class="card-header-title project-title">
+                                {{project.title}}
+                            </div>
+                        </header>
+                        <div class="card-content" style="padding: 15px;">
+                            <div class="content" style="text-align: justify; color: black; font-size: 17px;">
+                                {{project.description}}
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <div class="level is-mobile" style="width: 100%;">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <div class="card-footer-item">
+                                            {{project.type}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="level-right" style="margin: 10px;">
+                                    <div class="level-item" *ngFor="let tool_logo of project.tool_image_url">
+                                        <div class="card-footer-item" style="padding: 0px;">
+                                            <figure class="image is-24x24" style="margin: 0px;">
+                                                <img src="{{tool_logo}}">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <div class="card overlay" style="border-radius: 0px;">
+                        <header class="card-header">
+                            <div class="card-header-title">
+                                ACCOMPLISHMENTS
+                            </div>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul>
+                                    <li *ngFor="let accomplishment of project.accomplishments" style="margin-bottom: 10px;" [innerHtml]="accomplishment" ></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="card-footer" style="position: absolute; bottom: 0; width: 100%;">
+                            <a href="{{project.project_url}}" class="card-footer-item">View Online</a>
+                            <a href="{{project.github_url}}" class="card-footer-item">Source Code</a>
+                            <a href="{{project.video_url}}" class="card-footer-item">Video</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div id="col-3" class="column">
+                <div class="card-container" *ngFor="let project of project_col3">
+                    <div class="card" style="position: block; height: auto; border-radius: 0px; margin-top: 30px;">
+                        <div class="card-image">
+                            <figure class="image is-4by3" style="margin: 0px;">
+                                <img src="{{project.cover}}" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <div class="card-header-title project-title">
+                                {{project.title}}
+                            </div>
+                        </header>
+                        <div class="card-content" style="padding: 15px;">
+                            <div class="content" style="text-align: justify; color: black; font-size: 17px;">
+                                {{project.description}}
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <div class="level is-mobile" style="width: 100%;">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <div class="card-footer-item">
+                                            {{project.type}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="level-right" style="margin: 10px;">
+                                    <div class="level-item" *ngFor="let tool_logo of project.tool_image_url">
+                                        <div class="card-footer-item" style="padding: 0px;">
+                                            <figure class="image is-24x24" style="margin: 0px;">
+                                                <img src="{{tool_logo}}">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <div class="card overlay" style="border-radius: 0px;">
+                        <header class="card-header">
+                            <div class="card-header-title">
+                                ACCOMPLISHMENTS
+                            </div>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul>
+                                    <li *ngFor="let accomplishment of project.accomplishments" style="margin-bottom: 10px;" [innerHtml]="accomplishment" ></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="card-footer" style="position: absolute; bottom: 0; width: 100%;">
+                            <a href="{{project.project_url}}" class="card-footer-item">View Online</a>
+                            <a href="{{project.github_url}}" class="card-footer-item">Source Code</a>
+                            <a href="{{project.video_url}}" class="card-footer-item">Video</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
