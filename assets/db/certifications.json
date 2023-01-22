@@ -15,6 +15,14 @@
             "issue_date": "28 April 2020",
             "description": "I've completed this course on Coursera.",
             "url": "https://www.coursera.org/account/accomplishments/verify/KMURRKBFFM7Z"
+        },
+        {
+            "title": "Demo Certifications",
+            "photo_url": "../../../assets//images/certifications/introductionToProgrammingInMatlab.jpg",
+            "issued_by": "Demo University",
+            "issue_date": "28 April 2020",
+            "description": "I've completed this Demo course on Coursera.",
+            "url": "https://www.coursera.org/account/accomplishments/verify/KMURRKBFFM7Z"
         }
     ]
 }
