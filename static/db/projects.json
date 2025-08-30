@@ -1,0 +1,53 @@
+{
+  "projects": [
+    {
+      "title": "E-Commerce Microservices Platform",
+      "description": "A scalable e-commerce platform built with microservices architecture, handling user management, product catalog, order processing, and payment integration.",
+      "techStack": ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Kafka", "Redis"],
+      "features": [
+        "Microservices with API Gateway",
+        "Event-driven architecture using Kafka",
+        "Distributed caching with Redis",
+        "Payment gateway integration",
+        "Real-time order tracking"
+      ]
+    },
+    {
+      "title": "Real-time Chat Application",
+      "description": "A full-stack chat application with real-time messaging, file sharing, and user presence indicators using WebSocket technology.",
+      "techStack": ["Node.js", "Express.js", "Socket.io", "React", "MongoDB", "JWT"],
+      "features": [
+        "Real-time messaging with Socket.io",
+        "File and image sharing",
+        "User authentication with JWT",
+        "Message encryption",
+        "Responsive UI design"
+      ]
+    },
+    {
+      "title": "Task Management API",
+      "description": "RESTful API for task management with user authentication, role-based access control, and real-time notifications.",
+      "techStack": ["Java", "Spring Boot", "MySQL", "JUnit", "Swagger", "Docker"],
+      "features": [
+        "Role-based access control",
+        "Task assignment and tracking",
+        "Email notifications",
+        "API documentation with Swagger",
+        "Comprehensive unit testing"
+      ]
+    },
+    {
+      "title": "Data Analytics Dashboard",
+      "description": "Interactive dashboard for business intelligence with data visualization, filtering, and export capabilities.",
+      "techStack": ["Python", "Flask", "PostgreSQL", "Chart.js", "Bootstrap", "Pandas"],
+      "features": [
+        "Interactive data visualizations",
+        "Real-time data updates",
+        "Advanced filtering options",
+        "Export to PDF/Excel",
+        "Responsive design"
+      ]
+    }
+  ]
+}
+

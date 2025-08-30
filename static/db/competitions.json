@@ -1,0 +1,40 @@
+{
+  "competitions": [
+    {
+      "name": "ACM ICPC World Finals",
+      "year": "2021",
+      "rank": "Participant",
+      "team": "BUET_Algorithmists",
+      "description": "Represented Bangladesh in the ACM International Collegiate Programming Contest World Finals"
+    },
+    {
+      "name": "ACM ICPC Asia Dhaka Regional",
+      "year": "2020",
+      "rank": "3rd Place",
+      "team": "BUET_Algorithmists",
+      "description": "Secured 3rd position among 200+ teams in the regional contest"
+    },
+    {
+      "name": "Google Code Jam",
+      "year": "2021",
+      "rank": "Round 2 Qualifier",
+      "team": "Individual",
+      "description": "Advanced to Round 2 of Google's annual coding competition"
+    },
+    {
+      "name": "CodeChef Long Challenge",
+      "year": "2020",
+      "rank": "Global Rank 150",
+      "team": "Individual",
+      "description": "Achieved top 200 ranking in monthly programming contest"
+    },
+    {
+      "name": "Codeforces Contest",
+      "year": "2019-2021",
+      "rank": "Expert (Rating: 1650+)",
+      "team": "Individual",
+      "description": "Maintained Expert rating on Codeforces competitive programming platform"
+    }
+  ]
+}
+

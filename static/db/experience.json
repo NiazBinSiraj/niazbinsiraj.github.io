@@ -1,0 +1,43 @@
+{
+  "experiences": [
+    {
+      "company": "TechCorp Solutions",
+      "position": "Senior Backend Developer",
+      "location": "Dhaka, Bangladesh",
+      "duration": "Jan 2023 - Present",
+      "responsibilities": [
+        "Developed scalable REST APIs using Spring Boot serving 10K+ daily requests",
+        "Optimized SQL queries reducing database response time by 40%",
+        "Implemented microservices architecture using Docker and Kubernetes",
+        "Led a team of 3 developers in delivering critical payment processing features",
+        "Integrated third-party APIs for payment gateways and notification services"
+      ]
+    },
+    {
+      "company": "Digital Innovations Ltd",
+      "position": "Software Engineer",
+      "location": "Dhaka, Bangladesh",
+      "duration": "Jun 2021 - Dec 2022",
+      "responsibilities": [
+        "Built enterprise-level web applications using Java and Spring Framework",
+        "Designed and implemented database schemas for PostgreSQL and MySQL",
+        "Developed automated testing suites using JUnit and TestNG",
+        "Collaborated with frontend teams to integrate React-based user interfaces",
+        "Maintained CI/CD pipelines using Jenkins and Docker"
+      ]
+    },
+    {
+      "company": "StartupTech",
+      "position": "Junior Developer",
+      "location": "Dhaka, Bangladesh",
+      "duration": "Jan 2021 - May 2021",
+      "responsibilities": [
+        "Developed RESTful web services using Node.js and Express.js",
+        "Implemented user authentication and authorization systems",
+        "Created database migration scripts and data validation logic",
+        "Participated in code reviews and agile development processes"
+      ]
+    }
+  ]
+}
+

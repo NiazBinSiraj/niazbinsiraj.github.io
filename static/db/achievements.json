@@ -1,0 +1,35 @@
+{
+  "achievements": [
+    {
+      "title": "AWS Certified Solutions Architect - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "description": "Certification demonstrating expertise in designing distributed systems on AWS"
+    },
+    {
+      "title": "Oracle Certified Professional, Java SE 11 Developer",
+      "issuer": "Oracle",
+      "date": "2022",
+      "description": "Professional certification for Java development skills"
+    },
+    {
+      "title": "Best Innovation Award",
+      "issuer": "TechCorp Solutions",
+      "date": "2023",
+      "description": "Recognized for developing an innovative payment processing solution that reduced transaction time by 60%"
+    },
+    {
+      "title": "Dean's List",
+      "issuer": "BUET",
+      "date": "2019-2021",
+      "description": "Achieved Dean's List recognition for academic excellence in final two years"
+    },
+    {
+      "title": "Kubernetes Certified Application Developer (CKAD)",
+      "issuer": "Cloud Native Computing Foundation",
+      "date": "2023",
+      "description": "Certification for designing and deploying cloud-native applications using Kubernetes"
+    }
+  ]
+}
+
