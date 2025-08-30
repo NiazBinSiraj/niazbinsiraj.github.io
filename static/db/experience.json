@@ -14,6 +14,27 @@
         "Supported onsite alpha deployments in QA environments, collaborating with U.S. stakeholders to ensure smooth rollouts and reducing post-deployment issues by 35%.",
         "Mentored 5+ junior engineers, conducting code reviews and knowledge-sharing sessions, increasing team productivity and reducing onboarding time by 20%."
       ]
+    },
+    {
+      "company": "Freelance",
+      "position": "Part-Time Game Developer",
+      "location": "Remote",
+      "duration": "Oct 2020 - Mar 2021",
+      "responsibilities": [
+        "Delivered a 3D hyper-casual game project on Upwork using C# and Unity Game Engine, meeting client requirements within deadline.",
+        "Implemented a shortest-path visualizer in a 3D game using the A* search algorithm and Unity Line Renderer, enhancing gameplay mechanics for a Freelancer.com project.",
+        "Designed and developed a 2D hyper-casual game for a local client using C# and Unity Game Engine, providing end-to-end development from concept to deployment."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "position": "Part-Time Front-End Developer",
+      "location": "Remote",
+      "duration": "Feb 2020 - May 2022",
+      "responsibilities": [
+        "Developed the front-end for an educational video streaming web application using Angular, Ionic, Cordova, and Bootstrap, ensuring a responsive and intuitive user interface across desktop and mobile devices.",
+        "Collaborated with the project lead to design and implement user-friendly features, improving overall usability and enhancing the learning experience for end users."
+      ]
     }
   ]
 }
