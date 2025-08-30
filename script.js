@@ -277,7 +277,7 @@ function renderEducation(education) {
 
 function createEducationCard(education, index) {
     const card = document.createElement('div');
-    card.className = `bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift stagger-${index + 1}`;
+    card.className = `bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift mb-6 stagger-${index + 1}`;
 
     card.innerHTML = `
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
