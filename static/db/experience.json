@@ -1,41 +1,44 @@
 {
   "experiences": [
     {
-      "company": "TechCorp Solutions",
-      "position": "Senior Backend Developer",
+      "company": "Bangladesh Solutions Ltd",
+      "position": "Senior Software Engineer",
       "location": "Dhaka, Bangladesh",
-      "duration": "Jan 2023 - Present",
+      "duration": "Feb 2023 - Present",
       "responsibilities": [
-        "Developed scalable REST APIs using Spring Boot serving 10K+ daily requests",
-        "Optimized SQL queries reducing database response time by 40%",
-        "Implemented microservices architecture using Docker and Kubernetes",
-        "Led a team of 3 developers in delivering critical payment processing features",
-        "Integrated third-party APIs for payment gateways and notification services"
+        "Led development of enterprise-level applications using Java and Spring Boot",
+        "Designed and implemented RESTful APIs serving 5000+ concurrent users",
+        "Optimized database queries resulting in 35% performance improvement",
+        "Mentored junior developers and conducted code reviews",
+        "Collaborated with cross-functional teams in Agile environment",
+        "Implemented CI/CD pipelines using Jenkins and Docker"
       ]
     },
     {
-      "company": "Digital Innovations Ltd",
+      "company": "TechVision Bangladesh",
       "position": "Software Engineer",
-      "location": "Dhaka, Bangladesh",
-      "duration": "Jun 2021 - Dec 2022",
+      "location": "Dhaka, Bangladesh", 
+      "duration": "Jun 2021 - Jan 2023",
       "responsibilities": [
-        "Built enterprise-level web applications using Java and Spring Framework",
-        "Designed and implemented database schemas for PostgreSQL and MySQL",
-        "Developed automated testing suites using JUnit and TestNG",
-        "Collaborated with frontend teams to integrate React-based user interfaces",
-        "Maintained CI/CD pipelines using Jenkins and Docker"
+        "Developed scalable web applications using Java Spring Framework",
+        "Built responsive user interfaces using HTML, CSS, and JavaScript",
+        "Integrated third-party APIs and payment gateways",
+        "Implemented automated testing with JUnit and TestNG",
+        "Worked with MySQL and PostgreSQL databases",
+        "Participated in requirements gathering and technical documentation"
       ]
     },
     {
-      "company": "StartupTech",
-      "position": "Junior Developer",
+      "company": "Digital Bangladesh Initiative",
+      "position": "Junior Software Developer (Internship)",
       "location": "Dhaka, Bangladesh",
       "duration": "Jan 2021 - May 2021",
       "responsibilities": [
-        "Developed RESTful web services using Node.js and Express.js",
-        "Implemented user authentication and authorization systems",
-        "Created database migration scripts and data validation logic",
-        "Participated in code reviews and agile development processes"
+        "Assisted in developing government portal applications",
+        "Created database schemas and wrote SQL queries",
+        "Participated in bug fixing and testing processes",
+        "Learned industry best practices and coding standards",
+        "Collaborated with senior developers on feature implementation"
       ]
     }
   ]

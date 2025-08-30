@@ -1,34 +1,34 @@
 {
   "achievements": [
     {
-      "title": "AWS Certified Solutions Architect - Associate",
-      "issuer": "Amazon Web Services",
-      "date": "2023",
-      "description": "Certification demonstrating expertise in designing distributed systems on AWS"
-    },
-    {
-      "title": "Oracle Certified Professional, Java SE 11 Developer",
-      "issuer": "Oracle",
+      "title": "Oracle Certified Java Programmer",
+      "issuer": "Oracle Corporation",
       "date": "2022",
-      "description": "Professional certification for Java development skills"
+      "description": "Achieved Oracle Certified Associate, Java SE 8 Programmer certification demonstrating proficiency in Java programming fundamentals"
     },
     {
-      "title": "Best Innovation Award",
-      "issuer": "TechCorp Solutions",
-      "date": "2023",
-      "description": "Recognized for developing an innovative payment processing solution that reduced transaction time by 60%"
+      "title": "Best Final Year Project Award",
+      "issuer": "Daffodil International University",
+      "date": "2021",
+      "description": "Recognized for outstanding final year project on E-Commerce Management System with innovative features and technical excellence"
     },
     {
-      "title": "Dean's List",
-      "issuer": "BUET",
-      "date": "2019-2021",
-      "description": "Achieved Dean's List recognition for academic excellence in final two years"
+      "title": "Dean's List Recognition",
+      "issuer": "Daffodil International University", 
+      "date": "2020-2021",
+      "description": "Achieved Dean's List recognition for maintaining high academic performance in final year of studies"
     },
     {
-      "title": "Kubernetes Certified Application Developer (CKAD)",
-      "issuer": "Cloud Native Computing Foundation",
-      "date": "2023",
-      "description": "Certification for designing and deploying cloud-native applications using Kubernetes"
+      "title": "Programming Contest Participant",
+      "issuer": "ACM ICPC Bangladesh",
+      "date": "2019-2020",
+      "description": "Participated in ACM ICPC programming contests representing university team in regional competitions"
+    },
+    {
+      "title": "Volunteer Recognition Award",
+      "issuer": "Daffodil International University",
+      "date": "2019",
+      "description": "Recognized for outstanding volunteer service in organizing university tech events and programming workshops"
     }
   ]
 }

@@ -1,52 +1,58 @@
 {
   "projects": [
     {
-      "title": "E-Commerce Microservices Platform",
-      "description": "A scalable e-commerce platform built with microservices architecture, handling user management, product catalog, order processing, and payment integration.",
-      "techStack": ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Kafka", "Redis"],
+      "title": "E-Commerce Management System",
+      "description": "A comprehensive e-commerce platform with user management, product catalog, shopping cart, and order processing functionality.",
+      "techStack": ["Java", "Spring Boot", "MySQL", "HTML/CSS", "JavaScript", "Bootstrap"],
       "features": [
-        "Microservices with API Gateway",
-        "Event-driven architecture using Kafka",
-        "Distributed caching with Redis",
-        "Payment gateway integration",
-        "Real-time order tracking"
-      ]
+        "User registration and authentication",
+        "Product catalog with search and filtering",
+        "Shopping cart and checkout process",
+        "Order tracking and management",
+        "Admin dashboard for inventory management"
+      ],
+      "github": "https://github.com/niazbinsiraj/ecommerce-system",
+      "demo": "https://niazbinsiraj.github.io/ecommerce-demo"
     },
     {
-      "title": "Real-time Chat Application",
-      "description": "A full-stack chat application with real-time messaging, file sharing, and user presence indicators using WebSocket technology.",
-      "techStack": ["Node.js", "Express.js", "Socket.io", "React", "MongoDB", "JWT"],
+      "title": "Student Information Management System",
+      "description": "A web-based application for managing student records, course enrollment, and academic performance tracking.",
+      "techStack": ["Java", "Spring MVC", "PostgreSQL", "JSP", "CSS", "JavaScript"],
       "features": [
-        "Real-time messaging with Socket.io",
-        "File and image sharing",
-        "User authentication with JWT",
-        "Message encryption",
-        "Responsive UI design"
-      ]
+        "Student registration and profile management",
+        "Course enrollment system",
+        "Grade and attendance tracking",
+        "Teacher and admin dashboards",
+        "Report generation functionality"
+      ],
+      "github": "https://github.com/niazbinsiraj/student-management"
     },
     {
-      "title": "Task Management API",
-      "description": "RESTful API for task management with user authentication, role-based access control, and real-time notifications.",
-      "techStack": ["Java", "Spring Boot", "MySQL", "JUnit", "Swagger", "Docker"],
+      "title": "Library Management System",
+      "description": "Digital library system for book cataloging, member management, and borrowing/returning operations.",
+      "techStack": ["Java", "Spring Boot", "MySQL", "Thymeleaf", "Bootstrap"],
       "features": [
-        "Role-based access control",
-        "Task assignment and tracking",
-        "Email notifications",
-        "API documentation with Swagger",
-        "Comprehensive unit testing"
-      ]
+        "Book catalog management",
+        "Member registration and management",
+        "Book borrowing and returning system",
+        "Fine calculation for overdue books",
+        "Search and filter functionality"
+      ],
+      "github": "https://github.com/niazbinsiraj/library-management"
     },
     {
-      "title": "Data Analytics Dashboard",
-      "description": "Interactive dashboard for business intelligence with data visualization, filtering, and export capabilities.",
-      "techStack": ["Python", "Flask", "PostgreSQL", "Chart.js", "Bootstrap", "Pandas"],
+      "title": "Personal Portfolio Website",
+      "description": "Responsive personal portfolio website showcasing projects, skills, and professional experience.",
+      "techStack": ["HTML", "CSS", "JavaScript", "Bootstrap", "GitHub Pages"],
       "features": [
-        "Interactive data visualizations",
-        "Real-time data updates",
-        "Advanced filtering options",
-        "Export to PDF/Excel",
-        "Responsive design"
-      ]
+        "Responsive design for all devices",
+        "Interactive project gallery",
+        "Contact form integration",
+        "Smooth scrolling navigation",
+        "Modern UI/UX design"
+      ],
+      "github": "https://github.com/niazbinsiraj/portfolio",
+      "demo": "https://niazbinsiraj.github.io"
     }
   ]
 }

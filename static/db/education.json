@@ -1,19 +1,34 @@
 {
   "education": [
     {
-      "institution": "Bangladesh University of Engineering and Technology (BUET)",
+      "institution": "Daffodil International University",
       "degree": "Bachelor of Science in Computer Science and Engineering",
       "duration": "2017 - 2021",
-      "cgpa": "3.75/4.00",
+      "cgpa": "3.68/4.00",
+      "location": "Dhaka, Bangladesh",
       "coursework": [
         "Data Structures and Algorithms",
         "Database Management Systems",
         "Software Engineering",
         "Computer Networks",
         "Operating Systems",
-        "Machine Learning",
-        "Artificial Intelligence"
+        "Object-Oriented Programming",
+        "Web Technologies",
+        "Software Project Management"
+      ],
+      "activities": [
+        "Programming Club Member",
+        "Participated in ACM ICPC programming contests",
+        "Volunteer at university tech events"
       ]
+    },
+    {
+      "institution": "Government Science College",
+      "degree": "Higher Secondary Certificate (HSC) - Science",
+      "duration": "2015 - 2017",
+      "cgpa": "5.00/5.00",
+      "location": "Dhaka, Bangladesh",
+      "subjects": ["Physics", "Chemistry", "Mathematics", "Biology", "English", "Bangla"]
     }
   ]
 }
