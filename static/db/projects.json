@@ -12,6 +12,22 @@
       ],
       "github": "",
       "demo": ""
+    },
+    {
+      "title": "Professional Email Service API",
+      "description": "A clean, secure, and production-ready Node.js and Express.js REST API for sending emails via Gmail SMTP.",
+      "techStack": ["Node.js", "Express.js", "Nodemailer", "Express-Validator", "Helmet", "CORS"],
+      "features": [
+        "Modular clean architecture with separation of concerns across controllers, services, routes, and middleware",
+        "Gmail SMTP integration with full support for multiple recipients (TO, CC, BCC)",
+        "Robust input validation and sanitization using Express-Validator",
+        "Security enhancements via Helmet, CORS configuration, rate limiting, and environment-based settings",
+        "Health check endpoints for service monitoring and SMTP status verification",
+        "Comprehensive test coverage including validation, error handling, and endpoint tests",
+        "Production-ready deployment with logging, error handling, and compatibility with platforms like Render or Heroku"
+      ],
+      "github": "https://github.com/NiazBinSiraj/email-service",
+      "demo": "https://niazbinsiraj.github.io/email-service/"
     }
   ]
 }
