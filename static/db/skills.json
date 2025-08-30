@@ -2,8 +2,8 @@
   "languages": ["Java", "JavaScript", "TypeScript", "Python", "SQL", "HTML/CSS"],
   "frameworks": ["Spring Boot", "Spring Framework", "Express.js", "React", "Node.js", "Flask"],
   "databases": ["Oracle", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Hibernate", "MyBatis"],
-  "tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Maven", "Gradle", "Postman", "IntelliJ IDEA"],
-  "cloud": ["AWS", "Docker", "Kubernetes", "CI/CD Pipelines", "Microservices"],
+  "tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Gradle", "Postman", "IntelliJ IDEA"],
+  "ai_tools": ["Github Copilot", "Gemini CLI", "Google Stitch", "NotebookLM"],
   "methodologies": ["Agile", "Scrum", "Test-Driven Development", "Code Review", "RESTful APIs"],
   "testing": ["JUnit", "TestNG", "Mockito", "Selenium", "Integration Testing"]
 }

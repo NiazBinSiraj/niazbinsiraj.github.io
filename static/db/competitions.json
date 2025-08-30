@@ -1,39 +1,46 @@
 {
   "competitions": [
     {
-      "name": "ACM ICPC Dhaka Regional Contest",
-      "year": "2020",
-      "rank": "Participant",
-      "team": "DIU_CodeWarriors",
-      "description": "Represented Daffodil International University in the ACM International Collegiate Programming Contest Dhaka Regional"
-    },
-    {
-      "name": "Intra-University Programming Contest",
-      "year": "2020",
-      "rank": "2nd Place",
-      "team": "Individual",
-      "description": "Secured 2nd position in university-level programming contest organized by Computer Science department"
-    },
-    {
-      "name": "Bangladesh National Programming Contest",
-      "year": "2019",
-      "rank": "Top 50",
-      "team": "DIU_Coders",
-      "description": "Achieved top 50 ranking among 300+ participating teams in national level programming competition"
-    },
-    {
-      "name": "HackerRank Programming Challenge",
+      "name": "ACM ICPC Dhaka Regional Online Preliminary",
       "year": "2021",
-      "rank": "Top 100 Bangladesh",
-      "team": "Individual",
-      "description": "Ranked in top 100 among Bangladeshi participants in HackerRank's monthly programming challenge"
+      "rank": "247th",
+      "team": "RU_Baby_Step_Giant_Step",
+      "description": "Represented University of Rajshahi in the ACM International Collegiate Programming Contest Dhaka Regional Online Priliminary"
     },
     {
-      "name": "University Tech Quiz Competition",
+      "name": "ACM ICPC Dhaka Regional Online Preliminary",
+      "year": "2020",
+      "rank": "118th",
+      "team": "RU_Baby_Step_Giant_Step",
+      "description": "Represented University of Rajshahi in the ACM International Collegiate Programming Contest Dhaka Regional Online Preliminary"
+    },
+    {
+      "name": "Google Code Jam",
+      "year": "2020",
+      "rank": "5901st",
+      "team": "Individual",
+      "description": "Achieved top 5901 ranking among 40000+ participating individuals in international level programming competition"
+    },
+    {
+      "name": "ACM ICPC Dhaka Regional Onsite",
       "year": "2019",
-      "rank": "1st Place",
-      "team": "Tech_Enthusiasts",
-      "description": "Won first place in inter-departmental technology quiz competition covering programming and computer science topics"
+      "rank": "120th",
+      "team": "RU_Baby_Step_Giant_Step",
+      "description": "Ranked in top 120 among Bangladeshi participants in the ACM International Collegiate Programming Contest Dhaka Regional"
+    },
+    {
+      "name": "ACM ICPC Dhaka Regional Online Preliminary",
+      "year": "2019",
+      "rank": "137th",
+      "team": "RU_Baby_Step_Giant_Step",
+      "description": "Represented University of Rajshahi in the ACM International Collegiate Programming Contest Dhaka Regional Online Preliminary"
+    },
+    {
+      "name": "SRBD Coding Contest",
+      "year": "2018",
+      "rank": "89th",
+      "team": "Individual",
+      "description": "Achieved top 89 ranking in national level programming competition"
     }
   ]
 }

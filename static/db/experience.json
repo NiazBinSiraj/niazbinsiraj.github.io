@@ -1,44 +1,18 @@
 {
   "experiences": [
     {
-      "company": "Bangladesh Solutions Ltd",
-      "position": "Senior Software Engineer",
+      "company": "Therap (BD) Ltd.",
+      "position": "Software Engineer II",
       "location": "Dhaka, Bangladesh",
-      "duration": "Feb 2023 - Present",
+      "duration": "Jun 2022 - Present",
       "responsibilities": [
-        "Led development of enterprise-level applications using Java and Spring Boot",
-        "Designed and implemented RESTful APIs serving 5000+ concurrent users",
-        "Optimized database queries resulting in 35% performance improvement",
-        "Mentored junior developers and conducted code reviews",
-        "Collaborated with cross-functional teams in Agile environment",
-        "Implemented CI/CD pipelines using Jenkins and Docker"
-      ]
-    },
-    {
-      "company": "TechVision Bangladesh",
-      "position": "Software Engineer",
-      "location": "Dhaka, Bangladesh", 
-      "duration": "Jun 2021 - Jan 2023",
-      "responsibilities": [
-        "Developed scalable web applications using Java Spring Framework",
-        "Built responsive user interfaces using HTML, CSS, and JavaScript",
-        "Integrated third-party APIs and payment gateways",
-        "Implemented automated testing with JUnit and TestNG",
-        "Worked with MySQL and PostgreSQL databases",
-        "Participated in requirements gathering and technical documentation"
-      ]
-    },
-    {
-      "company": "Digital Bangladesh Initiative",
-      "position": "Junior Software Developer (Internship)",
-      "location": "Dhaka, Bangladesh",
-      "duration": "Jan 2021 - May 2021",
-      "responsibilities": [
-        "Assisted in developing government portal applications",
-        "Created database schemas and wrote SQL queries",
-        "Participated in bug fixing and testing processes",
-        "Learned industry best practices and coding standards",
-        "Collaborated with senior developers on feature implementation"
+        "Designed and implemented a history-based Aging Report Generation System using Java, Spring, MyBatis, and Oracle, improving A/R balance accuracy by 35%+ for 30,000+ healthcare providers.",
+        "Led development of the Nebraska State Integration Billing Flow from scratch, enabling compliance with state-specific regulations and supporting 100% accurate claim submissions.",
+        "Built and deployed RESTful APIs with Spring Web and Spring Data JDBC to integrate  external applications, reducing manual work and improving billing workflow efficiency by 30%.",
+        "Optimized complex SQL queries, achieving a 50-60% reduction in execution time, significantly enhancing system responsiveness for billing operations.",
+        "Refactored legacy codebases to leverage modern Java features (streams, optionals, lambdas), improving code maintainability and reducing defects by 15%.",
+        "Supported onsite alpha deployments in QA environments, collaborating with U.S. stakeholders to ensure smooth rollouts and reducing post-deployment issues by 35%.",
+        "Mentored 5+ junior engineers, conducting code reviews and knowledge-sharing sessions, increasing team productivity and reducing onboarding time by 20%."
       ]
     }
   ]

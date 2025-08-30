@@ -1,10 +1,10 @@
 {
   "education": [
     {
-      "institution": "Daffodil International University",
+      "institution": "University of Rajshahi",
       "degree": "Bachelor of Science in Computer Science and Engineering",
-      "duration": "2017 - 2021",
-      "cgpa": "3.68/4.00",
+      "duration": "2017 - 2022",
+      "cgpa": "3.30/4.00",
       "location": "Dhaka, Bangladesh",
       "coursework": [
         "Data Structures and Algorithms",
@@ -21,14 +21,6 @@
         "Participated in ACM ICPC programming contests",
         "Volunteer at university tech events"
       ]
-    },
-    {
-      "institution": "Government Science College",
-      "degree": "Higher Secondary Certificate (HSC) - Science",
-      "duration": "2015 - 2017",
-      "cgpa": "5.00/5.00",
-      "location": "Dhaka, Bangladesh",
-      "subjects": ["Physics", "Chemistry", "Mathematics", "Biology", "English", "Bangla"]
     }
   ]
 }
