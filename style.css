@@ -148,10 +148,17 @@ html {
 @media (max-width: 1023px) {
     #sidebar {
         z-index: 50;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     #sidebar.show {
         transform: translateX(0);
+    }
+
+    /* Ensure proper spacing in mobile sidebar */
+    #sidebar .p-8 {
+        padding-bottom: 2rem;
     }
 }
 
