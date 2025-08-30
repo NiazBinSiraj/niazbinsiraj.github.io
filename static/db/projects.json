@@ -28,6 +28,20 @@
       ],
       "github": "https://github.com/NiazBinSiraj/email-service",
       "demo": "https://niazbinsiraj.github.io/email-service/"
+    },
+    {
+      "title": "Shape Run - 2D Endless Runner Android Game",
+      "description": "A free offline 2D endless runner game built with Unity and C#, featuring innovative dual-shape control mechanics, global leaderboards, achievements, and monetization via Google AdMob.",
+      "techStack": ["C#", "Unity", "Google Play Services", "Google AdMob"],
+      "features": [
+        "Designed, developed, and released a 2D endless runner game for Android using Unity and C#",
+        "Implemented dual-shape control mechanics for unique and engaging gameplay",
+        "Integrated Google Play Services for global leaderboards and achievements, enabling worldwide competition",
+        "Enabled score sharing on social media platforms for enhanced player engagement",
+        "Added Google AdMob for in-game monetization, providing a sustainable revenue stream"
+      ],
+      "github": "",
+      "demo": "https://www.youtube.com/watch?v=A50mGRmMF1w"
     }
   ]
 }
