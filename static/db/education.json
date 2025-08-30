@@ -21,6 +21,44 @@
         "Participated in ACM ICPC programming contests",
         "Volunteer at university tech events"
       ]
+    },
+    {
+      "institution": "Bogra Cantonment Public School and College",
+      "degree": "HSC, Science",
+      "duration": "2014 - 2016",
+      "cgpa": "5.00/5.00",
+      "location": "Bogra, Bangladesh",
+      "coursework": [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "Biology",
+        "Information & Communication Technology"
+      ],
+      "activities": [
+        "Science Club Member",
+        "Volunteered for school events"
+      ]
+    },
+        {
+      "institution": "Savar Cantonment Public School and College",
+      "degree": "SSC, Science",
+      "duration": "2012 - 2014",
+      "cgpa": "5.00/5.00",
+      "location": "Dhaka, Bangladesh",
+      "coursework": [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "Biology",
+        "Social Science"
+      ],
+      "activities": [
+        "Science Club Member",
+        "Volunteered for school events",
+        "Participated in science fairs",
+        "Participated in Sports"
+      ]
     }
   ]
 }
