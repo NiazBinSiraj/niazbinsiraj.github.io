@@ -460,7 +460,17 @@ function createAchievementCard(achievement, index) {
                     </span>
                 </div>
                 <p class="text-green-300 font-semibold mb-2">${achievement.issuer}</p>
-                <p class="text-gray-300">${achievement.description}</p>
+                <p class="text-gray-300 mb-3">${achievement.description}</p>
+                ${achievement.certificateUrl ? `
+                <div class="mt-3">
+                    <a href="${achievement.certificateUrl}" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center text-green-400 hover:text-green-300 transition-colors duration-200 font-mono text-sm">
+                        <i class="fas fa-certificate mr-2"></i>
+                        View Certificate
+                        <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+                ` : ''}
             </div>
         </div>
     `;
