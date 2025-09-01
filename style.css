@@ -214,7 +214,7 @@ html {
     flex-direction: column;
 }
 
-#sidebar > div {
+#sidebar>div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -225,7 +225,7 @@ html {
 
 /* When content overflows, allow scrolling while maintaining center alignment */
 @media (max-height: 800px) {
-    #sidebar > div {
+    #sidebar>div {
         justify-content: flex-start;
         padding-top: 2rem;
     }
@@ -273,8 +273,16 @@ html {
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Loading animation */
@@ -283,6 +291,7 @@ html {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -294,12 +303,29 @@ html {
 }
 
 /* Staggered animation for cards */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-5 {
+    animation-delay: 0.5s;
+}
+
+.stagger-6 {
+    animation-delay: 0.6s;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

@@ -1,5 +1,5 @@
 // Portfolio Website JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize the website
     initializeNavigation();
     loadAllData();
@@ -14,7 +14,7 @@ function initializeNavigation() {
 
     // Add click event listeners to navigation links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
 
             // Skip if it's an external link (resume)
@@ -81,7 +81,7 @@ function initializeMobileMenu() {
     overlay.addEventListener('click', closeMobileMenu);
 
     // Close menu on window resize if desktop
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.innerWidth >= 1024) {
             closeMobileMenu();
         }
@@ -111,7 +111,7 @@ function initializeScrollEffects() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -242,12 +242,12 @@ function createExperienceCard(experience, index) {
             <span class="text-green-400 font-mono text-sm">cat responsibilities.txt</span>
         </div>
         <ul class="space-y-2">
-            ${experience.responsibilities.map(resp => 
-                `<li class="flex items-start">
+            ${experience.responsibilities.map(resp =>
+        `<li class="flex items-start">
                     <span class="text-green-500 mr-3 font-mono">></span>
                     <span class="text-gray-300">${resp}</span>
                 </li>`
-            ).join('')}
+    ).join('')}
         </ul>
     `;
 
@@ -301,9 +301,9 @@ function createEducationCard(education, index) {
                 <span class="text-green-400 font-mono text-sm">ls coursework/</span>
             </div>
             <div class="flex flex-wrap gap-2">
-                ${education.coursework.map(course => 
-                    `<span class="tech-badge">${course}</span>`
-                ).join('')}
+                ${education.coursework.map(course =>
+        `<span class="tech-badge">${course}</span>`
+    ).join('')}
             </div>
         </div>
         ${education.activities ? `
@@ -313,9 +313,9 @@ function createEducationCard(education, index) {
                 <span class="text-green-400 font-mono text-sm">grep -r activities</span>
             </div>
             <div class="flex flex-wrap gap-2">
-                ${education.activities.map(activity => 
-                    `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${activity}</span>`
-                ).join('')}
+                ${education.activities.map(activity =>
+        `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${activity}</span>`
+    ).join('')}
             </div>
         </div>
         ` : ''}
@@ -326,9 +326,9 @@ function createEducationCard(education, index) {
                 <span class="text-green-400 font-mono text-sm">find subjects/ -name "*.txt"</span>
             </div>
             <div class="flex flex-wrap gap-2">
-                ${education.subjects.map(subject => 
-                    `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${subject}</span>`
-                ).join('')}
+                ${education.subjects.map(subject =>
+        `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${subject}</span>`
+    ).join('')}
             </div>
         </div>
         ` : ''}
@@ -376,9 +376,9 @@ function createProjectCard(project, index) {
                 <span class="text-green-400 font-mono text-sm">cat package.json | grep dependencies</span>
             </div>
             <div class="flex flex-wrap gap-2">
-                ${project.techStack.map(tech => 
-                    `<span class="tech-badge">${tech}</span>`
-                ).join('')}
+                ${project.techStack.map(tech =>
+        `<span class="tech-badge">${tech}</span>`
+    ).join('')}
             </div>
         </div>
         
@@ -388,12 +388,12 @@ function createProjectCard(project, index) {
                 <span class="text-green-400 font-mono text-sm">grep -r "features" README.md</span>
             </div>
             <ul class="space-y-1">
-                ${project.features.map(feature => 
-                    `<li class="flex items-start">
+                ${project.features.map(feature =>
+        `<li class="flex items-start">
                         <span class="text-green-500 mr-2 font-mono">></span>
                         <span class="text-gray-300 text-sm">${feature}</span>
                     </li>`
-                ).join('')}
+    ).join('')}
             </ul>
         </div>
         
@@ -547,7 +547,7 @@ function debounce(func, wait) {
 }
 
 // Add smooth loading animation
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.3s ease';
 
