@@ -17,7 +17,7 @@ function initializeNavigation() {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
 
-            // Skip if it's an external link (resume)
+            // Skip if it's an external link
             if (href.startsWith('static/') || href.startsWith('http')) {
                 return;
             }
