@@ -1,6 +1,33 @@
 {
   "projects": [
     {
+      "title": "ag-analytics — AI Coding IDE Usage Analytics Platform",
+      "description": "A full-stack usage analytics platform for AI coding IDEs, featuring an interactive terminal UI, a zero-dependency web dashboard with SVG visualizations, and a Gemini-powered insights engine for cost optimization and efficiency scoring.",
+      "techStack": ["Node.js", "ES Modules", "Commander.js", "Chalk", "REST API", "SVG Charts", "Gemini AI"],
+      "features": [
+        "Built an interactive TUI with KPI cards, heatmaps, and bar charts for real-time analytics in the terminal",
+        "Engineered a zero-dependency HTTP web dashboard with SVG donut charts, GitHub-style activity heatmaps, and per-conversation deep-dive panels",
+        "Implemented an AI-powered insights engine using Gemini CLI for structured JSON analytics — including efficiency scoring across 6 dimensions and cost optimization recommendations",
+        "Designed model-aware cost estimation with tiered pricing tables spanning Claude, Gemini, and GPT models — with input/output/cached/reasoning token segmentation",
+        "Built a multi-layer data pipeline that scans JSONL conversation logs, extracts token usage metadata, tracks model switching events, and supports time-range filtering (24h, 7d, 30d)"
+      ],
+      "github": "",
+      "demo": ""
+    },
+    {
+      "title": "sdd-kit — Spec Driven Development CLI Toolkit",
+      "description": "A CLI toolkit that scaffolds a structured agent-assisted development workflow — auto-generating reusable agent skills, slash-command workflows, and coding rule templates to enforce traceability from idea through implementation to code review.",
+      "techStack": ["Node.js", "ES Modules", "Commander.js", "Chalk", "Ora", "YAML"],
+      "features": [
+        "Created a Spec Driven Development CLI that scaffolds 8 reusable agent skill definitions, 5 slash-command workflows, and coding/commit rule templates",
+        "Designed a feature lifecycle management system with workspace initialization, feature creation, status tracking, health diagnostics, and cleanup",
+        "Enforced a structured idea → specify → implement → review → commit workflow with auto-generated agent skills and per-feature traceability",
+        "Built full non-interactive CI/CD compatibility supporting multi-feature parallel development under organized .sdd/ directories"
+      ],
+      "github": "",
+      "demo": ""
+    },
+    {
       "title": "Intelligent Personal Assistant Robot",
       "description": "A robotic assistant system featuring maze exploration, navigation simulation, and intelligent pathfinding algorithms.",
       "techStack": ["Python", "Flask", "C#", "Unity", "Dynamic Programming", "Backtracking"],
