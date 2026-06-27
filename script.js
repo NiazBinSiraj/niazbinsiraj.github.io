@@ -163,9 +163,9 @@ function renderSkills(skillsData) {
     const skillCategories = [
         { key: 'languages', title: 'Programming Languages', icon: 'fas fa-code' },
         { key: 'frameworks', title: 'Frameworks & Libraries', icon: 'fas fa-layer-group' },
-        { key: 'databases', title: 'Databases & ORM', icon: 'fas fa-database' },
-        { key: 'tools', title: 'Tools & Technologies', icon: 'fas fa-tools' },
-        { key: 'ai_tools', title: 'AI & Development Tools', icon: 'fas fa-robot' },
+        { key: 'databases', title: 'Databases & Messaging', icon: 'fas fa-database' },
+        { key: 'tools', title: 'Cloud & DevOps', icon: 'fas fa-cloud' },
+        { key: 'ai_tools', title: 'AI & LLM', icon: 'fas fa-robot' },
         { key: 'testing', title: 'Testing & Quality', icon: 'fas fa-check-circle' }
     ];
 

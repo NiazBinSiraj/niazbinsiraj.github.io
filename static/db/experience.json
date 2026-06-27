@@ -6,13 +6,13 @@
       "location": "Dhaka, Bangladesh",
       "duration": "Jun 2022 - Present",
       "responsibilities": [
-        "Designed and implemented a history-based Aging Report Generation System using Java, Spring, MyBatis, and Oracle, improving A/R balance accuracy by 35%+ for 30,000+ healthcare providers.",
+        "Architected and implemented a full-stack, LLM-powered code documentation system using Python/FastAPI, React, Oracle 26ai, and Gemini — auto-generating wiki articles at entity, file, section, and repository levels with incremental change detection, thread-parallel execution, crash-safe cleanup, and a Google-Code-Wiki-inspired browser UI with Mermaid diagram rendering and ScrollSpy navigation.",
+        "Architected and built an AI-powered Data Assistant (Java 21/Spring Boot, React/TypeScript, ClickHouse, Oracle) enabling healthcare billing staff to query millions of claims via natural language; designed a chunked ETL pipeline with SPI connectors streaming Oracle data into ClickHouse on virtual threads, implemented CTE-based multi-tenant isolation with zero data leakage, built a SQL security layer (JSQLParser validation + parameterized CTE wrapping), and integrated an LLM with reflection-driven schema context and report-scoped prompt enrichment, delivering sub-second analytics.",
+        "Engineered a context-aware AI development workflow for a large-scale legacy monolith, implementing custom context-fetching protocols using MCP connected to the code-wiki that reduced development time by 40% and accelerated feature delivery.",
+        "Developed a history-based Aging Report Generation System using Java, Spring, MyBatis, and Oracle, improving A/R balance accuracy across 30,000+ healthcare providers.",
         "Led development of the Nebraska State Integration Billing Flow from scratch, enabling compliance with state-specific regulations and supporting 100% accurate claim submissions.",
-        "Built and deployed RESTful APIs with Spring Web and Spring Data JDBC to integrate  external applications, reducing manual work and improving billing workflow efficiency by 30%.",
-        "Optimized complex SQL queries, achieving a 50-60% reduction in execution time, significantly enhancing system responsiveness for billing operations.",
-        "Refactored legacy codebases to leverage modern Java features (streams, optionals, lambdas), improving code maintainability and reducing defects by 15%.",
-        "Supported onsite alpha deployments in QA environments, collaborating with U.S. stakeholders to ensure smooth rollouts and reducing post-deployment issues by 35%.",
-        "Mentored 5+ junior engineers, conducting code reviews and knowledge-sharing sessions, increasing team productivity and reducing onboarding time by 20%."
+        "Supported onsite alpha deployments in QA environments, collaborating with U.S. stakeholders to ensure smooth rollouts and reducing post-deployment issues",
+        "Designed and optimized RESTful APIs and high-impact data access patterns using Spring and SQL, improving billing efficiency by 30% and reducing query execution time by 50–60%, while mentoring 5+ junior engineers to boost team productivity and accelerate onboarding."
       ]
     },
     {
@@ -38,4 +38,3 @@
     }
   ]
 }
-

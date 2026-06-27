@@ -1,10 +1,8 @@
 {
-  "languages": ["Java", "JavaScript", "TypeScript", "Python", "SQL", "HTML/CSS"],
-  "frameworks": ["Spring Boot", "Spring Framework", "Express.js", "React", "Node.js", "Flask"],
-  "databases": ["Oracle", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Hibernate", "MyBatis"],
-  "tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Gradle", "Postman", "IntelliJ IDEA"],
-  "ai_tools": ["Github Copilot", "Gemini CLI", "Google Stitch", "NotebookLM"],
-  "methodologies": ["Agile", "Scrum", "Test-Driven Development", "Code Review", "RESTful APIs"],
-  "testing": ["JUnit", "TestNG", "Mockito", "Selenium", "Integration Testing"]
+  "languages": ["Java 8/21", "JavaScript", "Python", "SQL", "HTML/CSS"],
+  "frameworks": ["Spring", "Spring Boot", "MyBatis", "Hibernate", "FastAPI", "React", "JQuery"],
+  "databases": ["Oracle", "PostgreSQL", "ClickHouse", "DuckDB", "RabbitMQ", "Redis", "Coherence", "HikariCP"],
+  "tools": ["Git", "Bitbucket", "Docker", "Nginx", "Jenkins", "CI/CD", "Gradle"],
+  "ai_tools": ["LangGraph", "RAG System", "MCP", "LLM Integration", "Antigravity", "Gemini CLI"],
+  "testing": ["JUnit", "TestNG", "Playwright", "Postman"]
 }
-
