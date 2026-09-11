@@ -8,6 +8,9 @@
     --terminal-text: #10b981;
     --terminal-muted: #6b7280;
     --terminal-border: #22c55e;
+    --terminal-text-primary: #e2e8f0;
+    --terminal-text-secondary: #cbd5e1;
+    --terminal-glow: rgba(34, 197, 94, 0.15);
 }
 
 /* Smooth scrolling behavior */
@@ -36,7 +39,19 @@ html {
 
 /* Section padding adjustment */
 .section {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 4rem;
+}
+
+/* Improved body text for readability */
+.card-body-text {
+    color: var(--terminal-text-primary);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+}
+
+/* Terminal prompt spacing helper */
+.card-prompt {
+    margin-bottom: 0.75rem;
 }
 
 /* Active navigation link styling - Terminal theme */
@@ -143,9 +158,9 @@ html {
 .tech-badge {
     background: var(--terminal-bg);
     color: var(--terminal-text);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.2s ease;
     border: 1px solid var(--terminal-border);
@@ -156,6 +171,25 @@ html {
     background: var(--terminal-accent);
     color: var(--terminal-bg);
     transform: scale(1.05);
+}
+
+/* Unified terminal badge - for activities, subjects, etc. */
+.terminal-badge {
+    background: var(--terminal-secondary);
+    color: var(--terminal-text-secondary);
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-badge:hover {
+    border-color: var(--terminal-accent);
+    color: var(--terminal-text);
+    transform: scale(1.03);
 }
 
 /* Achievement cards - Terminal theme */
@@ -340,20 +374,21 @@ html {
 
 /* Button hover effects */
 .btn-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--terminal-accent) 0%, #16a34a 100%);
+    color: var(--terminal-bg);
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    font-family: 'Courier New', monospace;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
 }
 
 /* Profile image animations */
@@ -363,17 +398,17 @@ html {
 
 .profile-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
 }
 
 /* Skill items styling - Terminal theme */
 .skill-item {
     background: var(--terminal-bg);
-    padding: 0.5rem 1rem;
+    padding: 0.55rem 1.1rem;
     border-radius: 0.5rem;
     margin: 0.25rem;
     display: inline-block;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--terminal-text);
     border: 1px solid var(--terminal-border);
@@ -384,8 +419,8 @@ html {
 
 .skill-item:hover {
     background: var(--terminal-secondary);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(34, 197, 94, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(34, 197, 94, 0.25);
     border-color: var(--terminal-accent);
 }
 
@@ -400,14 +435,14 @@ html {
 
 /* Progress bars for skills (if needed) */
 .progress-bar {
-    background: #e5e7eb;
+    background: var(--terminal-secondary);
     border-radius: 9999px;
     height: 0.5rem;
     overflow: hidden;
 }
 
 .progress-fill {
-    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(90deg, var(--terminal-text), var(--terminal-accent));
     height: 100%;
     border-radius: 9999px;
     transition: width 1s ease-in-out;

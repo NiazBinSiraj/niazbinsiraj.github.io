@@ -178,7 +178,7 @@ function renderSkills(skillsData) {
 
 function createSkillCard(category, skills, index) {
     const card = document.createElement('div');
-    card.className = `skill-card p-6 rounded-xl shadow-lg hover-lift stagger-${index + 1}`;
+    card.className = `skill-card p-8 rounded-xl shadow-lg hover-lift stagger-${index + 1}`;
 
     card.innerHTML = `
         <div class="mb-3">
@@ -222,6 +222,7 @@ function createExperienceCard(experience, index) {
     const card = document.createElement('div');
     card.className = `experience-card bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift stagger-${index + 1}`;
 
+
     card.innerHTML = `
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <div>
@@ -231,7 +232,7 @@ function createExperienceCard(experience, index) {
                 </div>
                 <h3 class="text-xl font-bold text-green-400 font-mono">${experience.position}</h3>
                 <h4 class="text-lg font-semibold text-green-300">${experience.company}</h4>
-                <p class="text-gray-300">${experience.location}</p>
+                <p class="text-slate-300">${experience.location}</p>
             </div>
             <span class="bg-gray-700 text-green-400 border border-green-600 px-3 py-1 rounded text-sm font-mono mt-2 md:mt-0 self-start">
                 ${experience.duration}
@@ -241,11 +242,11 @@ function createExperienceCard(experience, index) {
             <span class="text-green-500 font-mono text-sm">$</span>
             <span class="text-green-400 font-mono text-sm">cat responsibilities.txt</span>
         </div>
-        <ul class="space-y-2">
+        <ul class="space-y-3">
             ${experience.responsibilities.map(resp =>
         `<li class="flex items-start">
-                    <span class="text-green-500 mr-3 font-mono">></span>
-                    <span class="text-gray-300">${resp}</span>
+                    <span class="text-green-500 mr-3 font-mono mt-1">></span>
+                    <span class="text-slate-200 leading-relaxed">${resp}</span>
                 </li>`
     ).join('')}
         </ul>
@@ -277,7 +278,7 @@ function renderEducation(education) {
 
 function createEducationCard(education, index) {
     const card = document.createElement('div');
-    card.className = `bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift mb-6 stagger-${index + 1}`;
+    card.className = `bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift mb-8 stagger-${index + 1}`;
 
     card.innerHTML = `
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
@@ -288,8 +289,8 @@ function createEducationCard(education, index) {
                 </div>
                 <h3 class="text-xl font-bold text-green-400 font-mono">${education.degree}</h3>
                 <h4 class="text-lg font-semibold text-green-300">${education.institution}</h4>
-                <p class="text-gray-300">CGPA: ${education.cgpa}</p>
-                ${education.location ? `<p class="text-gray-400 text-sm">${education.location}</p>` : ''}
+                <p class="text-slate-200">CGPA: ${education.cgpa}</p>
+                ${education.location ? `<p class="text-slate-400 text-sm">${education.location}</p>` : ''}
             </div>
             <span class="bg-gray-700 text-green-400 border border-green-600 px-3 py-1 rounded text-sm font-mono mt-2 md:mt-0 self-start">
                 ${education.duration}
@@ -314,7 +315,7 @@ function createEducationCard(education, index) {
             </div>
             <div class="flex flex-wrap gap-2">
                 ${education.activities.map(activity =>
-        `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${activity}</span>`
+        `<span class="terminal-badge">${activity}</span>`
     ).join('')}
             </div>
         </div>
@@ -327,7 +328,7 @@ function createEducationCard(education, index) {
             </div>
             <div class="flex flex-wrap gap-2">
                 ${education.subjects.map(subject =>
-        `<span class="bg-gray-700 text-gray-300 border border-gray-600 px-3 py-1 rounded text-xs font-mono">${subject}</span>`
+        `<span class="terminal-badge">${subject}</span>`
     ).join('')}
             </div>
         </div>
@@ -360,7 +361,7 @@ function renderProjects(projects) {
 
 function createProjectCard(project, index) {
     const card = document.createElement('div');
-    card.className = `project-card bg-gray-800 border border-green-500 rounded-xl shadow-lg p-6 hover-lift stagger-${index + 1}`;
+    card.className = `project-card bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8 hover-lift stagger-${index + 1}`;
 
     card.innerHTML = `
         <div class="mb-3">
@@ -368,7 +369,7 @@ function createProjectCard(project, index) {
             <span class="text-green-400 font-mono text-sm">git log --oneline ${project.title.toLowerCase().replace(/\s+/g, '-')}</span>
         </div>
         <h3 class="text-xl font-bold text-green-400 font-mono mb-3">${project.title}</h3>
-        <p class="text-gray-300 mb-4 leading-relaxed">${project.description}</p>
+        <p class="text-slate-200 mb-4 leading-relaxed">${project.description}</p>
         
         <div class="mb-4">
             <div class="mb-2">
@@ -387,11 +388,11 @@ function createProjectCard(project, index) {
                 <span class="text-green-500 font-mono text-sm">$</span>
                 <span class="text-green-400 font-mono text-sm">grep -r "features" README.md</span>
             </div>
-            <ul class="space-y-1">
+            <ul class="space-y-2">
                 ${project.features.map(feature =>
         `<li class="flex items-start">
-                        <span class="text-green-500 mr-2 font-mono">></span>
-                        <span class="text-gray-300 text-sm">${feature}</span>
+                        <span class="text-green-500 mr-2 font-mono mt-0.5">></span>
+                        <span class="text-slate-200 text-sm leading-relaxed">${feature}</span>
                     </li>`
     ).join('')}
             </ul>
@@ -460,7 +461,7 @@ function createAchievementCard(achievement, index) {
                     </span>
                 </div>
                 <p class="text-green-300 font-semibold mb-2">${achievement.issuer}</p>
-                <p class="text-gray-300 mb-3">${achievement.description}</p>
+                <p class="text-slate-200 mb-3 leading-relaxed">${achievement.description}</p>
                 ${achievement.certificateUrl ? `
                 <div class="mt-3">
                     <a href="${achievement.certificateUrl}" target="_blank" rel="noopener noreferrer" 
@@ -525,7 +526,7 @@ function createCompetitionCard(competition, index) {
                     </span>
                     <span class="text-gray-400 text-sm font-mono">${competition.team}</span>
                 </div>
-                <p class="text-gray-300">${competition.description}</p>
+                <p class="text-slate-200 leading-relaxed">${competition.description}</p>
             </div>
         </div>
     `;
