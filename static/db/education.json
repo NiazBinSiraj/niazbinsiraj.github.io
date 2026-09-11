@@ -5,7 +5,7 @@
       "degree": "Bachelor of Science in Computer Science and Engineering",
       "duration": "2017 - 2022",
       "cgpa": "3.30/4.00",
-      "location": "Dhaka, Bangladesh",
+      "location": "Rajshahi, Bangladesh",
       "coursework": [
         "Data Structures and Algorithms",
         "Database Management Systems",
@@ -13,6 +13,9 @@
         "Computer Networks",
         "Operating Systems",
         "Object-Oriented Programming",
+        "Artificial Intelligence",
+        "System Design",
+        "Software Architecture",
         "Web Technologies",
         "Software Project Management"
       ],

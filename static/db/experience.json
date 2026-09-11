@@ -35,6 +35,16 @@
         "Developed the front-end for an educational video streaming web application using Angular, Ionic, Cordova, and Bootstrap, ensuring a responsive and intuitive user interface across desktop and mobile devices.",
         "Collaborated with the project lead to design and implement user-friendly features, improving overall usability and enhancing the learning experience for end users."
       ]
+    },
+    {
+      "company": "Talent IT & ICT Training Center",
+      "position": "C/C++ Trainer",
+      "location": "Rajshahi, Bangladesh",
+      "duration": "Jan 2018 - Mar 2021",
+      "responsibilities": [
+        "Conducted training sessions on C and C++ programming for aspiring developers.",
+        "Designed course curriculum and hands-on exercises for beginner to intermediate learners."
+      ]
     }
   ]
 }
