@@ -1,7 +1,7 @@
 {
   "languages": ["Java 8/21", "JavaScript", "Python", "SQL", "HTML/CSS"],
   "frameworks": ["Spring", "Spring Boot", "MyBatis", "Hibernate", "FastAPI", "React", "JQuery"],
-  "databases": ["Oracle", "PostgreSQL", "ClickHouse", "DuckDB", "RabbitMQ", "Redis", "Coherence", "HikariCP"],
+  "databases": ["Oracle", "PostgreSQL", "DuckDB", "RabbitMQ", "Redis", "Coherence", "HikariCP"],
   "tools": ["Git", "Bitbucket", "Docker", "Nginx", "Jenkins", "CI/CD", "Gradle"],
   "ai_tools": ["LangGraph", "RAG System", "MCP", "LLM Integration", "Antigravity", "Gemini CLI"],
   "testing": ["JUnit", "TestNG", "Playwright", "Postman"]

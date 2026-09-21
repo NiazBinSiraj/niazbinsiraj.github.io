@@ -6,13 +6,13 @@
       "location": "Dhaka, Bangladesh",
       "duration": "Jun 2022 - Present",
       "responsibilities": [
-        "Architected and implemented a full-stack, LLM-powered code documentation system using Python/FastAPI, React, Oracle 26ai, and Gemini — auto-generating wiki articles at entity, file, section, and repository levels with incremental change detection, thread-parallel execution, crash-safe cleanup, and a Google-Code-Wiki-inspired browser UI with Mermaid diagram rendering and ScrollSpy navigation.",
-        "Architected and built an AI-powered Data Assistant (Java 21/Spring Boot, React/TypeScript, ClickHouse, Oracle) enabling healthcare billing staff to query millions of claims via natural language; designed a chunked ETL pipeline with SPI connectors streaming Oracle data into ClickHouse on virtual threads, implemented CTE-based multi-tenant isolation with zero data leakage, built a SQL security layer (JSQLParser validation + parameterized CTE wrapping), and integrated an LLM with reflection-driven schema context and report-scoped prompt enrichment, delivering sub-second analytics.",
-        "Engineered a context-aware AI development workflow for a large-scale legacy monolith, implementing custom context-fetching protocols using MCP connected to the code-wiki that reduced development time by 40% and accelerated feature delivery.",
-        "Developed a history-based Aging Report Generation System using Java, Spring, MyBatis, and Oracle, improving A/R balance accuracy across 30,000+ healthcare providers.",
-        "Led development of the Nebraska State Integration Billing Flow from scratch, enabling compliance with state-specific regulations and supporting 100% accurate claim submissions.",
-        "Supported onsite alpha deployments in QA environments, collaborating with U.S. stakeholders to ensure smooth rollouts and reducing post-deployment issues",
-        "Designed and optimized RESTful APIs and high-impact data access patterns using Spring and SQL, improving billing efficiency by 30% and reducing query execution time by 50–60%, while mentoring 5+ junior engineers to boost team productivity and accelerate onboarding."
+        "Built a full-stack LLM-powered code documentation system (Python/FastAPI, React, Oracle 26ai, Gemini) — auto-generating wiki articles with incremental change detection and a Google-Code-Wiki-inspired browser UI.",
+        "Architected an AI-powered Data Assistant (Java 21/Spring Boot, DuckDB, Oracle) enabling natural-language querying over millions of healthcare claims with sub-second analytics and zero-data-leakage multi-tenant isolation.",
+        "Engineered a context-aware AI dev workflow using MCP connected to the code-wiki, reducing development time by 40% on a large-scale legacy monolith.",
+        "Developed a history-based Aging Report Generation System (Java, Spring, MyBatis, Oracle), improving A/R balance accuracy across 30,000+ healthcare providers.",
+        "Led the Nebraska State Integration Billing Flow from scratch, ensuring state-regulation compliance and 100% accurate claim submissions.",
+        "Supported onsite alpha deployments in U.S. QA environments, collaborating with stakeholders to ensure smooth rollouts.",
+        "Optimized RESTful APIs and data access patterns, improving billing efficiency by 30% and reducing query execution time by 50–60%, while mentoring 5+ junior engineers."
       ]
     },
     {
