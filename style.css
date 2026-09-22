@@ -368,7 +368,107 @@ html {
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    /* Reduce card padding on mobile */
+    .skill-card,
+    .experience-card,
+    .project-card,
+    .achievement-card,
+    .competition-card {
+        padding: 1.25rem !important;
+    }
+
+    /* Hide experience timeline dots on mobile — they get clipped */
+    .experience-card::before,
+    .experience-card::after {
+        display: none;
+    }
+
+    .experience-card {
+        padding-left: 1.25rem;
+        margin-left: 0;
+    }
+
+    /* Prevent monospace text from overflowing on mobile */
+    .font-mono,
+    [class*="font-mono"] {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Section header terminal commands — allow wrapping & smaller text */
+    .section .inline-block {
+        max-width: 100%;
+        word-break: break-all;
+    }
+
+    .section .inline-block span {
+        font-size: 0.75rem;
+    }
+
+    /* Contact info — stack vertically on mobile */
+    .section .space-y-5 .flex.items-center.justify-center {
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
+    }
+
+    .section .space-y-5 .flex.items-center.justify-center i {
+        margin-right: 0;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Footer links wrap nicely */
+    footer .flex.justify-center.space-x-6 {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    /* Scale down badges and skill items */
+    .tech-badge,
+    .terminal-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .skill-item {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 2rem 0.75rem;
+    }
+
+    /* About section text size reduction for very small screens */
+    .section p.text-lg {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    /* Specialization tags — smaller on tiny screens */
+    .section .flex.flex-wrap.gap-4 span {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.6rem;
+    }
+
+    /* Mobile header smaller */
+    .section h2.text-4xl {
+        font-size: 1.75rem;
+    }
+
+    /* Contact social icons smaller */
+    .section .w-16.h-16 {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .section .w-16.h-16 i.text-2xl {
+        font-size: 1.25rem;
     }
 }
 

@@ -25,8 +25,8 @@
 <body class="bg-gray-900 font-mono text-green-400">
     <!-- Mobile Menu Button -->
     <button id="mobile-menu-btn"
-        class="lg:hidden fixed top-4 left-4 z-50 bg-gray-800 text-green-400 p-3 rounded-lg shadow-lg border border-green-500">
-        <i class="fas fa-terminal"></i>
+        class="lg:hidden fixed top-4 left-4 z-50 bg-gray-800/90 text-green-400 p-2.5 rounded-lg shadow-lg border border-green-500 backdrop-blur-sm">
+        <i class="fas fa-bars text-sm"></i>
     </button>
 
     <!-- Sidebar for Desktop / Mobile Menu -->
@@ -125,36 +125,31 @@
     <!-- Main Content -->
     <main class="lg:ml-80 min-h-screen bg-gray-900">
         <!-- About Section -->
-        <section id="about" class="section py-20 px-8 lg:min-h-screen lg:flex lg:items-center">
+        <section id="about" class="section pt-16 pb-12 px-4 sm:py-20 sm:px-8 lg:min-h-screen lg:flex lg:items-center">
             <div class="max-w-4xl mx-auto w-full">
                 <!-- Mobile Header -->
                 <div class="lg:hidden text-center mb-8 border border-green-500 rounded-lg p-6 bg-gray-800">
-                    <div class="flex justify-center space-x-2 mb-4">
-                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <h2 class="text-4xl font-bold text-green-400 mb-2">Niaz Bin Siraj</h2>
+                    <img src="static/images/profile.jpg" alt="Niaz Bin Siraj"
+                        class="w-40 h-40 rounded-full border-4 border-green-500 shadow-lg mx-auto mb-4 object-cover">
+                    <h2 class="text-2xl sm:text-4xl font-bold text-green-400 mb-2">Niaz Bin Siraj</h2>
                     <p class="text-xl text-green-300 font-medium">Software Engineer II</p>
                     <p class="text-base text-gray-400 mt-1">Full Stack & AI Integration</p>
                 </div>
                 <!-- Desktop Header -->
                 <h2 class="hidden lg:block text-4xl font-bold text-green-400 mb-8 text-center">$ cat about.txt</h2>
-                <div class="bg-gray-800 border border-green-500 rounded-xl shadow-lg p-8">
+                <div class="bg-gray-800 border border-green-500 rounded-xl shadow-lg p-4 sm:p-8">
                     <div class="flex flex-col lg:flex-row items-center gap-8">
-                        <img src="static/images/profile.jpg" alt="Niaz Bin Siraj"
-                            class="w-48 h-48 rounded-full border-4 border-green-500 shadow-lg lg:hidden">
                         <div class="flex-1">
                             <div class="mb-4">
                                 <span class="text-green-500 font-mono">niaz@backend:~$</span>
                                 <span class="text-green-400">cat profile.txt</span>
                             </div>
-                            <p class="text-lg text-slate-200 leading-relaxed mb-6 font-mono text-justify"
+                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
                                 style="line-height: 1.75;">
                                 > I architect and build scalable backend systems that bridge the gap between
                                 robust enterprise applications and cutting-edge AI.
                             </p>
-                            <p class="text-lg text-slate-200 leading-relaxed mb-6 font-mono text-justify"
+                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
                                 style="line-height: 1.75;">
                                 > Currently at Therap (BD) Ltd., I focus on AI-native architecture, system optimization,
                                 and production-grade reliability. I specialize in designing context-aware AI workflows,
@@ -163,14 +158,14 @@
                                 protocols via MCP to accelerate developer productivity, and designing zero-leakage SQL
                                 security layers for multi-tenant architectures.
                             </p>
-                            <p class="text-lg text-slate-200 leading-relaxed mb-6 font-mono text-justify"
+                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
                                 style="line-height: 1.75;">
                                 > Beyond my day-to-day enterprise work, I am deeply invested in context engineering and
                                 agentic workflows. I actively build tooling that centralizes instructions and contextual
                                 memory for AI assistants into project-specific directories, and I enjoy exploring
                                 multi-agent system designs.
                             </p>
-                            <p class="text-lg text-slate-200 leading-relaxed mb-6 font-mono text-justify"
+                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
                                 style="line-height: 1.75;">
                                 > Whether it is modernizing a legacy monolith or building an intelligent, multi-agent
                                 platform from the ground up, I love solving hard engineering problems. If you are
@@ -181,17 +176,17 @@
                                 <span class="text-green-500 font-mono">niaz@backend:~$</span>
                                 <span class="text-green-400">ls specializations/</span>
                             </div>
-                            <div class="flex flex-wrap gap-4">
+                            <div class="flex flex-wrap gap-2 sm:gap-4">
                                 <span
-                                    class="bg-gray-700 text-green-400 px-4 py-2 rounded text-sm font-mono border border-green-600">ai_native_architecture/</span>
+                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">ai_native_architecture/</span>
                                 <span
-                                    class="bg-gray-700 text-green-400 px-4 py-2 rounded text-sm font-mono border border-green-600">context_engineering/</span>
+                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">context_engineering/</span>
                                 <span
-                                    class="bg-gray-700 text-green-400 px-4 py-2 rounded text-sm font-mono border border-green-600">agentic_workflows/</span>
+                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">agentic_workflows/</span>
                                 <span
-                                    class="bg-gray-700 text-green-400 px-4 py-2 rounded text-sm font-mono border border-green-600">backend_systems/</span>
+                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">backend_systems/</span>
                                 <span
-                                    class="bg-gray-700 text-green-400 px-4 py-2 rounded text-sm font-mono border border-green-600">system_optimization/</span>
+                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">system_optimization/</span>
                             </div>
                         </div>
                     </div>
@@ -201,12 +196,12 @@
 
         <!-- Skills Section -->
         <section id="skills"
-            class="section py-20 px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-6xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">ls -la skills/</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">ls -la skills/</span>
                     </div>
                 </div>
                 <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -217,12 +212,12 @@
 
         <!-- Experience Section -->
         <section id="experience"
-            class="section py-20 px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">grep -r "experience" ./career/</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">grep -r "experience" ./career/</span>
                     </div>
                 </div>
                 <div id="experience-container" class="space-y-8">
@@ -233,12 +228,12 @@
 
         <!-- Education Section -->
         <section id="education"
-            class="section py-20 px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">cd education/ && ls -la</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">cd education/ && ls -la</span>
                     </div>
                 </div>
                 <div id="education-container">
@@ -249,12 +244,12 @@
 
         <!-- Projects Section -->
         <section id="projects"
-            class="section py-20 px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-6xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">git log --oneline projects/</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">git log --oneline projects/</span>
                     </div>
                 </div>
                 <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -265,12 +260,12 @@
 
         <!-- Achievements Section -->
         <section id="achievements"
-            class="section py-20 px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">find achievements/ -type f</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">find achievements/ -type f</span>
                     </div>
                 </div>
                 <div id="achievements-container" class="space-y-6">
@@ -281,12 +276,12 @@
 
         <!-- Competitions Section -->
         <section id="competitions"
-            class="section py-20 px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">history | grep contest</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">history | grep contest</span>
                     </div>
                 </div>
                 <div id="competitions-container" class="space-y-6">
@@ -297,16 +292,16 @@
 
         <!-- Contacts Section -->
         <section id="contacts"
-            class="section py-20 px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
+            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
             <div class="max-w-4xl mx-auto w-full">
                 <div class="mb-12 text-center">
                     <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                        <span class="text-green-400">cat contact.txt</span>
+                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
+                        <span class="text-green-400 font-bold text-lg">cat contact.txt</span>
                     </div>
                 </div>
 
-                <div class="bg-gray-900 border border-green-500 rounded-xl shadow-lg p-8">
+                <div class="bg-gray-900 border border-green-500 rounded-xl shadow-lg p-4 sm:p-8">
                     <div class="text-center space-y-8">
                         <!-- Contact Information -->
                         <div class="space-y-6">
@@ -316,8 +311,8 @@
                             </div>
 
                             <div class="space-y-5 text-lg">
-                                <div class="flex items-center justify-center">
-                                    <i class="fas fa-envelope w-6 mr-4 text-green-500"></i>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
+                                    <i class="fas fa-envelope w-6 mr-0 sm:mr-4 text-green-500"></i>
                                     <span class="text-slate-400 mr-2">Email:</span>
                                     <a href="mailto:niazbinsiraj@gmail.com"
                                         class="text-green-400 hover:text-green-300 transition-colors">
@@ -325,8 +320,8 @@
                                     </a>
                                 </div>
 
-                                <div class="flex items-center justify-center">
-                                    <i class="fas fa-phone w-6 mr-4 text-green-500"></i>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
+                                    <i class="fas fa-phone w-6 mr-0 sm:mr-4 text-green-500"></i>
                                     <span class="text-slate-400 mr-2">Phone:</span>
                                     <a href="tel:+8801755931751"
                                         class="text-green-400 hover:text-green-300 transition-colors">
@@ -334,81 +329,22 @@
                                     </a>
                                 </div>
 
-                                <div class="flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt w-6 mr-4 text-green-500"></i>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
+                                    <i class="fas fa-map-marker-alt w-6 mr-0 sm:mr-4 text-green-500"></i>
                                     <span class="text-slate-400 mr-2">Location:</span>
                                     <span class="text-slate-200">Dhaka, Bangladesh</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Social Links -->
-                        <div class="space-y-6 pt-6 border-t border-green-500/30">
-                            <div class="mb-4">
-                                <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                                <span class="text-green-400">ls ~/social_links/</span>
-                            </div>
-
-                            <div class="flex justify-center space-x-6">
-                                <a href="https://github.com/NiazBinSiraj" target="_blank"
-                                    class="w-16 h-16 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                                    title="GitHub">
-                                    <i class="fab fa-github text-2xl group-hover:scale-110 transition-transform"></i>
-                                </a>
-
-                                <a href="https://linkedin.com/in/niazbinsiraj" target="_blank"
-                                    class="w-16 h-16 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                                    title="LinkedIn">
-                                    <i class="fab fa-linkedin text-2xl group-hover:scale-110 transition-transform"></i>
-                                </a>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="py-12 px-8 bg-black border-t border-green-500 text-green-400">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-900 border border-green-500 rounded-lg p-6">
-                    <div class="flex justify-center space-x-2 mb-4">
-                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <div class="text-center font-mono">
-                        <div class="mb-4">
-                            <span class="text-green-500">niaz@backend:~$</span>
-                            <span class="text-green-400">echo "Let's connect and build something amazing
-                                together!"</span>
-                        </div>
-                        <p class="text-slate-300 mb-4">Ready to collaborate on your next backend project?</p>
-                        <div class="flex justify-center space-x-6 mb-6">
-                            <a href="mailto:niazbinsiraj@gmail.com"
-                                class="text-gray-300 hover:text-green-400 transition-colors">
-                                <i class="fas fa-envelope text-xl"></i>
-                                <span class="ml-2 text-sm">Email</span>
-                            </a>
-                            <a href="https://github.com/NiazBinSiraj"
-                                class="text-gray-300 hover:text-green-400 transition-colors">
-                                <i class="fab fa-github text-xl"></i>
-                                <span class="ml-2 text-sm">GitHub</span>
-                            </a>
-                            <a href="https://linkedin.com/in/niazbinsiraj"
-                                class="text-gray-300 hover:text-green-400 transition-colors">
-                                <i class="fab fa-linkedin text-xl"></i>
-                                <span class="ml-2 text-sm">LinkedIn</span>
-                            </a>
-                        </div>
-                        <div class="text-center">
-                            <span class="text-green-500">niaz@backend:~$</span>
-                            <span class="text-gray-400">Copyright © 2026 Niaz Bin Siraj. All rights reserved.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <footer class="py-6 px-4 sm:px-8 bg-black border-t border-green-500 text-green-400">
+            <div class="max-w-4xl mx-auto text-center font-mono">
+                <span class="text-green-500">niaz@backend:~$</span>
+                <span class="text-gray-400"> Copyright © 2026 Niaz Bin Siraj. All rights reserved.</span>
             </div>
         </footer>
     </main>
