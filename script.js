@@ -23,8 +23,29 @@ function initializeFixedNavbar() {
         } else {
             navbar.classList.add('-translate-y-full');
             navbar.classList.remove('translate-y-0');
+            // Also close mobile menu when scrolling back to top
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
         }
     });
+
+    // Close mobile menu when a link inside it is clicked
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+}
+
+// Toggle mobile hamburger menu in fixed navbar
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+    }
 }
 
 // ============================

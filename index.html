@@ -106,7 +106,7 @@
             <div class="orbit-dot orbit-dot-4"></div>
             <div class="center-glow"></div>
             <div class="preloader-photo-wrapper">
-                <img src="niaz.png" alt="Niaz Bin Siraj" class="preloader-photo">
+                <img src="static/images/niaz.png" alt="Niaz Bin Siraj" class="preloader-photo">
             </div>
         </div>
         <h1 class="preloader-name">NIAZ BIN SIRAJ</h1>
@@ -121,11 +121,11 @@
 <!-- Central Container -->
 <!-- Fixed Navbar — appears on scroll -->
 <nav id="fixed-navbar" class="fixed top-0 left-0 right-0 z-50 bg-terminal-900/95 backdrop-blur-md border-b border-emerald-900/50 transform -translate-y-full transition-transform duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
-        <a href="#header" class="text-white font-bold text-sm tracking-wide hover:text-neon-green transition-colors">
+    <div class="max-w-6xl mx-auto px-3 md:px-4 py-2 md:py-2.5 flex items-center justify-between gap-2">
+        <a href="#header" class="text-white font-bold text-xs md:text-sm tracking-wide hover:text-neon-green transition-colors flex-shrink-0">
             NIAZ BIN SIRAJ
         </a>
-        <div class="flex items-center gap-1.5 text-[10px] font-semibold">
+        <div class="hidden md:flex items-center gap-1.5 text-[10px] font-semibold">
             <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#about">[ABOUT]</a>
             <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#projects">[PROJECTS]</a>
             <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#skills">[SKILLS]</a>
@@ -136,6 +136,24 @@
             <a class="px-2 py-1 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all" href="#contact">[CONTACT]</a>
             <a class="px-2 py-1 border border-emerald-500/30 text-gray-400 hover:text-white hover:border-gray-300 transition-all" href="https://blog.niazbinsiraj.com" target="_blank">BLOG</a>
         </div>
+        <!-- Mobile hamburger menu -->
+        <button id="mobile-menu-btn" class="md:hidden text-neon-green text-lg px-2 py-1" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-emerald-900/40 bg-terminal-900/98">
+        <div class="grid grid-cols-3 gap-1 p-2 text-[10px] font-semibold text-center">
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#about">[ABOUT]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#projects">[PROJECTS]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#skills">[SKILLS]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#experience">[EXP]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#education">[EDU]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#achievements">[AWARDS]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#competitions">[CONTESTS]</a>
+            <a class="py-1.5 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all" href="#contact">[CONTACT]</a>
+            <a class="py-1.5 border border-emerald-500/30 text-gray-400 hover:text-white hover:border-gray-300 transition-all" href="https://blog.niazbinsiraj.com" target="_blank">BLOG</a>
+        </div>
     </div>
 </nav>
 
@@ -144,33 +162,33 @@
     <!-- ======================================================== -->
     <!-- HEADER & IDENTITY TERMINAL BAR                            -->
     <!-- ======================================================== -->
-    <header class="term-box corner-mark p-4 md:p-5" id="header">
+    <header class="term-box corner-mark p-3 md:p-5" id="header">
 
         <!-- Identity & Actions Row -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 md:gap-4">
             <div>
-                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white glow-green font-mono">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white glow-green font-mono">
                     NIAZ BIN SIRAJ
                 </h1>
-                <p class="text-neon-green text-xs md:text-sm font-medium mt-1 tracking-wide">
+                <p class="text-neon-green text-[11px] sm:text-xs md:text-sm font-medium mt-1 tracking-wide">
                     SOFTWARE ENGINEER II @ THERAP (BD) LTD.
                 </p>
-                <p class="text-gray-400 text-xs mt-1 max-w-2xl leading-relaxed">
+                <p class="text-gray-400 text-[10px] sm:text-xs mt-1 max-w-2xl leading-relaxed">
                     Backend Systems • AI-Native Architecture • LLM Integration • Context Engineering • Spring Boot & Java
                 </p>
             </div>
             <!-- Quick Action Terminal Links -->
-            <div class="grid grid-cols-5 gap-2 text-[11px] font-semibold w-3/5 ml-auto text-center">
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#about">[ABOUT]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#projects">[PROJECTS]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#skills">[SKILLS]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#experience">[EXPERIENCE]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#education">[EDUCATION]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#achievements">[ACHIEVEMENTS]</a>
-                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#competitions">[COMPETITIONS]</a>
-                <a class="py-1.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all whitespace-nowrap" href="#contact">[CONTACT]</a>
-                <button class="py-1.5 border border-yellow-500/50 text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 transition-all whitespace-nowrap cursor-pointer" style="text-shadow: 0 0 8px rgba(255,215,0,0.4)" onclick="openGithubModal()">GITHUB &gt;</button>
-                <a class="py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://blog.niazbinsiraj.com" target="_blank">BLOG &gt;</a>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold w-full md:w-3/5 md:ml-auto text-center">
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#about">[ABOUT]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#projects">[PROJECTS]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#skills">[SKILLS]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#experience">[EXP]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#education">[EDU]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#achievements">[AWARDS]</a>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#competitions">[CONTESTS]</a>
+                <a class="py-1 sm:py-1.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all whitespace-nowrap" href="#contact">[CONTACT]</a>
+                <button class="py-1 sm:py-1.5 border border-yellow-500/50 text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 transition-all whitespace-nowrap cursor-pointer" style="text-shadow: 0 0 8px rgba(255,215,0,0.4)" onclick="openGithubModal()">GITHUB &gt;</button>
+                <a class="py-1 sm:py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://blog.niazbinsiraj.com" target="_blank">BLOG &gt;</a>
             </div>
         </div>
     </header>
@@ -182,12 +200,12 @@
         <!-- Executive Summary (Cols 1-7) -->
         <section class="lg:col-span-7 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="about">
             <div>
-                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                    <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                        <span class="text-neon-green text-base font-extrabold">[ABOUT]</span>
-                        <span class="">ENGINEERING PROFILE & PHILOSOPHY</span>
+                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                        <span class="text-neon-green text-base font-extrabold flex-shrink-0">[ABOUT]</span>
+                        <span class="hidden sm:inline truncate">ENGINEERING PROFILE & PHILOSOPHY</span>
                     </div>
-                    <span class="text-[11px] text-gray-500 font-mono" id="exp-years"></span>
+                    <span class="text-[11px] text-gray-500 font-mono flex-shrink-0" id="exp-years"></span>
                 </div>
                 <p class="text-gray-300 leading-relaxed mb-3">
                     Software Engineer at Therap (BD) Ltd. with 3+ years of experience building scalable backend systems in Java and Spring Boot. I specialize in AI-native architecture, system optimization, and production-grade reliability. My recent work includes building LLM-powered data assistants that handle millions of healthcare claims with sub-second analytics, and designing zero-leakage SQL security layers for multi-tenant architectures.
@@ -196,18 +214,18 @@
                     Beyond enterprise systems, I am deeply invested in context engineering and agentic workflows. I build developer tooling that accelerates productivity, including context-aware AI workflows using MCP that reduced development time by 40% on a large-scale legacy monolith.
                 </p>
                 <!-- Metric highlights -->
-                <div class="grid grid-cols-3 gap-2 py-3 px-3 bg-terminal-950 border border-emerald-900/50 text-center">
-                    <div class="border-r border-emerald-900/50 pr-2">
-                        <div class="text-neon-green font-bold text-base md:text-lg" id="stat-exp-years">—</div>
-                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Years Experience</div>
+                <div class="grid grid-cols-3 gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-2 sm:px-3 bg-terminal-950 border border-emerald-900/50 text-center">
+                    <div class="border-r border-emerald-900/50 pr-1 sm:pr-2">
+                        <div class="text-neon-green font-bold text-sm sm:text-base md:text-lg" id="stat-exp-years">—</div>
+                        <div class="text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-wider">Years Exp</div>
                     </div>
-                    <div class="border-r border-emerald-900/50 px-2">
-                        <div class="text-neon-cyan font-bold text-base md:text-lg" id="stat-tech-count">—</div>
-                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Technologies</div>
+                    <div class="border-r border-emerald-900/50 px-1 sm:px-2">
+                        <div class="text-neon-cyan font-bold text-sm sm:text-base md:text-lg" id="stat-tech-count">—</div>
+                        <div class="text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-wider">Tech</div>
                     </div>
-                    <div class="pl-2">
-                        <div class="text-emerald-400 font-bold text-base md:text-lg" id="stat-projects-count">—</div>
-                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Projects Built</div>
+                    <div class="pl-1 sm:pl-2">
+                        <div class="text-emerald-400 font-bold text-sm sm:text-base md:text-lg" id="stat-projects-count">—</div>
+                        <div class="text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-wider">Projects</div>
                     </div>
                 </div>
             </div>
@@ -219,8 +237,8 @@
         <!-- Profile Image (Cols 8-12) -->
         <section class="lg:col-span-5 term-box corner-mark flex flex-col justify-between">
             <div class="w-full h-full relative p-2 md:p-3 flex items-center justify-center">
-                <div class="relative w-full h-full min-h-[300px] border-2 border-neon-green/60 bg-terminal-950 shadow-[0_0_15px_rgba(0,255,102,0.15)] overflow-hidden flex items-center justify-center">
-                    <img alt="Pixel art portrait of Niaz Bin Siraj" class="w-full h-full object-cover filter contrast-125 brightness-105" src="niaz.png">
+                <div class="relative w-full h-full min-h-[200px] sm:min-h-[300px] border-2 border-neon-green/60 bg-terminal-950 shadow-[0_0_15px_rgba(0,255,102,0.15)] overflow-hidden flex items-center justify-center">
+                    <img alt="Pixel art portrait of Niaz Bin Siraj" class="w-full h-full object-cover filter contrast-125 brightness-105" src="static/images/niaz.png">
                     <div class="absolute inset-0 bg-gradient-to-b from-neon-green/5 via-transparent to-black/30 pointer-events-none"></div>
                 </div>
             </div>
@@ -231,14 +249,14 @@
     <!-- SECTION: FEATURED PROJECTS                                -->
     <!-- ======================================================== -->
     <section class="term-box corner-mark p-4 md:p-5 space-y-4" id="projects">
-        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
-            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
-                <span class="text-neon-green text-base font-extrabold">[PROJECTS]</span>
-                <span class="">FLAGSHIP ENGINEERING WORK</span>
+        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 gap-2">
+            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white min-w-0">
+                <span class="text-neon-green text-base font-extrabold flex-shrink-0">[PROJECTS]</span>
+                <span class="hidden sm:inline truncate">FLAGSHIP ENGINEERING WORK</span>
             </div>
-            <span class="text-xs text-gray-500 font-mono" id="projects-count"></span>
+            <span class="text-xs text-gray-500 font-mono flex-shrink-0" id="projects-count"></span>
         </div>
-        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <!-- Projects will be loaded dynamically -->
         </div>
     </section>
@@ -247,14 +265,14 @@
     <!-- SECTION: TECH ARSENAL / SKILLS                            -->
     <!-- ======================================================== -->
     <section class="term-box corner-mark p-4 md:p-5 space-y-4" id="skills">
-        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
-            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
-                <span class="text-neon-green text-base font-extrabold">[SKILLS]</span>
-                <span class="">COMPETENCY MATRIX & CORE TOOLING</span>
+        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 gap-2">
+            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white min-w-0">
+                <span class="text-neon-green text-base font-extrabold flex-shrink-0">[SKILLS]</span>
+                <span class="hidden sm:inline truncate">COMPETENCY MATRIX & CORE TOOLING</span>
             </div>
-            <span class="text-xs text-neon-cyan font-mono">[JAVA • SPRING • PYTHON • AI/LLM]</span>
+            <span class="text-xs text-neon-cyan font-mono hidden md:inline flex-shrink-0">[JAVA • SPRING • PYTHON • AI/LLM]</span>
         </div>
-        <div id="skills-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div id="skills-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 text-xs">
             <!-- Skills will be loaded dynamically -->
         </div>
     </section>
@@ -265,12 +283,12 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <!-- Experience Timeline (Cols 1-7) -->
         <section class="lg:col-span-7 term-box corner-mark p-4 md:p-5" id="experience">
-            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                    <span class="text-neon-green text-base font-extrabold">[EXPERIENCE]</span>
-                    <span class="">CAREER TIMELINE & ENGINEERING COMMITS</span>
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                    <span class="text-neon-green text-base font-extrabold flex-shrink-0">[EXPERIENCE]</span>
+                    <span class="hidden sm:inline truncate">CAREER TIMELINE & ENGINEERING COMMITS</span>
                 </div>
-                <span class="text-[11px] text-gray-500 font-mono">2018 — PRESENT</span>
+                <span class="text-[11px] text-gray-500 font-mono flex-shrink-0">2018 — PRESENT</span>
             </div>
             <div id="experience-container" class="space-y-3.5 text-xs">
                 <!-- Experience will be loaded dynamically -->
@@ -280,12 +298,12 @@
         <!-- Education (Cols 8-12) -->
         <section class="lg:col-span-5 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="education">
             <div>
-                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                    <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                        <span class="text-neon-cyan text-base font-extrabold">[EDUCATION]</span>
-                        <span class="">ACADEMIC BACKGROUND & TRAINING</span>
+                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                        <span class="text-neon-cyan text-base font-extrabold flex-shrink-0">[EDUCATION]</span>
+                        <span class="hidden sm:inline truncate">ACADEMIC BACKGROUND & TRAINING</span>
                     </div>
-                    <span class="text-[11px] text-gray-500 font-mono">2012 — 2022</span>
+                    <span class="text-[11px] text-gray-500 font-mono flex-shrink-0">2012 — 2022</span>
                 </div>
                 <div id="education-container" class="space-y-3 text-xs">
                     <!-- Education will be loaded dynamically -->
@@ -300,12 +318,12 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <!-- Achievements (Cols 1-6) -->
         <section class="lg:col-span-6 term-box corner-mark p-4 md:p-5" id="achievements">
-            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                    <span class="text-neon-green text-base font-extrabold">[ACHIEVEMENTS]</span>
-                    <span class="">AWARDS & CERTIFICATIONS</span>
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                    <span class="text-neon-green text-base font-extrabold flex-shrink-0">[ACHIEVEMENTS]</span>
+                    <span class="hidden sm:inline truncate">AWARDS & CERTIFICATIONS</span>
                 </div>
-                <span class="text-[11px] text-neon-green font-mono font-semibold">VERIFIED</span>
+                <span class="text-[11px] text-neon-green font-mono font-semibold flex-shrink-0">VERIFIED</span>
             </div>
             <div id="achievements-container" class="space-y-3 text-xs">
                 <!-- Achievements will be loaded dynamically -->
@@ -314,12 +332,12 @@
 
         <!-- Competitions (Cols 7-12) -->
         <section class="lg:col-span-6 term-box corner-mark p-4 md:p-5" id="competitions">
-            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                    <span class="text-neon-cyan text-base font-extrabold">[COMPETITIONS]</span>
-                    <span class="">PROGRAMMING CONTEST HISTORY</span>
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                    <span class="text-neon-cyan text-base font-extrabold flex-shrink-0">[COMPETITIONS]</span>
+                    <span class="hidden sm:inline truncate">PROGRAMMING CONTEST HISTORY</span>
                 </div>
-                <span class="text-[11px] text-gray-500 font-mono" id="competitions-count"></span>
+                <span class="text-[11px] text-gray-500 font-mono flex-shrink-0" id="competitions-count"></span>
             </div>
             <div id="competitions-container" class="space-y-2.5 text-xs">
                 <!-- Competitions will be loaded dynamically -->
@@ -332,41 +350,41 @@
     <!-- ======================================================== -->
     <section class="term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="contact">
         <div>
-            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
-                <div class="flex items-center space-x-2 text-xs font-bold text-white">
-                    <span class="text-neon-cyan text-base font-extrabold">[CONTACT]</span>
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 gap-2">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white min-w-0">
+                    <span class="text-neon-cyan text-base font-extrabold flex-shrink-0">[CONTACT]</span>
                     <span class="">GET IN TOUCH</span>
                 </div>
-                <span class="text-[11px] text-neon-green font-mono font-semibold">DHAKA, BANGLADESH</span>
+                <span class="text-[11px] text-neon-green font-mono font-semibold flex-shrink-0 hidden sm:inline">DHAKA, BANGLADESH</span>
             </div>
             <p class="text-gray-300 text-xs leading-relaxed mb-4">
                 Always open to discussing Software Engineer roles, backend architecture advisory, AI-native system design, and context engineering consulting.
             </p>
             <!-- Direct Contact Info Rows -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">EMAIL:</span>
-                    <a class="text-neon-green hover:underline font-semibold" href="mailto:niazbinsiraj@gmail.com">niazbinsiraj@gmail.com</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] sm:text-xs font-mono">
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">EMAIL:</span>
+                    <a class="text-neon-green hover:underline font-semibold truncate" href="mailto:niazbinsiraj@gmail.com">niazbinsiraj@gmail.com</a>
                 </div>
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">PHONE:</span>
-                    <a class="text-neon-green hover:underline font-semibold" href="tel:+8801755931751">+880 1755 931 751</a>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">PHONE:</span>
+                    <a class="text-neon-green hover:underline font-semibold truncate" href="tel:+8801755931751">+880 1755 931 751</a>
                 </div>
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">GITHUB:</span>
-                    <a class="text-neon-cyan hover:underline font-semibold" href="https://github.com/NiazBinSiraj" rel="noreferrer" target="_blank">github.com/NiazBinSiraj</a>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">GITHUB:</span>
+                    <a class="text-neon-cyan hover:underline font-semibold truncate" href="https://github.com/NiazBinSiraj" rel="noreferrer" target="_blank">github.com/NiazBinSiraj</a>
                 </div>
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">LINKEDIN:</span>
-                    <a class="text-emerald-300 hover:underline font-semibold" href="https://linkedin.com/in/niazbinsiraj" rel="noreferrer" target="_blank">linkedin.com/in/niazbinsiraj</a>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">LINKEDIN:</span>
+                    <a class="text-emerald-300 hover:underline font-semibold truncate" href="https://linkedin.com/in/niazbinsiraj" rel="noreferrer" target="_blank">linkedin.com/in/niazbinsiraj</a>
                 </div>
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">FACEBOOK:</span>
-                    <a class="text-emerald-300 hover:underline font-semibold" href="https://www.facebook.com/niazbinsiraj/" rel="noreferrer" target="_blank">facebook.com/niazbinsiraj</a>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">FACEBOOK:</span>
+                    <a class="text-emerald-300 hover:underline font-semibold truncate" href="https://www.facebook.com/niazbinsiraj/" rel="noreferrer" target="_blank">facebook.com/niazbinsiraj</a>
                 </div>
-                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
-                    <span class="text-gray-400">X / TWITTER:</span>
-                    <a class="text-white hover:underline font-semibold" href="https://x.com/niazbinsiraj" rel="noreferrer" target="_blank">@niazbinsiraj</a>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50 gap-2 min-w-0">
+                    <span class="text-gray-400 flex-shrink-0">X / TWITTER:</span>
+                    <a class="text-white hover:underline font-semibold truncate" href="https://x.com/niazbinsiraj" rel="noreferrer" target="_blank">@niazbinsiraj</a>
                 </div>
             </div>
         </div>
@@ -375,17 +393,17 @@
     <!-- ======================================================== -->
     <!-- FOOTER STATUS LINE                                        -->
     <!-- ======================================================== -->
-    <footer class="term-box corner-mark p-3 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-2">
-        <div class="flex items-center space-x-3">
+    <footer class="term-box corner-mark p-2.5 sm:p-3 flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-xs text-gray-400 font-mono gap-1.5 sm:gap-2">
+        <div class="flex items-center space-x-2 sm:space-x-3 flex-wrap justify-center">
             <span class="text-neon-green flex items-center gap-1.5 font-semibold">
                 <span class="w-2 h-2 bg-neon-green inline-block rounded-full animate-pulse"></span>
                 NODE: ONLINE
             </span>
-            <span class="text-gray-500">|</span>
-            <span class="">STACK: JAVA / SPRING BOOT / AI / LLM / PYTHON</span>
+            <span class="text-gray-500 hidden sm:inline">|</span>
+            <span class="hidden sm:inline">STACK: JAVA / SPRING BOOT / AI / LLM / PYTHON</span>
         </div>
-        <div class="flex items-center space-x-3">
-            <span class="">DHAKA, BANGLADESH</span>
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <span class="hidden sm:inline">DHAKA, BANGLADESH</span>
             <span class="text-emerald-400">© 2026 NIAZ BIN SIRAJ</span>
         </div>
     </footer>
@@ -399,7 +417,7 @@
 
 <!-- Terminal Modal Overlay -->
 <div id="terminal-modal-overlay" class="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm hidden items-center justify-center" onclick="if(event.target===this)closeTerminalModal()">
-    <div class="term-box corner-mark w-full max-w-5xl mx-4 p-0 shadow-[0_0_40px_rgba(0,255,102,0.15)]">
+    <div class="term-box corner-mark w-full max-w-5xl mx-2 sm:mx-4 p-0 shadow-[0_0_40px_rgba(0,255,102,0.15)]">
         <!-- Terminal Title Bar -->
         <div class="flex items-center justify-between px-4 py-2.5 border-b border-emerald-900/60">
             <div class="flex items-center space-x-2 text-xs">
@@ -421,7 +439,7 @@
             </div>
         </div>
         <!-- Terminal Body — single unified area like Ubuntu terminal -->
-        <div id="terminal-body" class="p-4 font-mono text-xs leading-relaxed h-[500px] overflow-y-auto cursor-text bg-terminal-950/50" onclick="document.getElementById('terminal-input').focus()">
+        <div id="terminal-body" class="p-3 sm:p-4 font-mono text-[11px] sm:text-xs leading-relaxed h-[60vh] sm:h-[500px] overflow-y-auto cursor-text bg-terminal-950/50" onclick="document.getElementById('terminal-input').focus()">
             <div class="text-emerald-300">Welcome to Niaz's terminal.</div>
             <div class="text-gray-500 mb-2">Type <span class="text-neon-green">help</span> for available commands.</div>
             <div id="terminal-output"></div>
@@ -499,7 +517,7 @@
 
 <!-- GitHub Stats Modal -->
 <div id="github-modal-overlay" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden items-center justify-center" onclick="if(event.target===this)closeGithubModal()">
-    <div class="github-modal term-box corner-mark w-full max-w-3xl mx-4 shadow-[0_0_50px_rgba(0,255,102,0.12)]">
+    <div class="github-modal term-box corner-mark w-full max-w-3xl mx-2 sm:mx-4 shadow-[0_0_50px_rgba(0,255,102,0.12)]">
         <!-- Modal Header -->
         <div class="flex items-center justify-between px-5 py-3 border-b border-emerald-900/60">
             <div class="flex items-center gap-3">
@@ -519,7 +537,7 @@
         </div>
 
         <!-- Profile Banner -->
-        <div class="px-5 py-4 border-b border-emerald-900/40 flex items-center gap-4">
+        <div class="px-3 sm:px-5 py-3 sm:py-4 border-b border-emerald-900/40 flex items-center gap-3 sm:gap-4">
             <img id="gh-avatar" src="" alt="GitHub Avatar" class="w-14 h-14 rounded-full border-2 border-neon-green/50 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
             <div class="flex-1">
                 <div class="flex items-center gap-2">
@@ -555,7 +573,7 @@
             <!-- STATS TAB -->
             <div id="tab-stats" class="github-tab-panel active">
                 <!-- Metric Cards Row -->
-                <div class="grid grid-cols-4 gap-3 p-5">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 p-3 sm:p-5">
                     <div class="github-metric-card">
                         <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">PUBLIC REPOS</div>
                         <div class="text-neon-green font-bold text-xl" id="gh-repos-count">—</div>
