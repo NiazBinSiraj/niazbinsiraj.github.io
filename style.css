@@ -1,3 +1,301 @@
+/* ================================================
+   PRELOADER — Animated startup screen
+   ================================================ */
+
+/* Full-screen overlay */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #080e1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Orbit container — holds rings, dots, and photo */
+.orbit-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin-bottom: 2.5rem;
+}
+
+/* Orbit rings */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-ring-1 {
+    width: 180px;
+    height: 180px;
+    border-color: rgba(34, 197, 94, 0.25);
+    animation: orbit-pulse 3s ease-in-out infinite;
+}
+
+.orbit-ring-2 {
+    width: 220px;
+    height: 220px;
+    border-color: rgba(34, 197, 94, 0.15);
+    animation: orbit-pulse 3s ease-in-out infinite 0.5s;
+}
+
+.orbit-ring-3 {
+    width: 260px;
+    height: 260px;
+    border-color: rgba(34, 197, 94, 0.08);
+    animation: orbit-pulse 3s ease-in-out infinite 1s;
+}
+
+@keyframes orbit-pulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.04); }
+}
+
+/* Orbiting dots */
+.orbit-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+.orbit-dot-1 {
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.4);
+    animation: orbit-spin-1 4s linear infinite;
+}
+
+.orbit-dot-2 {
+    width: 5px;
+    height: 5px;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: orbit-spin-2 5s linear infinite;
+}
+
+.orbit-dot-3 {
+    width: 6px;
+    height: 6px;
+    background: #86efac;
+    box-shadow: 0 0 8px #86efac;
+    animation: orbit-spin-3 6s linear infinite reverse;
+}
+
+.orbit-dot-4 {
+    width: 4px;
+    height: 4px;
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: orbit-spin-4 3.5s linear infinite;
+}
+
+@keyframes orbit-spin-1 {
+    from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+}
+
+@keyframes orbit-spin-2 {
+    from { transform: rotate(120deg) translateX(110px) rotate(-120deg); }
+    to   { transform: rotate(480deg) translateX(110px) rotate(-480deg); }
+}
+
+@keyframes orbit-spin-3 {
+    from { transform: rotate(200deg) translateX(128px) rotate(-200deg); }
+    to   { transform: rotate(560deg) translateX(128px) rotate(-560deg); }
+}
+
+@keyframes orbit-spin-4 {
+    from { transform: rotate(45deg) translateX(100px) rotate(-45deg); }
+    to   { transform: rotate(405deg) translateX(100px) rotate(-405deg); }
+}
+
+/* Center crosshair / star glow */
+.center-glow {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+    animation: glow-breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* Profile photo in center */
+.preloader-photo-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid rgba(34, 197, 94, 0.6);
+    overflow: hidden;
+    animation: photo-fade-in 1s ease-out 0.3s both;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.25);
+}
+
+.preloader-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes photo-fade-in {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Name */
+.preloader-name {
+    font-family: 'Courier New', monospace;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 0.25em;
+    margin-bottom: 0.6rem;
+    animation: text-fade-up 0.8s ease-out 0.6s both;
+}
+
+/* Title */
+.preloader-title {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #22c55e;
+    letter-spacing: 0.35em;
+    margin-bottom: 2.2rem;
+    animation: text-fade-up 0.8s ease-out 0.9s both;
+}
+
+@keyframes text-fade-up {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Progress bar */
+.preloader-progress-track {
+    width: 280px;
+    height: 3px;
+    background: rgba(34, 197, 94, 0.12);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    animation: text-fade-up 0.6s ease-out 1.1s both;
+}
+
+.preloader-progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+    background-size: 200% 100%;
+    animation: progress-shimmer 1.5s linear infinite;
+    transition: width 0.3s ease;
+}
+
+@keyframes progress-shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Status text */
+.preloader-status {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #6b7280;
+    letter-spacing: 0.2em;
+    animation: text-fade-up 0.6s ease-out 1.3s both;
+}
+
+/* Responsive — smaller orbit on mobile */
+@media (max-width: 480px) {
+    .orbit-container {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 2rem;
+    }
+
+    .orbit-ring-1 { width: 140px; height: 140px; }
+    .orbit-ring-2 { width: 170px; height: 170px; }
+    .orbit-ring-3 { width: 200px; height: 200px; }
+
+    .preloader-photo-wrapper {
+        width: 85px;
+        height: 85px;
+    }
+
+    .center-glow {
+        width: 100px;
+        height: 100px;
+    }
+
+    @keyframes orbit-spin-1 {
+        from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+    }
+    @keyframes orbit-spin-2 {
+        from { transform: rotate(120deg) translateX(85px) rotate(-120deg); }
+        to   { transform: rotate(480deg) translateX(85px) rotate(-480deg); }
+    }
+    @keyframes orbit-spin-3 {
+        from { transform: rotate(200deg) translateX(98px) rotate(-200deg); }
+        to   { transform: rotate(560deg) translateX(98px) rotate(-560deg); }
+    }
+    @keyframes orbit-spin-4 {
+        from { transform: rotate(45deg) translateX(78px) rotate(-45deg); }
+        to   { transform: rotate(405deg) translateX(78px) rotate(-405deg); }
+    }
+
+    .preloader-name {
+        font-size: 1.1rem;
+        letter-spacing: 0.15em;
+    }
+
+    .preloader-title {
+        font-size: 0.6rem;
+        letter-spacing: 0.25em;
+    }
+
+    .preloader-progress-track {
+        width: 220px;
+    }
+}
+
+/* ================================================
+   END PRELOADER
+   ================================================ */
+
 /* Custom CSS for Terminal-themed Portfolio Website */
 
 /* Terminal theme color variables */

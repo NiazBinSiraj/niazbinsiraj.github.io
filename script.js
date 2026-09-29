@@ -547,12 +547,86 @@ function debounce(func, wait) {
     };
 }
 
-// Add smooth loading animation
-window.addEventListener('load', function () {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease';
+// Preloader animation controller
+(function () {
+    const MIN_DISPLAY_MS = 2500; // Minimum time the preloader is shown
+    const startTime = Date.now();
 
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
+    const statusMessages = [
+        'INITIALIZING SYSTEM...',
+        'LOADING MODULES...',
+        'COMPILING ASSETS...',
+        'ESTABLISHING CONNECTIONS...',
+        'RENDERING INTERFACE...',
+        'SYSTEM READY'
+    ];
+
+    const progressBar = document.getElementById('preloader-progress');
+    const statusText = document.getElementById('preloader-status');
+    const preloader = document.getElementById('preloader');
+
+    if (!preloader) return;
+
+    // Add transition for smooth status text fades
+    statusText.style.transition = 'opacity 0.15s ease';
+
+    let progress = 0;
+    let msgIndex = 0;
+    let pageLoaded = false;
+
+    // Advance progress in steps — slower cadence (every 300ms)
+    const progressInterval = setInterval(() => {
+        // Slow, natural-looking increments (1–4%)
+        progress += Math.random() * 3 + 1;
+
+        // Cap at 70% until page load, then allow up to 95%
+        const cap = pageLoaded ? 95 : 70;
+        if (progress > cap) progress = cap;
+
+        progressBar.style.width = progress + '%';
+
+        // Cycle status messages based on progress
+        const newIndex = Math.min(
+            Math.floor((progress / 100) * statusMessages.length),
+            statusMessages.length - 2 // Reserve last message for completion
+        );
+        if (newIndex !== msgIndex) {
+            msgIndex = newIndex;
+            statusText.style.opacity = '0';
+            setTimeout(() => {
+                statusText.textContent = statusMessages[msgIndex];
+                statusText.style.opacity = '1';
+            }, 150);
+        }
+    }, 300);
+
+    function dismissPreloader() {
+        clearInterval(progressInterval);
+
+        // Complete to 100%
+        progressBar.style.width = '100%';
+        statusText.style.opacity = '0';
+        setTimeout(() => {
+            statusText.textContent = 'SYSTEM READY';
+            statusText.style.opacity = '1';
+        }, 150);
+
+        // Fade out after a brief hold at 100%
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            preloader.addEventListener('transitionend', () => {
+                preloader.remove();
+            }, { once: true });
+        }, 500);
+    }
+
+    // When the page is fully loaded, wait until minimum time has passed
+    window.addEventListener('load', () => {
+        pageLoaded = true;
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+
+        setTimeout(dismissPreloader, remaining);
+    });
+})();
+

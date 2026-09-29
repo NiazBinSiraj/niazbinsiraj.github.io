@@ -51,6 +51,39 @@
 </head>
 
 <body class="bg-gray-900 font-mono text-green-400">
+    <!-- Preloader Overlay -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <!-- Orbiting Rings + Profile Photo -->
+            <div class="orbit-container">
+                <div class="orbit-ring orbit-ring-1"></div>
+                <div class="orbit-ring orbit-ring-2"></div>
+                <div class="orbit-ring orbit-ring-3"></div>
+                <!-- Orbiting dots -->
+                <div class="orbit-dot orbit-dot-1"></div>
+                <div class="orbit-dot orbit-dot-2"></div>
+                <div class="orbit-dot orbit-dot-3"></div>
+                <div class="orbit-dot orbit-dot-4"></div>
+                <!-- Center crosshair glow -->
+                <div class="center-glow"></div>
+                <!-- Profile photo -->
+                <div class="preloader-photo-wrapper">
+                    <img src="static/images/profile.jpg" alt="Niaz Bin Siraj" class="preloader-photo">
+                </div>
+            </div>
+            <!-- Name -->
+            <h1 class="preloader-name">NIAZ BIN SIRAJ</h1>
+            <!-- Title -->
+            <p class="preloader-title">SOFTWARE ENGINEER II</p>
+            <!-- Progress bar -->
+            <div class="preloader-progress-track">
+                <div class="preloader-progress-fill" id="preloader-progress"></div>
+            </div>
+            <!-- Status text -->
+            <p class="preloader-status" id="preloader-status">INITIALIZING SYSTEM...</p>
+        </div>
+    </div>
+
     <!-- Mobile Menu Button -->
     <button id="mobile-menu-btn"
         class="lg:hidden fixed top-4 left-4 z-50 bg-gray-800/90 text-green-400 p-2.5 rounded-lg shadow-lg border border-green-500 backdrop-blur-sm">
