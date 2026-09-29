@@ -101,7 +101,7 @@ function handleTerminalCommand(cmd) {
 
         'skills': `<span class="text-neon-cyan">Core Skills:</span>\n<span class="text-gray-400">Languages: Java 8/21, JavaScript, Python, SQL, HTML/CSS</span>\n<span class="text-gray-400">Frameworks: Spring, Spring Boot, MyBatis, Hibernate, FastAPI, React, JQuery</span>\n<span class="text-gray-400">Databases: Oracle, PostgreSQL, DuckDB, RabbitMQ, Redis, Coherence, HikariCP</span>\n<span class="text-gray-400">DevOps: Git, Bitbucket, Docker, Nginx, Jenkins, CI/CD, Gradle</span>\n<span class="text-gray-400">AI/LLM: LangGraph, RAG System, MCP, LLM Integration, Antigravity, Gemini CLI</span>\n<span class="text-gray-400">Testing: JUnit, TestNG, Playwright, Postman</span>`,
 
-        'experience': `<span class="text-neon-cyan">Career Timeline:</span>\n<span class="text-emerald-300">Software Engineer II @ Therap (BD) Ltd.</span> <span class="text-gray-500">Jun 2022 — Present</span>\n<span class="text-gray-400">Building enterprise healthcare platforms with Java/Spring Boot. Built LLM-powered code docs, AI Data Assistant, and billing systems.</span>\n<span class="text-emerald-300">Part-Time Game Developer (Freelance)</span> <span class="text-gray-500">Oct 2020 — Mar 2021</span>\n<span class="text-emerald-300">Part-Time Front-End Developer (Freelance)</span> <span class="text-gray-500">Feb 2020 — May 2022</span>\n<span class="text-emerald-300">C/C++ Trainer @ Talent IT & ICT Training</span> <span class="text-gray-500">Jan 2018 — Mar 2021</span>`,
+        'experience': `<span class="text-neon-cyan">Career Timeline:</span>\n<span class="text-emerald-300">Software Engineer II @ Therap (BD) Ltd.</span> <span class="text-gray-500">Jun 2022 — Present</span>\n<span class="text-gray-400">• Built LLM-powered code documentation system (Python/FastAPI, React, Oracle, Gemini)</span>\n<span class="text-gray-400">• Architected AI-powered Data Assistant for natural-language querying over millions of claims</span>\n<span class="text-gray-400">• Engineered context-aware AI dev workflow using MCP, reducing dev time by 40%</span>\n<span class="text-gray-400">• Developed Aging Report Generation System across 30K+ healthcare providers</span>\n<span class="text-gray-400">• Led Nebraska State Integration Billing Flow with 100% accurate claim submissions</span>\n<span class="text-gray-400">• Optimized APIs reducing query execution time by 50–60%, mentoring 5+ engineers</span>`,
 
         'education': `<span class="text-neon-cyan">Academic Background:</span>\n<span class="text-emerald-300">BSc in CSE — University of Rajshahi</span> <span class="text-gray-500">2017 — 2022</span> <span class="text-neon-green">CGPA: 3.30/4.00</span>\n<span class="text-emerald-300">HSC, Science — Bogra Cantonment Public School & College</span> <span class="text-gray-500">2014 — 2016</span> <span class="text-neon-green">GPA: 5.00/5.00</span>\n<span class="text-emerald-300">SSC, Science — Savar Cantonment Public School & College</span> <span class="text-gray-500">2012 — 2014</span> <span class="text-neon-green">GPA: 5.00/5.00</span>`,
 
@@ -222,6 +222,11 @@ function renderSkills(skillsData) {
         const card = createSkillCard(category, skills, index);
         container.appendChild(card);
     });
+
+    // Update tech count metric
+    const totalSkills = Object.values(skillsData).reduce((sum, arr) => sum + arr.length, 0);
+    const statTechEl = document.getElementById('stat-tech-count');
+    if (statTechEl) statTechEl.textContent = `${totalSkills}+`;
 }
 
 function createSkillCard(category, skills, index) {
@@ -281,6 +286,10 @@ function renderProjects(projects) {
         const projectCard = createProjectCard(project, index);
         container.appendChild(projectCard);
     });
+
+    // Update projects built metric
+    const statProjEl = document.getElementById('stat-projects-count');
+    if (statProjEl) statProjEl.textContent = `${projects.length}`;
 }
 
 function createProjectCard(project, index) {
@@ -344,6 +353,27 @@ function renderExperience(experiences) {
     const container = document.getElementById('experience-container');
     container.innerHTML = '';
 
+    // Calculate total years of experience from earliest start date
+    const expEl = document.getElementById('exp-years');
+    if (expEl && experiences.length > 0) {
+        const monthMap = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+        let earliest = new Date();
+        experiences.forEach(exp => {
+            const parts = exp.duration.split(' - ')[0].trim().split(' ');
+            const month = monthMap[parts[0].toLowerCase().slice(0, 3)] || 0;
+            const year = parseInt(parts[parts.length - 1]);
+            if (!isNaN(year)) {
+                const startDate = new Date(year, month, 1);
+                if (startDate < earliest) earliest = startDate;
+            }
+        });
+        const years = Math.floor((Date.now() - earliest.getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+        expEl.textContent = `EXP: ${years}+ YEARS`;
+        // Also update the metric card
+        const statExpEl = document.getElementById('stat-exp-years');
+        if (statExpEl) statExpEl.textContent = `${years}+`;
+    }
+
     experiences.forEach((exp, index) => {
         const expCard = createExperienceCard(exp, index);
         container.appendChild(expCard);
@@ -360,15 +390,19 @@ function createExperienceCard(experience, index) {
 
     card.className = `border-l-2 ${borderColor} pl-3.5 relative`;
 
+    const responsibilitiesList = experience.responsibilities
+        .map(r => `<li class="text-gray-300 leading-relaxed">${r}</li>`)
+        .join('');
+
     card.innerHTML = `
         <div class="flex items-baseline justify-between gap-2 flex-wrap">
             <span class="font-bold text-white text-sm">${experience.position} @ ${experience.company}</span>
             <span class="${dateColor} font-mono text-[11px]">${experience.duration.toUpperCase().replace(' - ', ' — ')}</span>
         </div>
         <p class="text-gray-400 text-[11px] mt-0.5">${experience.location}</p>
-        <p class="text-gray-300 mt-1 leading-relaxed">
-            ${experience.responsibilities[0]}
-        </p>
+        <ul class="mt-2 space-y-1.5 list-disc list-outside pl-4">
+            ${responsibilitiesList}
+        </ul>
     `;
 
     return card;

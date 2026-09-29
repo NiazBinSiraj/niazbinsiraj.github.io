@@ -14,37 +14,6 @@
         "Supported onsite alpha deployments in U.S. QA environments, collaborating with stakeholders to ensure smooth rollouts.",
         "Optimized RESTful APIs and data access patterns, improving billing efficiency by 30% and reducing query execution time by 50–60%, while mentoring 5+ junior engineers."
       ]
-    },
-    {
-      "company": "Freelance",
-      "position": "Part-Time Game Developer",
-      "location": "Remote",
-      "duration": "Oct 2020 - Mar 2021",
-      "responsibilities": [
-        "Delivered a 3D hyper-casual game project on Upwork using C# and Unity Game Engine, meeting client requirements within deadline.",
-        "Implemented a shortest-path visualizer in a 3D game using the A* search algorithm and Unity Line Renderer, enhancing gameplay mechanics for a Freelancer.com project.",
-        "Designed and developed a 2D hyper-casual game for a local client using C# and Unity Game Engine, providing end-to-end development from concept to deployment."
-      ]
-    },
-    {
-      "company": "Freelance",
-      "position": "Part-Time Front-End Developer",
-      "location": "Remote",
-      "duration": "Feb 2020 - May 2022",
-      "responsibilities": [
-        "Developed the front-end for an educational video streaming web application using Angular, Ionic, Cordova, and Bootstrap, ensuring a responsive and intuitive user interface across desktop and mobile devices.",
-        "Collaborated with the project lead to design and implement user-friendly features, improving overall usability and enhancing the learning experience for end users."
-      ]
-    },
-    {
-      "company": "Talent IT & ICT Training Center",
-      "position": "C/C++ Trainer",
-      "location": "Rajshahi, Bangladesh",
-      "duration": "Jan 2018 - Mar 2021",
-      "responsibilities": [
-        "Conducted training sessions on C and C++ programming for aspiring developers.",
-        "Designed course curriculum and hands-on exercises for beginner to intermediate learners."
-      ]
     }
   ]
 }
