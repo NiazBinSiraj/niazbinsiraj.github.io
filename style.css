@@ -19,6 +19,11 @@ html {
     background-color: var(--terminal-bg);
 }
 
+/* Global text justify alignment */
+body {
+    text-align: justify;
+}
+
 /* Custom scrollbar for terminal theme */
 ::-webkit-scrollbar {
     width: 8px;
@@ -157,14 +162,16 @@ html {
 /* Tech stack badges - Terminal theme */
 .tech-badge {
     background: var(--terminal-bg);
-    color: var(--terminal-text);
-    padding: 0.35rem 0.85rem;
+    color: #d1fae5;
+    padding: 0.4rem 0.9rem;
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     font-weight: 500;
     transition: all 0.2s ease;
-    border: 1px solid var(--terminal-border);
+    border: 1px solid rgba(34, 197, 94, 0.25);
     font-family: 'Courier New', monospace;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
 .tech-badge:hover {
@@ -176,14 +183,16 @@ html {
 /* Unified terminal badge - for activities, subjects, etc. */
 .terminal-badge {
     background: var(--terminal-secondary);
-    color: var(--terminal-text-secondary);
-    padding: 0.35rem 0.85rem;
+    color: #e2e8f0;
+    padding: 0.4rem 0.9rem;
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     font-weight: 500;
     transition: all 0.2s ease;
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.2);
     font-family: 'Courier New', monospace;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
 .terminal-badge:hover {
