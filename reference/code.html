@@ -1,0 +1,475 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ALEX RIVERA // STAFF SYSTEMS &amp; INFRASTRUCTURE ARCHITECT</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terminal: {
+              950: '#030504',
+              900: '#070a08',
+              850: '#0c120f',
+              800: '#121a16',
+              700: '#1a2922',
+              border: 'rgba(16, 185, 129, 0.22)',
+            },
+            neon: {
+              green: '#00FF66',
+              mint: '#10B981',
+              emerald: '#05DF72',
+              cyan: '#00F0FF',
+            }
+          },
+          fontFamily: {
+            mono: ['JetBrains Mono', 'Fira Code', 'Space Mono', 'Courier New', 'monospace'],
+          },
+          animation: {
+            'pulse-fast': 'pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'blink': 'blink 1s step-end infinite',
+          },
+          keyframes: {
+            blink: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Minimalist Terminal Styling -->
+<style>
+    body {
+      background-color: #060908;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.04) 0%, transparent 70%),
+        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px, 32px 32px;
+      color: #d1fae5;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .term-box {
+      background: #090e0c;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      position: relative;
+    }
+    .term-box:hover {
+      border-color: rgba(0, 255, 102, 0.45);
+    }
+
+    /* Clean corner brackets */
+    .corner-mark::before {
+      content: '+';
+      position: absolute;
+      top: -9px;
+      left: -5px;
+      color: #00FF66;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .corner-mark::after {
+      content: '+';
+      position: absolute;
+      bottom: -9px;
+      right: -5px;
+      color: #00FF66;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .glow-green {
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+    }
+    .glow-cyan {
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    /* Custom Terminal Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060908;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #10b981;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00ff66;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-xs md:text-sm antialiased selection:bg-neon-green selection:text-black py-4 md:py-6 px-3 md:px-8">
+<!-- Central Container -->
+<div class="max-w-6xl mx-auto space-y-5">
+<!-- ======================================================== -->
+<!-- HEADER & IDENTITY TERMINAL BAR                            -->
+<!-- ======================================================== -->
+<header class="term-box corner-mark p-4 md:p-5" data-purpose="header-terminal">
+<!-- Top Terminal Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-900/60 pb-3 mb-4 text-xs">
+<div class="flex items-center space-x-2 text-gray-400">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-400"></span>
+<span class="text-neon-green font-semibold">alex@core-sys</span>
+<span class="text-gray-500">:</span>
+<span class="text-neon-cyan">~</span>
+<span class="text-gray-500">$</span>
+<span class="text-white font-medium">whoami --verbose</span>
+<span class="inline-block w-1.5 h-3.5 bg-neon-green animate-blink"></span>
+</div>
+<!-- Live Availability Indicator -->
+<div class="flex items-center gap-2 bg-emerald-950/70 border border-neon-green/40 px-3 py-1 text-[11px]">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
+</span>
+<span class="text-neon-green font-bold tracking-wide">STATUS: AVAILABLE FOR HIRE / ADVISORY</span>
+</div>
+</div>
+<!-- Identity & Actions Row -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white glow-green font-mono">
+          ALEX RIVERA
+        </h1>
+<p class="text-neon-green text-xs md:text-sm font-medium mt-1 tracking-wide">
+          STAFF SYSTEMS ENGINEER &amp; INFRASTRUCTURE ARCHITECT
+        </p>
+<p class="text-gray-400 text-xs mt-1 max-w-2xl leading-relaxed">
+          Distributed Systems • Low-Latency Network Runtimes (Rust, Go, C++) • Linux Kernel Internals &amp; eBPF Observability
+        </p>
+</div>
+<!-- Quick Action Terminal Links -->
+<div class="flex items-center gap-2.5 text-xs font-semibold flex-wrap">
+<a class="px-3 py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all" href="#projects">
+          [01. PROJECTS]
+        </a>
+<a class="px-3 py-1.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all" href="#contact">
+          [02. CONTACT]
+        </a>
+<a class="px-3 py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all" href="https://github.com" rel="noreferrer" target="_blank">
+          GITHUB &gt;
+        </a>
+<button class="px-3 py-1.5 bg-neon-green text-black font-bold hover:bg-emerald-400 transition-all" onclick="alert('Alex_Rivera_Staff_Engineer_Resume.pdf download initiated.')">
+          RESUME.pdf ↓
+        </button>
+</div>
+</div>
+</header>
+<!-- ======================================================== -->
+<!-- 2-COLUMN BALANCED CORE: SUMMARY & TECHNICAL ARSENAL      -->
+<!-- ======================================================== -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+<!-- Section 1: Executive Summary & Philosophy (Cols 1-7) -->
+<section class="lg:col-span-7 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" data-purpose="executive-summary">
+<div>
+<div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+<div class="flex items-center space-x-2 text-xs font-bold text-white">
+<span class="text-neon-green">[EXEC_SUMMARY]</span>
+<span class="">SYSTEMS PHILOSOPHY &amp; PROFILE</span>
+</div>
+<span class="text-[11px] text-gray-500 font-mono">EXP: 9+ YEARS</span>
+</div>
+<p class="text-gray-300 leading-relaxed mb-3">
+          I design, construct, and formalize high-throughput distributed state machines, asynchronous protocol runtimes, and low-latency storage engines. My work centers on eliminating allocation bottlenecks via zero-copy deserialization, custom arena allocators, and lock-free concurrency.
+        </p>
+<p class="text-gray-300 leading-relaxed mb-4">
+          Proven history scaling distributed infrastructures from thousands to millions of sustained requests per second, maintaining sub-millisecond P99s. Experienced with formal verification tooling (TLA+) to certify consensus correctness under catastrophic network partitions.
+        </p>
+<!-- Metric highlights -->
+<div class="grid grid-cols-3 gap-2 py-3 px-3 bg-terminal-950 border border-emerald-900/50 text-center">
+<div class="border-r border-emerald-900/50 pr-2">
+<div class="text-neon-green font-bold text-base md:text-lg">2.4M+</div>
+<div class="text-gray-400 text-[10px] uppercase tracking-wider">Peak QPS Handled</div>
+</div>
+<div class="border-r border-emerald-900/50 px-2">
+<div class="text-neon-cyan font-bold text-base md:text-lg">&lt; 1.2ms</div>
+<div class="text-gray-400 text-[10px] uppercase tracking-wider">Cluster P99 Latency</div>
+</div>
+<div class="pl-2">
+<div class="text-emerald-400 font-bold text-base md:text-lg">99.999%</div>
+<div class="text-gray-400 text-[10px] uppercase tracking-wider">State Machine Uptime</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-emerald-900/40 text-[11px] text-gray-400 flex flex-wrap justify-between items-center gap-2">
+<span class="">CORE MOTTO: <span class="text-emerald-300">Measure, profile with eBPF, optimize hot paths, verify.</span></span>
+<span class="text-neon-green font-semibold">[PROD_VERIFIED]</span>
+</div>
+</section>
+<!-- Section 2: Core Competencies / Technical Arsenal (Cols 8-12) -->
+<section class="lg:col-span-5 term-box corner-mark flex flex-col justify-between" data-purpose="operator-biometrics"><div class="w-full h-full relative p-2 md:p-3 flex items-center justify-center"><div class="relative w-full h-full min-h-[300px] border-2 border-neon-green/60 bg-terminal-950 shadow-[0_0_15px_rgba(0,255,102,0.15)] overflow-hidden flex items-center justify-center"><img alt="Pixel art portrait avatar of Alex Rivera" class="w-full h-full object-cover filter contrast-125 brightness-105" src="https://lh3.googleusercontent.com/aida/AEtjO1W_EedjtvD88zihlLkYVntnZ2rKr7CLg90O8wYQn5raHkeuvjktwEj6487zGDuPhFB_rBs3z3Dmuu47hEBlZZ5dJ7zWd1S3dW_z1cj0axpJEVWj0IxLtfroGxdYuS2_eO_8KRDgcx_BJTD3d_8eMKzVBIqT8lGXOGxvGXoGoOiEPKqCg5gLFjW8bzTtbSKLD6LfVbb9O-WU92DFYi4J_XT7NnaRXuDjp3CkPeRDnd5EfUSrylz_IhoiCg"><div class="absolute inset-0 bg-gradient-to-b from-neon-green/5 via-transparent to-black/30 pointer-events-none"></div></div></div></section>
+</div>
+<!-- ======================================================== -->
+<!-- SECTION 3: FEATURED PRODUCTION ENGINEERING PROJECTS      -->
+<!-- ======================================================== -->
+<section class="space-y-3" data-purpose="featured-projects" id="projects">
+<div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
+<div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
+<span class="text-neon-green">[PRODUCTION_SYSTEMS]</span>
+<span class="">FLAGSHIP ENGINEERING WORK</span>
+</div>
+<span class="text-xs text-gray-500 font-mono">3 AUDITED PRODUCTION ENGINES</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Project 1: Nexus-L2 -->
+<article class="term-box corner-mark p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-[11px] border-b border-emerald-900/50 pb-1.5 mb-2.5">
+<span class="text-neon-green font-semibold">ENGINE_01 // RUNTIME</span>
+<span class="bg-emerald-950 text-neon-green border border-neon-green/40 px-1.5 py-0.2 font-mono">PROD: LIVE</span>
+</div>
+<h3 class="text-base font-bold text-white tracking-wide glow-green font-mono">NEXUS-L2</h3>
+<p class="text-gray-300 text-xs mt-2 leading-relaxed">
+            Ultra-high-throughput optimistic execution engine built in Rust. Processes 120k+ transactions per second using zero-copy deserialization, lock-free ring buffers, and custom memory pools.
+          </p>
+<div class="mt-3.5 flex flex-wrap gap-1 text-[11px]">
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-green">Rust</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-green">eBPF</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-green">Tokio</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-gray-400">AVX2</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-emerald-950 flex items-center justify-between text-xs">
+<span class="text-neon-cyan font-bold font-mono">120K TPS // P99 &lt; 1.2ms</span>
+<a class="text-neon-green hover:underline font-semibold flex items-center gap-1" href="https://github.com" rel="noreferrer" target="_blank">
+            SOURCE_CODE →
+          </a>
+</div>
+</article>
+<!-- Project 2: Aether-Raft -->
+<article class="term-box corner-mark p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-[11px] border-b border-emerald-900/50 pb-1.5 mb-2.5">
+<span class="text-neon-cyan font-semibold">ENGINE_02 // CONSENSUS</span>
+<span class="bg-emerald-950 text-neon-cyan border border-neon-cyan/40 px-1.5 py-0.2 font-mono">AUDITED</span>
+</div>
+<h3 class="text-base font-bold text-white tracking-wide glow-cyan font-mono">AETHER-RAFT</h3>
+<p class="text-gray-300 text-xs mt-2 leading-relaxed">
+            Distributed consensus implementation with deterministic simulation testing in Go/C++. Survived rigorous chaos network partition tests via Jepsen framework with zero linearizability violations.
+          </p>
+<div class="mt-3.5 flex flex-wrap gap-1 text-[11px]">
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-cyan">Go</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-cyan">C++20</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-neon-cyan">Jepsen</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-gray-400">Raft</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-emerald-950 flex items-center justify-between text-xs">
+<span class="text-emerald-400 font-bold font-mono">LINEARIZABILITY VERIFIED</span>
+<a class="text-neon-cyan hover:underline font-semibold flex items-center gap-1" href="https://github.com" rel="noreferrer" target="_blank">
+            SPEC_DOCS →
+          </a>
+</div>
+</article>
+<!-- Project 3: Pulse-eBPF -->
+<article class="term-box corner-mark p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-[11px] border-b border-emerald-900/50 pb-1.5 mb-2.5">
+<span class="text-emerald-400 font-semibold">ENGINE_03 // OBSERVABILITY</span>
+<span class="bg-emerald-950 text-emerald-300 border border-emerald-500/40 px-1.5 py-0.2 font-mono">OPEN SOURCE</span>
+</div>
+<h3 class="text-base font-bold text-white tracking-wide glow-green font-mono">PULSE-eBPF</h3>
+<p class="text-gray-300 text-xs mt-2 leading-relaxed">
+            Real-time Linux kernel socket telemetry and latency monitoring daemon. Direct probe attachments to kprobes/tracepoints delivering kernel TCP metrics with &lt;0.4% CPU overhead.
+          </p>
+<div class="mt-3.5 flex flex-wrap gap-1 text-[11px]">
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-emerald-300">eBPF</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-emerald-300">C</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-emerald-300">Prometheus</span>
+<span class="bg-terminal-950 border border-emerald-800/60 px-2 py-0.5 text-gray-400">Linux 6.x</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-emerald-950 flex items-center justify-between text-xs">
+<span class="text-neon-green font-bold font-mono">&lt; 0.4% OVERHEAD</span>
+<a class="text-emerald-300 hover:underline font-semibold flex items-center gap-1" href="https://github.com" rel="noreferrer" target="_blank">
+            VIEW_REPO →
+          </a>
+</div>
+</article>
+</div>
+</section><section class="term-box corner-mark p-4 md:p-5 space-y-4" data-purpose="tech-arsenal-expanded">
+<div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
+<div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
+<span class="text-neon-green">[TECH_ARSENAL]</span>
+<span class="">COMPETENCY MATRIX &amp; CORE RUNTIME TOOLING</span>
+</div>
+<span class="text-xs text-neon-cyan font-mono">[RUST • GO • C++ • LINUX eBPF]</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+<div class="bg-terminal-950/70 border border-emerald-900/50 p-3.5 flex flex-col justify-between">
+<div>
+<div class="text-neon-green text-[11px] font-bold mb-2.5 flex items-center gap-1.5 border-b border-emerald-900/40 pb-1.5">
+<span class="">#</span> 01 // PROGRAMMING LANGUAGES
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 border border-neon-green/40 bg-neon-green/10 text-neon-green font-medium">Rust (Tokio, AVX2, SIMD)</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">Go (gRPC, netpoll)</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">C / C++20</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-gray-300">TypeScript / Node</span>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[10px] text-gray-500 font-mono flex justify-between">
+<span class="">PROFICIENCY</span>
+<span class="text-neon-green font-semibold">CORE / SYSTEMS LEVEL</span>
+</div>
+</div>
+<div class="bg-terminal-950/70 border border-emerald-900/50 p-3.5 flex flex-col justify-between">
+<div>
+<div class="text-neon-cyan text-[11px] font-bold mb-2.5 flex items-center gap-1.5 border-b border-emerald-900/40 pb-1.5">
+<span class="">#</span> 02 // SYSTEMS &amp; DISTRIBUTED INFRA
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan font-medium">Linux Kernel / eBPF</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">Raft Consensus</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">Kubernetes Operators</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-gray-300">Apache Kafka</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-gray-300">Envoy / QUIC</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-gray-300">Docker</span>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[10px] text-gray-500 font-mono flex justify-between">
+<span class="">ARCHITECTURE</span>
+<span class="text-neon-cyan font-semibold">DISTRIBUTED RUNTIMES</span>
+</div>
+</div>
+<div class="bg-terminal-950/70 border border-emerald-900/50 p-3.5 flex flex-col justify-between">
+<div>
+<div class="text-emerald-400 text-[11px] font-bold mb-2.5 flex items-center gap-1.5 border-b border-emerald-900/40 pb-1.5">
+<span class="">#</span> 03 // STORAGE &amp; PERSISTENCE
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">ClickHouse (OLAP)</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">RocksDB (LSM Engine)</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-emerald-300">PostgreSQL</span>
+<span class="px-2 py-0.5 border border-emerald-500/30 bg-terminal-950 text-gray-300">Redis Clusters</span>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[10px] text-gray-500 font-mono flex justify-between">
+<span class="">DATA ENGINES</span>
+<span class="text-emerald-400 font-semibold">HIGH-IOPS / ZERO-COPY</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- SECTION 4 & 5: ENGINEERING MILESTONES & DIRECT CONTACT    -->
+<!-- ======================================================== -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5" id="contact">
+<!-- Section 4: Engineering Milestones & Career Log (Cols 1-7) -->
+<section class="lg:col-span-7 term-box corner-mark p-4 md:p-5" data-purpose="career-milestones">
+<div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+<div class="flex items-center space-x-2 text-xs font-bold text-white">
+<span class="text-neon-green">[CAREER_TIMELINE]</span>
+<span class="">SIGNIFICANT ENGINEERING COMMITS</span>
+</div>
+<span class="text-[11px] text-gray-500 font-mono">2018 — PRESENT</span>
+</div>
+<div class="space-y-3.5 text-xs">
+<!-- Milestone 1 -->
+<div class="border-l-2 border-neon-green pl-3.5 relative">
+<div class="flex items-baseline justify-between gap-2 flex-wrap">
+<span class="font-bold text-white text-sm">Staff Infrastructure Architect @ ScaleTech</span>
+<span class="text-neon-green font-mono text-[11px]">2024 — PRESENT</span>
+</div>
+<p class="text-gray-300 mt-1 leading-relaxed">
+            Leading the multi-region distributed query mesh. Designed zero-copy execution pipelines and async consensus layers handling 2.4M QPS across 12 datacenters.
+          </p>
+</div>
+<!-- Milestone 2 -->
+<div class="border-l-2 border-neon-cyan pl-3.5 relative">
+<div class="flex items-baseline justify-between gap-2 flex-wrap">
+<span class="font-bold text-white text-sm">Principal Systems Engineer @ ApexCloud</span>
+<span class="text-neon-cyan font-mono text-[11px]">2021 — 2024</span>
+</div>
+<p class="text-gray-300 mt-1 leading-relaxed">
+            Rewrote the ingress edge routing layer in Rust + Envoy eBPF filters. Cut P99 tail latency from 24ms to 1.42ms and reduced fleet infrastructure spend by 40%.
+          </p>
+</div>
+<!-- Milestone 3 -->
+<div class="border-l-2 border-emerald-600 pl-3.5 relative">
+<div class="flex items-baseline justify-between gap-2 flex-wrap">
+<span class="font-bold text-white text-sm">Senior Distributed Systems Eng @ VectorDB</span>
+<span class="text-emerald-400 font-mono text-[11px]">2018 — 2021</span>
+</div>
+<p class="text-gray-300 mt-1 leading-relaxed">
+            Authored storage engine LSM compaction algorithms and Raft state-machine replication logic. Managed high-throughput multi-tenant indexing at scale.
+          </p>
+</div>
+</div>
+</section>
+<!-- Section 5: Direct Uplink / Contact Card (Cols 8-12) -->
+<section class="lg:col-span-5 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" data-purpose="direct-contact">
+<div>
+<div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+<div class="flex items-center space-x-2 text-xs font-bold text-white">
+<span class="text-neon-cyan">[DIRECT_UPLINK]</span>
+<span class="">GET IN TOUCH</span>
+</div>
+<span class="text-[11px] text-neon-green font-mono font-semibold">PGP SIGNED</span>
+</div>
+<p class="text-gray-300 text-xs leading-relaxed mb-4">
+          Always open to discussing Staff / Principal Systems Architect roles, high-throughput backend advisory, and low-level performance consulting.
+        </p>
+<!-- Direct Contact Info Rows -->
+<div class="space-y-2 text-xs font-mono">
+<div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+<span class="text-gray-400">EMAIL:</span>
+<a class="text-neon-green hover:underline font-semibold" href="mailto:alex.rivera.systems@gmail.com">alex.rivera.systems@gmail.com</a>
+</div>
+<div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+<span class="text-gray-400">GITHUB:</span>
+<a class="text-neon-cyan hover:underline font-semibold" href="https://github.com/alexrivera-eng" rel="noreferrer" target="_blank">github.com/alexrivera-eng</a>
+</div>
+<div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+<span class="text-gray-400">LINKEDIN:</span>
+<a class="text-emerald-300 hover:underline font-semibold" href="https://linkedin.com" rel="noreferrer" target="_blank">linkedin.com/in/alexrivera-sys</a>
+</div>
+<div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+<span class="text-gray-400">SIGNAL / TELEGRAM:</span>
+<span class="text-white font-semibold">@alexrivera_sys</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-emerald-900/50 flex justify-between items-center text-xs font-mono">
+<span class="text-gray-500">PGP FINGERPRINT:</span>
+<span class="text-neon-green font-bold">7F8A 29BC 41DE 9082</span>
+</div>
+</section>
+</div>
+<!-- ======================================================== -->
+<!-- FOOTER STATUS LINE                                       -->
+<!-- ======================================================== -->
+<footer class="term-box corner-mark p-3 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-2" data-purpose="footer-status">
+<div class="flex items-center space-x-3">
+<span class="text-neon-green flex items-center gap-1.5 font-semibold">
+<span class="w-2 h-2 bg-neon-green inline-block rounded-full animate-pulse"></span>
+        NODE: ONLINE
+      </span>
+<span class="text-gray-500">|</span>
+<span class="">STACK: RUST / LINUX / eBPF / DISTRIBUTED RAFT</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="">SAN FRANCISCO, CA • REMOTE</span>
+<span class="text-emerald-400">© 2025 ALEX RIVERA</span>
+</div>
+</footer>
+</div>
+
+
+</body></html>

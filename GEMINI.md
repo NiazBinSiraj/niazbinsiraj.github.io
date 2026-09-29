@@ -2,15 +2,16 @@
 
 ## Project Overview
 
-This is a **personal portfolio website** for Niaz Bin Siraj, a Software Engineer specializing in backend development. The site is hosted on **GitHub Pages** at [niazbinsiraj.com](https://niazbinsiraj.com) and uses a **terminal/CLI-themed** design aesthetic — dark backgrounds, green monospace text, and command-prompt style section headers.
+This is a **personal portfolio website** for Niaz Bin Siraj, a Software Engineer specializing in backend development. The site is hosted on **GitHub Pages** at [niazbinsiraj.com](https://niazbinsiraj.com) and uses a **terminal/CLI-themed** design aesthetic — dark backgrounds, neon green/cyan monospace text, terminal-box card containers with corner marks, and a full-width centered single-page layout.
 
 ## Tech Stack
 
 - **HTML5** — Single-page layout in `index.html`
-- **Tailwind CSS** — Loaded via CDN (`cdn.tailwindcss.com`), used for utility-first styling
-- **Vanilla CSS** — Custom terminal-themed styles in `style.css` (CSS custom properties, animations, component styles)
-- **Vanilla JavaScript** — All interactivity in `script.js` (no framework, no build step)
-- **Font Awesome 6.4** — Icon library loaded via CDN
+- **Tailwind CSS** — Loaded via CDN (`cdn.tailwindcss.com` with forms and container-queries plugins), with custom theme config for terminal colors
+- **Vanilla CSS** — Custom terminal-themed styles in `style.css` (preloader animations, term-box cards, corner marks, glow effects)
+- **Vanilla JavaScript** — All interactivity in `script.js` (data loading, rendering, preloader)
+- **JetBrains Mono** — Primary font loaded via Google Fonts
+- **Font Awesome 6.5** — Icon library loaded via CDN
 - **Google Analytics** — Tracking via `gtag.js` (ID: `G-JPS05NB1F4`)
 
 There is **no build step, no bundler, no package manager**. The site is served as static files directly.
@@ -19,10 +20,14 @@ There is **no build step, no bundler, no package manager**. The site is served a
 
 ```
 ├── index.html              # Single-page HTML (all sections)
-├── script.js               # All JavaScript logic (navigation, data loading, rendering)
-├── style.css               # Custom CSS with terminal-theme variables and component styles
+├── script.js               # All JavaScript logic (data loading, rendering, preloader)
+├── style.css               # Custom CSS with terminal-theme styles
+├── niaz.png                # Pixel-art profile image (hero section)
 ├── CNAME                   # Custom domain: niazbinsiraj.com
 ├── .gitignore              # Comprehensive ignore rules
+├── reference/              # Design reference files (not part of the live site)
+│   ├── screen.png          # Reference screenshot
+│   └── code.html           # Reference code
 └── static/
     ├── db/                 # JSON data files (content source of truth)
     │   ├── skills.json
@@ -32,10 +37,14 @@ There is **no build step, no bundler, no package manager**. The site is served a
     │   ├── achievements.json
     │   └── competitions.json
     └── images/
-        └── profile.jpg     # Profile photo
+        └── profile.jpg     # Profile photo (used in preloader)
 ```
 
 ## Architecture & Data Flow
+
+### Layout Design
+
+The site uses a **single-page, full-width centered layout** (max-width: 6xl / 1152px). There is **no sidebar navigation**. Instead, sections flow vertically with terminal-box containers (`term-box` class) and corner mark decorations (`corner-mark` class). Navigation is via anchor links in the header.
 
 ### Data-Driven Rendering
 
@@ -47,24 +56,20 @@ All section content (skills, experience, education, projects, achievements, comp
 
 **To update portfolio content**, edit the JSON files in `static/db/` — do **not** hard-code content into `index.html`.
 
-### Navigation
-
-- **Desktop**: Fixed left sidebar (`#sidebar`, 320px wide) with navigation links, profile photo, and social icons.
-- **Mobile**: Sidebar is hidden off-screen and toggled via a hamburger button (`#mobile-menu-btn`) with an overlay (`#mobile-overlay`).
-- Active section highlighting is handled by an `IntersectionObserver`-based scroll listener.
-
 ### Sections (in page order)
 
-| Section ID       | Description                       |
-|------------------|-----------------------------------|
-| `#about`         | Bio and specializations           |
-| `#skills`        | Technical skills by category      |
-| `#experience`    | Work history timeline             |
-| `#education`     | Academic background               |
-| `#projects`      | Portfolio projects with tech stack |
-| `#achievements`  | Awards and certifications         |
-| `#competitions`  | Programming contest results       |
-| `#contacts`      | Email, phone, social links        |
+| Section ID       | Description                                     | Layout              |
+|------------------|-------------------------------------------------|---------------------|
+| `#header`        | Terminal bar, name, title, quick action links    | Full-width          |
+| `#about`         | Executive summary with metrics + profile image  | 7-col + 5-col grid  |
+| `#projects`      | Featured engineering projects                    | 3-column cards      |
+| `#skills`        | Technical competency matrix                      | 3-column grid       |
+| `#experience`    | Career timeline + education                      | 7-col + 5-col grid  |
+| `#education`     | Academic background (in same grid as experience)| Part of above grid   |
+| `#achievements`  | Awards and certifications                        | 6-col + 6-col grid  |
+| `#competitions`  | Programming contest results                      | Part of above grid   |
+| `#contact`       | Contact details in 2-column grid                 | Full-width          |
+| Footer           | Status line with stack info                      | Full-width          |
 
 ## Data Formats (`static/db/`)
 
@@ -74,25 +79,23 @@ All portfolio content lives in JSON files under `static/db/`. Each file is fetch
 
 A flat object where each key is a skill category and the value is an array of skill name strings. The category keys rendered by `script.js` are:
 
-| Key            | Card Title                | Icon               |
-|----------------|---------------------------|--------------------|
-| `languages`    | Programming Languages     | `fas fa-code`      |
-| `frameworks`   | Frameworks & Libraries    | `fas fa-layer-group`|
-| `databases`    | Databases & ORM           | `fas fa-database`  |
-| `tools`        | Tools & Technologies      | `fas fa-tools`     |
-| `ai_tools`     | AI & Development Tools    | `fas fa-robot`     |
-| `testing`      | Testing & Quality         | `fas fa-check-circle` |
-
-> **Note**: The `methodologies` key exists in the JSON but is **not** rendered — it has no matching entry in the `skillCategories` array in `script.js`. To display it, add a new entry to that array.
+| Key            | Card Title                | Color Variant   |
+|----------------|---------------------------|-----------------|
+| `languages`    | PROGRAMMING LANGUAGES     | neon-green      |
+| `frameworks`   | FRAMEWORKS & LIBRARIES    | neon-cyan       |
+| `databases`    | DATABASES & MESSAGING     | emerald-400     |
+| `tools`        | CLOUD & DEVOPS            | neon-green      |
+| `ai_tools`     | AI & LLM TOOLS            | neon-cyan       |
+| `testing`      | TESTING & QUALITY         | emerald-400     |
 
 ```json
 {
-  "languages": ["Java", "JavaScript", "TypeScript"],
-  "frameworks": ["Spring Boot", "React"],
-  "databases": ["Oracle", "MySQL"],
-  "tools": ["Docker", "Git"],
-  "ai_tools": ["Github Copilot"],
-  "testing": ["JUnit", "Mockito"]
+  "languages": ["Java 8/21", "JavaScript", "Python"],
+  "frameworks": ["Spring", "Spring Boot"],
+  "databases": ["Oracle", "PostgreSQL"],
+  "tools": ["Git", "Docker"],
+  "ai_tools": ["LangGraph", "MCP"],
+  "testing": ["JUnit", "Playwright"]
 }
 ```
 
@@ -110,23 +113,6 @@ Wrapped in an `"experiences"` array. Each entry has:
 | `duration`          | `string`   | ✅       | Time range (e.g., `"Jun 2022 - Present"`) |
 | `responsibilities`  | `string[]` | ✅       | List of bullet points for the role   |
 
-```json
-{
-  "experiences": [
-    {
-      "company": "Therap (BD) Ltd.",
-      "position": "Software Engineer II",
-      "location": "Dhaka, Bangladesh",
-      "duration": "Jun 2022 - Present",
-      "responsibilities": [
-        "Designed and implemented a history-based Aging Report Generation System...",
-        "Led development of the Nebraska State Integration Billing Flow..."
-      ]
-    }
-  ]
-}
-```
-
 ---
 
 ### `education.json`
@@ -141,24 +127,8 @@ Wrapped in an `"education"` array. Each entry has:
 | `cgpa`         | `string`   | ✅       | GPA with scale (e.g., `"3.30/4.00"`)    |
 | `location`     | `string`   | ❌       | City, country. Rendered only if present |
 | `coursework`   | `string[]` | ✅       | List of relevant courses                |
-| `activities`   | `string[]` | ❌       | Extracurricular activities. Rendered only if present |
-| `subjects`     | `string[]` | ❌       | Key subjects. Rendered only if present  |
-
-```json
-{
-  "education": [
-    {
-      "institution": "University of Rajshahi",
-      "degree": "Bachelor of Science in Computer Science and Engineering",
-      "duration": "2017 - 2022",
-      "cgpa": "3.30/4.00",
-      "location": "Dhaka, Bangladesh",
-      "coursework": ["Data Structures and Algorithms", "Database Management Systems"],
-      "activities": ["Programming Club Member"]
-    }
-  ]
-}
-```
+| `activities`   | `string[]` | ❌       | Extracurricular activities              |
+| `subjects`     | `string[]` | ❌       | Key subjects                            |
 
 ---
 
@@ -175,24 +145,6 @@ Wrapped in a `"projects"` array. Each entry has:
 | `github`      | `string`   | ❌       | GitHub repo URL. Pass `""` to hide the button      |
 | `demo`        | `string`   | ❌       | Live demo URL. Pass `""` to hide the button        |
 
-```json
-{
-  "projects": [
-    {
-      "title": "Professional Email Service API",
-      "description": "A clean, secure REST API for sending emails via Gmail SMTP.",
-      "techStack": ["Node.js", "Express.js", "Nodemailer"],
-      "features": [
-        "Modular clean architecture with separation of concerns",
-        "Gmail SMTP integration with support for multiple recipients"
-      ],
-      "github": "https://github.com/NiazBinSiraj/email-service",
-      "demo": "https://niazbinsiraj.github.io/email-service/"
-    }
-  ]
-}
-```
-
 ---
 
 ### `achievements.json`
@@ -205,21 +157,7 @@ Wrapped in an `"achievements"` array. Each entry has:
 | `issuer`         | `string` | ✅       | Awarding organization                     |
 | `date`           | `string` | ✅       | Date or year                              |
 | `description`    | `string` | ✅       | Brief description of the achievement      |
-| `certificateUrl` | `string` | ❌       | Link to certificate. Rendered only if present |
-
-```json
-{
-  "achievements": [
-    {
-      "title": "Champion, National Round",
-      "issuer": "Children Science Congress",
-      "date": "2014",
-      "description": "Awarded first place in the Research Paper Presentation.",
-      "certificateUrl": "https://drive.google.com/file/d/..."
-    }
-  ]
-}
-```
+| `certificateUrl` | `string` | ❌       | Link to certificate                       |
 
 ---
 
@@ -234,20 +172,6 @@ Wrapped in a `"competitions"` array. Each entry has:
 | `rank`        | `string` | ✅       | Placement (e.g., `"118th"`, `"Top 10"`)       |
 | `team`        | `string` | ✅       | Team name or `"Individual"`                   |
 | `description` | `string` | ✅       | Brief description of the result               |
-
-```json
-{
-  "competitions": [
-    {
-      "name": "ACM ICPC Dhaka Regional Online Preliminary",
-      "year": "2020",
-      "rank": "118th",
-      "team": "RU_Baby_Step_Giant_Step",
-      "description": "Represented University of Rajshahi in the ACM ICPC Dhaka Regional."
-    }
-  ]
-}
-```
 
 ---
 
@@ -264,9 +188,9 @@ Adding a completely new section (e.g., "Publications") requires changes in **thr
 
 1. **Create the data file** — `static/db/publications.json` with your chosen schema.
 2. **Add HTML skeleton** in `index.html`:
-   - Add a new `<section>` element with `id="publications"` and `class="section"`, following the terminal-header pattern.
+   - Add a new `<section>` element with `id="publications"` and appropriate `term-box corner-mark` classes, following the existing section patterns.
    - Add an empty container `<div id="publications-container">`.
-   - Add a sidebar navigation `<li>` entry.
+   - Add a header link in the header's quick action area.
 3. **Add JS rendering** in `script.js`:
    - Create `loadPublications()`, `renderPublications()`, and `createPublicationCard()` functions following the existing pattern.
    - Add `loadPublications()` to the `Promise.all()` call inside `loadAllData()`.
@@ -276,28 +200,28 @@ Adding a completely new section (e.g., "Publications") requires changes in **thr
 ### Terminal Theme
 
 The entire site follows a **terminal/command-line** visual metaphor:
-- Section headers are styled as shell commands (e.g., `$ cat about.txt`, `$ ls -la skills/`)
-- Cards include terminal prompts (`niaz@backend:~$`)
-- Color palette is defined in CSS custom properties:
-  - `--terminal-bg`: `#0f172a` (dark navy)
-  - `--terminal-secondary`: `#1e293b` (slightly lighter)
-  - `--terminal-accent`: `#22c55e` (green)
-  - `--terminal-text`: `#10b981` (emerald)
-  - `--terminal-border`: `#22c55e` (green)
-- Font: `font-mono` (Tailwind) and `'Courier New', monospace` (CSS)
+- All sections use `term-box` containers with `corner-mark` decorations (+ signs at corners)
+- Section headers use bracket notation (e.g., `[EXEC_SUMMARY]`, `[TECH_ARSENAL]`)
+- Color palette uses Tailwind custom colors defined in the config:
+  - `neon-green`: `#00FF66` (primary accent)
+  - `neon-mint`: `#10B981` (secondary accent)
+  - `neon-emerald`: `#05DF72` (tertiary accent)
+  - `neon-cyan`: `#00F0FF` (highlights)
+  - Terminal background: `#060908` (body), `#090e0c` (cards)
+- Font: JetBrains Mono (Google Fonts)
+- Grid background pattern with subtle green lines
 
 ### CSS Organization
 
-- **CSS custom properties** for theming are defined in `:root` in `style.css`
-- **Component classes** (`.skill-card`, `.experience-card`, `.project-card`, `.achievement-card`, `.competition-card`) handle card-specific styling
-- **Animation classes** (`.hover-lift`, `.fade-in-up`, `.stagger-1` through `.stagger-6`) provide entrance and interaction animations
-- **Tailwind CSS** handles layout, spacing, and responsive utilities in `index.html`
+- **Preloader styles** at the top of `style.css`
+- **Core terminal theme** — body background, `term-box`, `corner-mark`, glow effects
+- **Animation classes** — `hover-lift`, `fade-in-up`, stagger delays
+- **Responsive adjustments** for mobile
 
 ### Naming Conventions
 
 - Container IDs follow the pattern: `{section}-container` (e.g., `skills-container`, `experience-container`)
-- Navigation links use class `.nav-link`
-- CSS classes use kebab-case (e.g., `hover-lift`, `skill-card`, `tech-badge`)
+- CSS classes use kebab-case (e.g., `term-box`, `corner-mark`, `glow-green`)
 - JavaScript functions follow `camelCase` with patterns:
   - `load*()` — fetches JSON data
   - `render*()` — orchestrates rendering
@@ -313,8 +237,8 @@ The entire site follows a **terminal/command-line** visual metaphor:
 ## Guidelines for Changes
 
 1. **Content updates**: Modify JSON files in `static/db/`. Do not inline content into HTML.
-2. **Styling**: Prefer using existing CSS custom properties and Tailwind utilities. Add new component classes to `style.css` following the terminal theme.
-3. **New sections**: Add the HTML skeleton in `index.html`, create a corresponding JSON data file, and add `load*()` / `render*()` / `create*Card()` functions in `script.js`. Update the sidebar navigation.
-4. **Preserve the terminal aesthetic**: All new UI elements should use the green-on-dark color scheme, monospace fonts, and terminal-command-style headers.
+2. **Styling**: Use the Tailwind custom theme config and existing CSS patterns. New cards should use `term-box corner-mark` classes.
+3. **New sections**: Add HTML skeleton in `index.html`, create a corresponding JSON data file, and add `load*()` / `render*()` / `create*Card()` functions in `script.js`.
+4. **Preserve the terminal aesthetic**: All new UI elements should use the neon-green/cyan color scheme, JetBrains Mono font, term-box containers, and bracket-style headers.
 5. **No build tools**: Keep the site as plain static files. Do not introduce bundlers, transpilers, or package managers unless explicitly requested.
-6. **External link**: The sidebar includes a link to the blog at `blog.niazbinsiraj.com` which opens in a new tab.
+6. **External link**: The header includes a link to the blog at `blog.niazbinsiraj.com` which opens in a new tab.

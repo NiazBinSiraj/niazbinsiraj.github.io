@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niaz Bin Siraj - Software Engineer II</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>NIAZ BIN SIRAJ // SOFTWARE ENGINEER II</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Niaz Bin Siraj — Software Engineer specializing in Java/Spring Boot backend systems, AI-native architecture, LLM integration, and context engineering. Currently at Therap (BD) Ltd.">
@@ -33,10 +32,55 @@
     <link rel="icon" type="image/png" sizes="192x192" href="static/images/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terminal: {
+                            950: '#030504',
+                            900: '#070a08',
+                            850: '#0c120f',
+                            800: '#121a16',
+                            700: '#1a2922',
+                            border: 'rgba(16, 185, 129, 0.22)',
+                        },
+                        neon: {
+                            green: '#00FF66',
+                            mint: '#10B981',
+                            emerald: '#05DF72',
+                            cyan: '#00F0FF',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'Space Mono', 'Courier New', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
-
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPS05NB1F4"></script>
@@ -44,361 +88,353 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-JPS05NB1F4');
     </script>
-
 </head>
+<body class="min-h-screen text-xs md:text-sm antialiased selection:bg-neon-green selection:text-black py-4 md:py-6 px-3 md:px-8">
 
-<body class="bg-gray-900 font-mono text-green-400">
-    <!-- Preloader Overlay -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <!-- Orbiting Rings + Profile Photo -->
-            <div class="orbit-container">
-                <div class="orbit-ring orbit-ring-1"></div>
-                <div class="orbit-ring orbit-ring-2"></div>
-                <div class="orbit-ring orbit-ring-3"></div>
-                <!-- Orbiting dots -->
-                <div class="orbit-dot orbit-dot-1"></div>
-                <div class="orbit-dot orbit-dot-2"></div>
-                <div class="orbit-dot orbit-dot-3"></div>
-                <div class="orbit-dot orbit-dot-4"></div>
-                <!-- Center crosshair glow -->
-                <div class="center-glow"></div>
-                <!-- Profile photo -->
-                <div class="preloader-photo-wrapper">
-                    <img src="static/images/profile.jpg" alt="Niaz Bin Siraj" class="preloader-photo">
-                </div>
+<!-- Preloader Overlay -->
+<div id="preloader" class="preloader">
+    <div class="preloader-content">
+        <div class="orbit-container">
+            <div class="orbit-ring orbit-ring-1"></div>
+            <div class="orbit-ring orbit-ring-2"></div>
+            <div class="orbit-ring orbit-ring-3"></div>
+            <div class="orbit-dot orbit-dot-1"></div>
+            <div class="orbit-dot orbit-dot-2"></div>
+            <div class="orbit-dot orbit-dot-3"></div>
+            <div class="orbit-dot orbit-dot-4"></div>
+            <div class="center-glow"></div>
+            <div class="preloader-photo-wrapper">
+                <img src="niaz.png" alt="Niaz Bin Siraj" class="preloader-photo">
             </div>
-            <!-- Name -->
-            <h1 class="preloader-name">NIAZ BIN SIRAJ</h1>
-            <!-- Title -->
-            <p class="preloader-title">SOFTWARE ENGINEER II</p>
-            <!-- Progress bar -->
-            <div class="preloader-progress-track">
-                <div class="preloader-progress-fill" id="preloader-progress"></div>
-            </div>
-            <!-- Status text -->
-            <p class="preloader-status" id="preloader-status">INITIALIZING SYSTEM...</p>
+        </div>
+        <h1 class="preloader-name">NIAZ BIN SIRAJ</h1>
+        <p class="preloader-title">SOFTWARE ENGINEER II</p>
+        <div class="preloader-progress-track">
+            <div class="preloader-progress-fill" id="preloader-progress"></div>
+        </div>
+        <p class="preloader-status" id="preloader-status">INITIALIZING SYSTEM...</p>
+    </div>
+</div>
+
+<!-- Central Container -->
+<!-- Fixed Navbar — appears on scroll -->
+<nav id="fixed-navbar" class="fixed top-0 left-0 right-0 z-50 bg-terminal-900/95 backdrop-blur-md border-b border-emerald-900/50 transform -translate-y-full transition-transform duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
+        <a href="#header" class="text-white font-bold text-sm tracking-wide hover:text-neon-green transition-colors">
+            NIAZ BIN SIRAJ
+        </a>
+        <div class="flex items-center gap-1.5 text-[10px] font-semibold">
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#about">[ABOUT]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#projects">[PROJECTS]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#skills">[SKILLS]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#experience">[EXPERIENCE]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#education">[EDUCATION]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#achievements">[ACHIEVEMENTS]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-emerald-300 hover:border-neon-green hover:text-neon-green transition-all" href="#competitions">[COMPETITIONS]</a>
+            <a class="px-2 py-1 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all" href="#contact">[CONTACT]</a>
+            <a class="px-2 py-1 border border-emerald-500/30 text-gray-400 hover:text-white hover:border-gray-300 transition-all" href="https://blog.niazbinsiraj.com" target="_blank">BLOG</a>
         </div>
     </div>
+</nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="mobile-menu-btn"
-        class="lg:hidden fixed top-4 left-4 z-50 bg-gray-800/90 text-green-400 p-2.5 rounded-lg shadow-lg border border-green-500 backdrop-blur-sm">
-        <i class="fas fa-bars text-sm"></i>
-    </button>
+<div class="max-w-6xl mx-auto space-y-5">
 
-    <!-- Sidebar for Desktop / Mobile Menu -->
-    <nav id="sidebar"
-        class="fixed left-0 top-0 h-full w-80 bg-gray-800 border-r border-green-500 shadow-xl transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40 overflow-y-auto flex flex-col justify-center">
-        <div class="p-4 flex-shrink-0">
-            <!-- Profile Section -->
-            <div class="text-center mb-8 pt-2">
-                <div class="relative inline-block mb-5">
-                    <div class="profile-glow-ring w-40 h-40 rounded-full mx-auto flex items-center justify-center">
-                        <img id="profile-image" src="static/images/profile.jpg" alt="Niaz Bin Siraj"
-                            class="w-36 h-36 rounded-full border-2 border-green-500/50 shadow-lg object-cover">
-                    </div>
-                </div>
-                <h1 class="text-xl font-bold text-green-400 mb-1 tracking-wide">NIAZ BIN SIRAJ</h1>
-                <p class="text-green-300 font-medium text-sm">Software Engineer II</p>
-                <p class="text-gray-400 text-xs mt-1 mb-4">Architecting Agentic AI and Platform Infrastructure</p>
-                <div class="w-16 h-px bg-green-500 mx-auto"></div>
+    <!-- ======================================================== -->
+    <!-- HEADER & IDENTITY TERMINAL BAR                            -->
+    <!-- ======================================================== -->
+    <header class="term-box corner-mark p-4 md:p-5" id="header">
+
+        <!-- Identity & Actions Row -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white glow-green font-mono">
+                    NIAZ BIN SIRAJ
+                </h1>
+                <p class="text-neon-green text-xs md:text-sm font-medium mt-1 tracking-wide">
+                    SOFTWARE ENGINEER II @ THERAP (BD) LTD.
+                </p>
+                <p class="text-gray-400 text-xs mt-1 max-w-2xl leading-relaxed">
+                    Backend Systems • AI-Native Architecture • LLM Integration • Context Engineering • Spring Boot & Java
+                </p>
             </div>
-
-            <!-- Navigation Menu -->
-            <ul class="space-y-1">
-                <li><a href="#about"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">About Me</span>
-                    </a></li>
-                <li><a href="#skills"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Skills</span>
-                    </a></li>
-                <li><a href="#experience"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Experience</span>
-                    </a></li>
-                <li><a href="#education"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Education</span>
-                    </a></li>
-                <li><a href="#projects"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Projects</span>
-                    </a></li>
-                <li><a href="#achievements"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Achievements</span>
-                    </a></li>
-                <li><a href="#competitions"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Competitions</span>
-                    </a></li>
-                <li><a href="#contacts"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Contacts</span>
-                    </a></li>
-                <li><a href="https://blog.niazbinsiraj.com" target="_blank"
-                        class="nav-link flex items-center py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-green-400 rounded-lg transition-all border border-transparent hover:border-green-500">
-                        <span class="text-green-500 mr-2 text-sm">$</span><span class="text-sm">Blog</span>
-                    </a></li>
-            </ul>
-
-            <!-- Social Icons -->
-            <div class="mt-8 pt-6 border-t border-gray-700">
-                <div class="flex justify-center space-x-4">
-                    <a href="https://github.com/NiazBinSiraj" target="_blank"
-                        class="w-10 h-10 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                        title="GitHub">
-                        <i class="fab fa-github text-sm group-hover:scale-110 transition-transform"></i>
-                    </a>
-
-                    <a href="https://linkedin.com/in/niazbinsiraj" target="_blank"
-                        class="w-10 h-10 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                        title="LinkedIn">
-                        <i class="fab fa-linkedin text-sm group-hover:scale-110 transition-transform"></i>
-                    </a>
-
-                    <a href="https://www.facebook.com/niazbinsiraj/" target="_blank"
-                        class="w-10 h-10 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                        title="Facebook">
-                        <i class="fab fa-facebook-f text-sm group-hover:scale-110 transition-transform"></i>
-                    </a>
-
-                    <a href="https://x.com/niazbinsiraj" target="_blank"
-                        class="w-10 h-10 bg-gray-800 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 hover:scale-110 group"
-                        title="X">
-                        <i class="fab fa-x-twitter text-sm group-hover:scale-110 transition-transform"></i>
-                    </a>
-
-                </div>
+            <!-- Quick Action Terminal Links -->
+            <div class="grid grid-cols-5 gap-2 text-[11px] font-semibold w-3/5 ml-auto text-center">
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#about">[ABOUT]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#projects">[PROJECTS]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#skills">[SKILLS]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#experience">[EXPERIENCE]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#education">[EDUCATION]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#achievements">[ACHIEVEMENTS]</a>
+                <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#competitions">[COMPETITIONS]</a>
+                <a class="py-1.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all whitespace-nowrap" href="#contact">[CONTACT]</a>
+                <a class="py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://github.com/NiazBinSiraj" rel="noreferrer" target="_blank">GITHUB &gt;</a>
+                <a class="py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://blog.niazbinsiraj.com" target="_blank">BLOG &gt;</a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-75 z-30 hidden"></div>
-
-    <!-- Main Content -->
-    <main class="lg:ml-80 min-h-screen bg-gray-900">
-        <!-- About Section -->
-        <section id="about" class="section pt-16 pb-12 px-4 sm:py-20 sm:px-8 lg:min-h-screen lg:flex lg:items-center">
-            <div class="max-w-4xl mx-auto w-full">
-                <!-- Mobile Header -->
-                <div class="lg:hidden text-center mb-8 border border-green-500 rounded-lg p-6 bg-gray-800">
-                    <img src="static/images/profile.jpg" alt="Niaz Bin Siraj"
-                        class="w-40 h-40 rounded-full border-4 border-green-500 shadow-lg mx-auto mb-4 object-cover">
-                    <h2 class="text-2xl sm:text-4xl font-bold text-green-400 mb-2">Niaz Bin Siraj</h2>
-                    <p class="text-xl text-green-300 font-medium">Software Engineer II</p>
-                    <p class="text-base text-gray-400 mt-1">Architecting Agentic AI and Platform Infrastructure</p>
+    <!-- ======================================================== -->
+    <!-- 2-COLUMN: EXECUTIVE SUMMARY & PROFILE IMAGE               -->
+    <!-- ======================================================== -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Executive Summary (Cols 1-7) -->
+        <section class="lg:col-span-7 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="about">
+            <div>
+                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                        <span class="text-neon-green text-base font-extrabold">[ABOUT]</span>
+                        <span class="">ENGINEERING PROFILE & PHILOSOPHY</span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 font-mono">EXP: 3+ YEARS</span>
                 </div>
-                <!-- Desktop Header -->
-                <h2 class="hidden lg:block text-5xl font-bold text-green-400 mb-8 text-center">Hi! I'm Niaz 👋</h2>
-                <div class="bg-gray-800 border border-green-500 rounded-xl shadow-lg p-4 sm:p-8">
-                    <div class="flex flex-col lg:flex-row items-center gap-8">
-                        <div class="flex-1">
-                            <div class="mb-4">
-                                <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                                <span class="text-green-400">cat profile.txt</span>
-                            </div>
-                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
-                                style="line-height: 1.75;">
-                                > Software Engineer at Therap (BD) Ltd. with 3+ years of experience building
-                                scalable backend systems in Java and Spring Boot. I specialize in AI-native
-                                architecture, system optimization, and production-grade reliability. My recent work
-                                includes building LLM-powered data assistants that handle millions of healthcare
-                                claims with sub-second analytics, and designing zero-leakage SQL security layers
-                                for multi-tenant architectures.
-                            </p>
-                            <p class="text-sm sm:text-lg text-slate-200 leading-relaxed mb-4 sm:mb-6 font-mono text-justify"
-                                style="line-height: 1.75;">
-                                > Beyond enterprise systems, I am deeply invested in context engineering and agentic
-                                workflows. I build developer tooling that accelerates productivity, including
-                                context-aware AI workflows using MCP that reduced development time by 40% on a
-                                large-scale legacy monolith.
-                            </p>
-                            <div class="mb-4">
-                                <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                                <span class="text-green-400">ls specializations/</span>
-                            </div>
-                            <div class="flex flex-wrap gap-2 sm:gap-4">
-                                <span
-                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">ai_native_architecture/</span>
-                                <span
-                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">context_engineering/</span>
-                                <span
-                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">agentic_workflows/</span>
-                                <span
-                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">backend_systems/</span>
-                                <span
-                                    class="bg-gray-700 text-green-400 px-2 sm:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm font-mono border border-green-600">system_optimization/</span>
-                            </div>
-                        </div>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Software Engineer at Therap (BD) Ltd. with 3+ years of experience building scalable backend systems in Java and Spring Boot. I specialize in AI-native architecture, system optimization, and production-grade reliability. My recent work includes building LLM-powered data assistants that handle millions of healthcare claims with sub-second analytics, and designing zero-leakage SQL security layers for multi-tenant architectures.
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    Beyond enterprise systems, I am deeply invested in context engineering and agentic workflows. I build developer tooling that accelerates productivity, including context-aware AI workflows using MCP that reduced development time by 40% on a large-scale legacy monolith.
+                </p>
+                <!-- Metric highlights -->
+                <div class="grid grid-cols-3 gap-2 py-3 px-3 bg-terminal-950 border border-emerald-900/50 text-center">
+                    <div class="border-r border-emerald-900/50 pr-2">
+                        <div class="text-neon-green font-bold text-base md:text-lg">30K+</div>
+                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Providers Served</div>
+                    </div>
+                    <div class="border-r border-emerald-900/50 px-2">
+                        <div class="text-neon-cyan font-bold text-base md:text-lg">40%</div>
+                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Dev Time Reduced</div>
+                    </div>
+                    <div class="pl-2">
+                        <div class="text-emerald-400 font-bold text-base md:text-lg">50-60%</div>
+                        <div class="text-gray-400 text-[10px] uppercase tracking-wider">Query Time Optimized</div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-6xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">ls -la skills/</span>
-                    </div>
-                </div>
-                <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Skills will be loaded dynamically -->
-                </div>
+            <div class="mt-4 pt-3 border-t border-emerald-900/40 text-[11px] text-gray-400 flex flex-wrap justify-between items-center gap-2">
+                <span class="">CORE FOCUS: <span class="text-emerald-300">AI-native architecture, context engineering, agentic workflows.</span></span>
+                <span class="text-neon-green font-semibold">[PROD_VERIFIED]</span>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-4xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">grep -r "experience" ./career/</span>
-                    </div>
-                </div>
-                <div id="experience-container" class="space-y-8">
-                    <!-- Experience will be loaded dynamically -->
+        <!-- Profile Image (Cols 8-12) -->
+        <section class="lg:col-span-5 term-box corner-mark flex flex-col justify-between">
+            <div class="w-full h-full relative p-2 md:p-3 flex items-center justify-center">
+                <div class="relative w-full h-full min-h-[300px] border-2 border-neon-green/60 bg-terminal-950 shadow-[0_0_15px_rgba(0,255,102,0.15)] overflow-hidden flex items-center justify-center">
+                    <img alt="Pixel art portrait of Niaz Bin Siraj" class="w-full h-full object-cover filter contrast-125 brightness-105" src="niaz.png">
+                    <div class="absolute inset-0 bg-gradient-to-b from-neon-green/5 via-transparent to-black/30 pointer-events-none"></div>
                 </div>
             </div>
         </section>
+    </div>
 
-        <!-- Education Section -->
-        <section id="education"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-4xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">cd education/ && ls -la</span>
-                    </div>
+    <!-- ======================================================== -->
+    <!-- SECTION: FEATURED PROJECTS                                -->
+    <!-- ======================================================== -->
+    <section class="term-box corner-mark p-4 md:p-5 space-y-4" id="projects">
+        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
+            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
+                <span class="text-neon-green text-base font-extrabold">[PROJECTS]</span>
+                <span class="">FLAGSHIP ENGINEERING WORK</span>
+            </div>
+            <span class="text-xs text-gray-500 font-mono" id="projects-count"></span>
+        </div>
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Projects will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION: TECH ARSENAL / SKILLS                            -->
+    <!-- ======================================================== -->
+    <section class="term-box corner-mark p-4 md:p-5 space-y-4" id="skills">
+        <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2">
+            <div class="flex items-center space-x-2 text-sm font-bold font-mono text-white">
+                <span class="text-neon-green text-base font-extrabold">[SKILLS]</span>
+                <span class="">COMPETENCY MATRIX & CORE TOOLING</span>
+            </div>
+            <span class="text-xs text-neon-cyan font-mono">[JAVA • SPRING • PYTHON • AI/LLM]</span>
+        </div>
+        <div id="skills-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <!-- Skills will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION: EXPERIENCE & EDUCATION                           -->
+    <!-- ======================================================== -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Experience Timeline (Cols 1-7) -->
+        <section class="lg:col-span-7 term-box corner-mark p-4 md:p-5" id="experience">
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                    <span class="text-neon-green text-base font-extrabold">[EXPERIENCE]</span>
+                    <span class="">CAREER TIMELINE & ENGINEERING COMMITS</span>
                 </div>
-                <div id="education-container">
+                <span class="text-[11px] text-gray-500 font-mono">2018 — PRESENT</span>
+            </div>
+            <div id="experience-container" class="space-y-3.5 text-xs">
+                <!-- Experience will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Education (Cols 8-12) -->
+        <section class="lg:col-span-5 term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="education">
+            <div>
+                <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                        <span class="text-neon-cyan text-base font-extrabold">[EDUCATION]</span>
+                        <span class="">ACADEMIC BACKGROUND & TRAINING</span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 font-mono">2012 — 2022</span>
+                </div>
+                <div id="education-container" class="space-y-3 text-xs">
                     <!-- Education will be loaded dynamically -->
                 </div>
             </div>
         </section>
+    </div>
 
-        <!-- Projects Section -->
-        <section id="projects"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-6xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">git log --oneline projects/</span>
-                    </div>
+    <!-- ======================================================== -->
+    <!-- SECTION: ACHIEVEMENTS & COMPETITIONS                      -->
+    <!-- ======================================================== -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Achievements (Cols 1-6) -->
+        <section class="lg:col-span-6 term-box corner-mark p-4 md:p-5" id="achievements">
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                    <span class="text-neon-green text-base font-extrabold">[ACHIEVEMENTS]</span>
+                    <span class="">AWARDS & CERTIFICATIONS</span>
                 </div>
-                <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Projects will be loaded dynamically -->
-                </div>
+                <span class="text-[11px] text-neon-green font-mono font-semibold">VERIFIED</span>
+            </div>
+            <div id="achievements-container" class="space-y-3 text-xs">
+                <!-- Achievements will be loaded dynamically -->
             </div>
         </section>
 
-        <!-- Achievements Section -->
-        <section id="achievements"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-4xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">find achievements/ -type f</span>
-                    </div>
+        <!-- Competitions (Cols 7-12) -->
+        <section class="lg:col-span-6 term-box corner-mark p-4 md:p-5" id="competitions">
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                    <span class="text-neon-cyan text-base font-extrabold">[COMPETITIONS]</span>
+                    <span class="">PROGRAMMING CONTEST HISTORY</span>
                 </div>
-                <div id="achievements-container" class="space-y-6">
-                    <!-- Achievements will be loaded dynamically -->
-                </div>
+                <span class="text-[11px] text-gray-500 font-mono" id="competitions-count"></span>
+            </div>
+            <div id="competitions-container" class="space-y-2.5 text-xs">
+                <!-- Competitions will be loaded dynamically -->
             </div>
         </section>
+    </div>
 
-        <!-- Competitions Section -->
-        <section id="competitions"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-900 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-4xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-800 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">history | grep contest</span>
-                    </div>
+    <!-- ======================================================== -->
+    <!-- SECTION: CONTACT                                          -->
+    <!-- ======================================================== -->
+    <section class="term-box corner-mark p-4 md:p-5 flex flex-col justify-between" id="contact">
+        <div>
+            <div class="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3">
+                <div class="flex items-center space-x-2 text-xs font-bold text-white">
+                    <span class="text-neon-cyan text-base font-extrabold">[CONTACT]</span>
+                    <span class="">GET IN TOUCH</span>
                 </div>
-                <div id="competitions-container" class="space-y-6">
-                    <!-- Competitions will be loaded dynamically -->
+                <span class="text-[11px] text-neon-green font-mono font-semibold">DHAKA, BANGLADESH</span>
+            </div>
+            <p class="text-gray-300 text-xs leading-relaxed mb-4">
+                Always open to discussing Software Engineer roles, backend architecture advisory, AI-native system design, and context engineering consulting.
+            </p>
+            <!-- Direct Contact Info Rows -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">EMAIL:</span>
+                    <a class="text-neon-green hover:underline font-semibold" href="mailto:niazbinsiraj@gmail.com">niazbinsiraj@gmail.com</a>
+                </div>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">PHONE:</span>
+                    <a class="text-neon-green hover:underline font-semibold" href="tel:+8801755931751">+880 1755 931 751</a>
+                </div>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">GITHUB:</span>
+                    <a class="text-neon-cyan hover:underline font-semibold" href="https://github.com/NiazBinSiraj" rel="noreferrer" target="_blank">github.com/NiazBinSiraj</a>
+                </div>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">LINKEDIN:</span>
+                    <a class="text-emerald-300 hover:underline font-semibold" href="https://linkedin.com/in/niazbinsiraj" rel="noreferrer" target="_blank">linkedin.com/in/niazbinsiraj</a>
+                </div>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">FACEBOOK:</span>
+                    <a class="text-emerald-300 hover:underline font-semibold" href="https://www.facebook.com/niazbinsiraj/" rel="noreferrer" target="_blank">facebook.com/niazbinsiraj</a>
+                </div>
+                <div class="flex items-center justify-between bg-terminal-950 p-2 border border-emerald-900/50">
+                    <span class="text-gray-400">X / TWITTER:</span>
+                    <a class="text-white hover:underline font-semibold" href="https://x.com/niazbinsiraj" rel="noreferrer" target="_blank">@niazbinsiraj</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contacts Section -->
-        <section id="contacts"
-            class="section py-12 px-4 sm:py-20 sm:px-8 bg-gray-800 lg:min-h-screen lg:flex lg:items-center border-t border-green-500">
-            <div class="max-w-4xl mx-auto w-full">
-                <div class="mb-12 text-center">
-                    <div class="inline-block bg-gray-900 border border-green-500 rounded-lg p-4">
-                        <span class="text-green-500 font-mono font-bold text-lg">niaz@backend:~$</span>
-                        <span class="text-green-400 font-bold text-lg">cat contact.txt</span>
-                    </div>
-                </div>
+    <!-- ======================================================== -->
+    <!-- FOOTER STATUS LINE                                        -->
+    <!-- ======================================================== -->
+    <footer class="term-box corner-mark p-3 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-2">
+        <div class="flex items-center space-x-3">
+            <span class="text-neon-green flex items-center gap-1.5 font-semibold">
+                <span class="w-2 h-2 bg-neon-green inline-block rounded-full animate-pulse"></span>
+                NODE: ONLINE
+            </span>
+            <span class="text-gray-500">|</span>
+            <span class="">STACK: JAVA / SPRING BOOT / AI / LLM / PYTHON</span>
+        </div>
+        <div class="flex items-center space-x-3">
+            <span class="">DHAKA, BANGLADESH</span>
+            <span class="text-emerald-400">© 2026 NIAZ BIN SIRAJ</span>
+        </div>
+    </footer>
 
-                <div class="bg-gray-900 border border-green-500 rounded-xl shadow-lg p-4 sm:p-8">
-                    <div class="text-center space-y-8">
-                        <!-- Contact Information -->
-                        <div class="space-y-6">
-                            <div class="mb-4">
-                                <span class="text-green-500 font-mono">niaz@backend:~$</span>
-                                <span class="text-green-400">cat ~/.contact_info</span>
-                            </div>
+</div>
 
-                            <div class="space-y-5 text-lg">
-                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
-                                    <i class="fas fa-envelope w-6 mr-0 sm:mr-4 text-green-500"></i>
-                                    <span class="text-slate-400 mr-2">Email:</span>
-                                    <a href="mailto:niazbinsiraj@gmail.com"
-                                        class="text-green-400 hover:text-green-300 transition-colors">
-                                        niazbinsiraj@gmail.com
-                                    </a>
-                                </div>
+<!-- Floating Terminal Button -->
+<button id="terminal-fab" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-terminal-900 border-2 border-neon-green/60 rounded-full flex items-center justify-center text-neon-green shadow-[0_0_20px_rgba(0,255,102,0.25)] hover:bg-neon-green/10 hover:border-neon-green hover:shadow-[0_0_30px_rgba(0,255,102,0.4)] transition-all duration-300 group cursor-pointer">
+    <i class="fas fa-terminal text-lg group-hover:scale-110 transition-transform"></i>
+</button>
 
-                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
-                                    <i class="fas fa-phone w-6 mr-0 sm:mr-4 text-green-500"></i>
-                                    <span class="text-slate-400 mr-2">Phone:</span>
-                                    <a href="tel:+8801755931751"
-                                        class="text-green-400 hover:text-green-300 transition-colors">
-                                        +880 1755 931 751
-                                    </a>
-                                </div>
-
-                                <div class="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-0">
-                                    <i class="fas fa-map-marker-alt w-6 mr-0 sm:mr-4 text-green-500"></i>
-                                    <span class="text-slate-400 mr-2">Location:</span>
-                                    <span class="text-slate-200">Dhaka, Bangladesh</span>
-                                </div>
-                            </div>
-                    </div>
-                </div>
+<!-- Terminal Modal Overlay -->
+<div id="terminal-modal-overlay" class="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm hidden items-center justify-center" onclick="if(event.target===this)closeTerminalModal()">
+    <div class="term-box corner-mark w-full max-w-5xl mx-4 p-0 shadow-[0_0_40px_rgba(0,255,102,0.15)]">
+        <!-- Terminal Title Bar -->
+        <div class="flex items-center justify-between px-4 py-2.5 border-b border-emerald-900/60">
+            <div class="flex items-center space-x-2 text-xs">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-400"></span>
+                <span class="text-neon-green font-semibold">niaz@backend</span>
+                <span class="text-gray-500">:</span>
+                <span class="text-neon-cyan">~</span>
+                <span class="text-gray-500">$</span>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="py-6 px-4 sm:px-8 bg-black border-t border-green-500 text-green-400">
-            <div class="max-w-4xl mx-auto text-center font-mono">
-                <span class="text-green-500">niaz@backend:~$</span>
-                <span class="text-gray-400"> Copyright © 2026 Niaz Bin Siraj. All rights reserved.</span>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 text-[11px]">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
+                    </span>
+                    <span class="text-neon-green font-bold tracking-wide">ONLINE</span>
+                </div>
+                <button onclick="closeTerminalModal()" class="text-gray-500 hover:text-neon-green transition-colors text-sm font-bold">✕</button>
             </div>
-        </footer>
-    </main>
+        </div>
+        <!-- Terminal Body — single unified area like Ubuntu terminal -->
+        <div id="terminal-body" class="p-4 font-mono text-xs leading-relaxed h-[500px] overflow-y-auto cursor-text bg-terminal-950/50" onclick="document.getElementById('terminal-input').focus()">
+            <div class="text-emerald-300">Welcome to Niaz's terminal.</div>
+            <div class="text-gray-500 mb-2">Type <span class="text-neon-green">help</span> for available commands.</div>
+            <div id="terminal-output"></div>
+            <!-- Active input line -->
+            <div class="flex items-start gap-2 mt-1">
+                <span class="text-neon-green font-semibold whitespace-nowrap">niaz@backend:~$</span>
+                <input id="terminal-input" type="text" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs placeholder-gray-700 caret-neon-green p-0 m-0 focus:ring-0 focus:border-none focus:outline-none shadow-none" style="box-shadow:none" placeholder="" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>

@@ -7,7 +7,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #080e1a;
+    background: #060908;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
 .orbit-ring {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(0, 255, 102, 0.15);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -48,21 +48,21 @@
 .orbit-ring-1 {
     width: 180px;
     height: 180px;
-    border-color: rgba(34, 197, 94, 0.25);
+    border-color: rgba(0, 255, 102, 0.25);
     animation: orbit-pulse 3s ease-in-out infinite;
 }
 
 .orbit-ring-2 {
     width: 220px;
     height: 220px;
-    border-color: rgba(34, 197, 94, 0.15);
+    border-color: rgba(0, 255, 102, 0.15);
     animation: orbit-pulse 3s ease-in-out infinite 0.5s;
 }
 
 .orbit-ring-3 {
     width: 260px;
     height: 260px;
-    border-color: rgba(34, 197, 94, 0.08);
+    border-color: rgba(0, 255, 102, 0.08);
     animation: orbit-pulse 3s ease-in-out infinite 1s;
 }
 
@@ -82,32 +82,32 @@
 }
 
 .orbit-dot-1 {
-    background: #22c55e;
-    box-shadow: 0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.4);
+    background: #00FF66;
+    box-shadow: 0 0 10px #00FF66, 0 0 20px rgba(0, 255, 102, 0.4);
     animation: orbit-spin-1 4s linear infinite;
 }
 
 .orbit-dot-2 {
     width: 5px;
     height: 5px;
-    background: #4ade80;
-    box-shadow: 0 0 8px #4ade80;
+    background: #05DF72;
+    box-shadow: 0 0 8px #05DF72;
     animation: orbit-spin-2 5s linear infinite;
 }
 
 .orbit-dot-3 {
     width: 6px;
     height: 6px;
-    background: #86efac;
-    box-shadow: 0 0 8px #86efac;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
     animation: orbit-spin-3 6s linear infinite reverse;
 }
 
 .orbit-dot-4 {
     width: 4px;
     height: 4px;
-    background: #10b981;
-    box-shadow: 0 0 12px #10b981;
+    background: #00F0FF;
+    box-shadow: 0 0 12px #00F0FF;
     animation: orbit-spin-4 3.5s linear infinite;
 }
 
@@ -140,7 +140,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, transparent 70%);
     animation: glow-breathe 2.5s ease-in-out infinite;
 }
 
@@ -158,10 +158,10 @@
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    border: 2px solid rgba(34, 197, 94, 0.6);
+    border: 2px solid rgba(0, 255, 102, 0.6);
     overflow: hidden;
     animation: photo-fade-in 1s ease-out 0.3s both;
-    box-shadow: 0 0 30px rgba(34, 197, 94, 0.25);
+    box-shadow: 0 0 30px rgba(0, 255, 102, 0.25);
 }
 
 .preloader-photo {
@@ -178,7 +178,7 @@
 
 /* Name */
 .preloader-name {
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 2.1rem;
     font-weight: 700;
     color: #e2e8f0;
@@ -189,10 +189,10 @@
 
 /* Title */
 .preloader-title {
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #22c55e;
+    color: #00FF66;
     letter-spacing: 0.35em;
     margin-bottom: 2.2rem;
     animation: text-fade-up 0.8s ease-out 0.9s both;
@@ -207,7 +207,7 @@
 .preloader-progress-track {
     width: 280px;
     height: 3px;
-    background: rgba(34, 197, 94, 0.12);
+    background: rgba(0, 255, 102, 0.12);
     border-radius: 2px;
     overflow: hidden;
     margin-bottom: 1.2rem;
@@ -218,7 +218,7 @@
     height: 100%;
     width: 0%;
     border-radius: 2px;
-    background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+    background: linear-gradient(90deg, #00FF66, #05DF72, #00FF66);
     background-size: 200% 100%;
     animation: progress-shimmer 1.5s linear infinite;
     transition: width 0.3s ease;
@@ -231,7 +231,7 @@
 
 /* Status text */
 .preloader-status {
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.7rem;
     color: #6b7280;
     letter-spacing: 0.2em;
@@ -296,343 +296,124 @@
    END PRELOADER
    ================================================ */
 
-/* Custom CSS for Terminal-themed Portfolio Website */
+/* ================================================
+   TERMINAL THEME — Core Styles
+   ================================================ */
 
-/* Terminal theme color variables */
-:root {
-    --terminal-bg: #0f172a;
-    --terminal-secondary: #1e293b;
-    --terminal-accent: #22c55e;
-    --terminal-text: #10b981;
-    --terminal-muted: #6b7280;
-    --terminal-border: #22c55e;
-    --terminal-text-primary: #e2e8f0;
-    --terminal-text-secondary: #cbd5e1;
-    --terminal-glow: rgba(34, 197, 94, 0.15);
-}
-
-/* Smooth scrolling behavior */
-html {
-    scroll-behavior: smooth;
-    background-color: var(--terminal-bg);
-}
-
-/* Global text justify alignment */
 body {
+    background-color: #060908;
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.04) 0%, transparent 70%),
+        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    color: #d1fae5;
+    font-family: 'JetBrains Mono', monospace;
     text-align: justify;
 }
 
-/* Custom scrollbar for terminal theme */
+/* Increased spacing between paragraphs */
+p + p {
+    margin-top: 1rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Terminal box — used for all card/section containers */
+.term-box {
+    background: #090e0c;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.term-box:hover {
+    border-color: rgba(0, 255, 102, 0.45);
+}
+
+/* Clean corner brackets */
+.corner-mark::before {
+    content: '+';
+    position: absolute;
+    top: -9px;
+    left: -5px;
+    color: #00FF66;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.corner-mark::after {
+    content: '+';
+    position: absolute;
+    bottom: -9px;
+    right: -5px;
+    color: #00FF66;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+/* Glow effects */
+.glow-green {
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Custom Terminal Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--terminal-bg);
+    background: #060908;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--terminal-accent);
-    border-radius: 4px;
+    background: #10b981;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #16a34a;
+    background: #00ff66;
 }
 
-/* Section padding adjustment */
+/* ================================================
+   NAVIGATION SMOOTH SCROLL
+   ================================================ */
+
 .section {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 2rem;
 }
 
-/* Improved body text for readability */
-.card-body-text {
-    color: var(--terminal-text-primary);
-    line-height: 1.75;
-    letter-spacing: 0.01em;
-}
+/* ================================================
+   CARD HOVER EFFECTS
+   ================================================ */
 
-/* Terminal prompt spacing helper */
-.card-prompt {
-    margin-bottom: 0.75rem;
-}
-
-/* Active navigation link styling - Terminal theme */
-.nav-link.active {
-    background-color: var(--terminal-secondary);
-    color: var(--terminal-accent);
-    font-weight: 600;
-    border: 1px solid var(--terminal-border);
-}
-
-/* Terminal window styling */
-.terminal-window {
-    background: var(--terminal-bg);
-    border: 1px solid var(--terminal-border);
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-}
-
-/* Terminal header dots */
-.terminal-dots {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 1rem;
-}
-
-/* Hover effects for cards - Terminal theme */
 .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(34, 197, 94, 0.2), 0 10px 10px -5px rgba(34, 197, 94, 0.1);
-    border-color: var(--terminal-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 102, 0.15);
+    border-color: rgba(0, 255, 102, 0.45);
 }
 
-/* Skills category cards - Terminal theme */
-.skill-card {
-    background: linear-gradient(135deg, var(--terminal-secondary) 0%, var(--terminal-bg) 100%);
-    color: var(--terminal-text);
-    transition: all 0.3s ease;
-    border: 1px solid var(--terminal-border);
-}
+/* ================================================
+   LOADING ANIMATION
+   ================================================ */
 
-.skill-card:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(34, 197, 94, 0.3);
-    border-color: var(--terminal-accent);
-}
-
-/* Experience timeline - Terminal theme */
-.experience-card {
-    position: relative;
-    padding-left: 2rem;
-    background: var(--terminal-secondary);
-    border: 1px solid var(--terminal-border);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.experience-card::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 1.5rem;
-    width: 12px;
-    height: 12px;
-    background: var(--terminal-accent);
-    border-radius: 50%;
-    border: 3px solid var(--terminal-bg);
-    box-shadow: 0 0 0 3px var(--terminal-border);
-}
-
-.experience-card::after {
-    content: '';
-    position: absolute;
-    left: -1px;
-    top: 3rem;
-    width: 2px;
-    height: calc(100% - 1rem);
-    background: var(--terminal-border);
-}
-
-.experience-card:last-child::after {
-    display: none;
-}
-
-/* Project cards - Terminal theme */
-.project-card {
-    transition: all 0.3s ease;
-    border: 1px solid var(--terminal-border);
-    background: var(--terminal-secondary);
-    color: var(--terminal-text);
-}
-
-.project-card:hover {
-    border-color: var(--terminal-accent);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-    transform: translateY(-2px);
-}
-
-/* Tech stack badges - Terminal theme */
-.tech-badge {
-    background: var(--terminal-bg);
-    color: #d1fae5;
-    padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    font-family: 'Courier New', monospace;
-    flex: 1 1 auto;
-    text-align: center;
-}
-
-.tech-badge:hover {
-    background: var(--terminal-accent);
-    color: var(--terminal-bg);
-    transform: scale(1.05);
-}
-
-/* Unified terminal badge - for activities, subjects, etc. */
-.terminal-badge {
-    background: var(--terminal-secondary);
-    color: #e2e8f0;
-    padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    font-family: 'Courier New', monospace;
-    flex: 1 1 auto;
-    text-align: center;
-}
-
-.terminal-badge:hover {
-    border-color: var(--terminal-accent);
-    color: var(--terminal-text);
-    transform: scale(1.03);
-}
-
-/* Achievement cards - Terminal theme */
-.achievement-card {
-    background: var(--terminal-secondary);
-    border: 1px solid var(--terminal-border);
-    border-left: 4px solid var(--terminal-accent);
-    transition: all 0.3s ease;
-    color: var(--terminal-text);
-}
-
-.achievement-card:hover {
-    border-left-color: #16a34a;
-    transform: translateX(5px);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-}
-
-/* Competition cards - Terminal theme */
-.competition-card {
-    background: var(--terminal-secondary);
-    border: 1px solid var(--terminal-border);
-    transition: all 0.3s ease;
-    color: var(--terminal-text);
-}
-
-.competition-card:hover {
-    background: var(--terminal-bg);
-    border-color: var(--terminal-accent);
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-}
-
-/* Mobile menu animations - Terminal theme */
-@media (max-width: 1023px) {
-    #sidebar {
-        z-index: 50;
-        overflow-y: auto;
-        overflow-x: hidden;
-        background: var(--terminal-bg);
-        border-right: 1px solid var(--terminal-border);
-    }
-
-    #sidebar.show {
-        transform: translateX(0);
-    }
-
-    /* Ensure proper spacing in mobile sidebar */
-    #sidebar .p-4 {
-        padding-bottom: 3rem;
-    }
-}
-
-/* Ensure sidebar content fits on all screens and is vertically centered */
-#sidebar {
-    display: flex;
-    flex-direction: column;
-}
-
-#sidebar>div {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    padding-bottom: 2rem;
-}
-
-/* When content overflows, allow scrolling while maintaining center alignment */
-@media (max-height: 800px) {
-    #sidebar>div {
-        justify-content: flex-start;
-        padding-top: 2rem;
-    }
-}
-
-/* Better scrollbar for sidebar */
-#sidebar::-webkit-scrollbar {
-    width: 6px;
-}
-
-#sidebar::-webkit-scrollbar-track {
-    background: var(--terminal-bg);
-}
-
-#sidebar::-webkit-scrollbar-thumb {
-    background: var(--terminal-accent);
-    border-radius: 3px;
-}
-
-#sidebar::-webkit-scrollbar-thumb:hover {
-    background: #16a34a;
-}
-
-/* Terminal-specific additions */
-.terminal-prompt {
-    color: var(--terminal-accent);
-    font-family: 'Courier New', monospace;
-}
-
-.terminal-output {
-    color: var(--terminal-text);
-    font-family: 'Courier New', monospace;
-}
-
-.terminal-command {
-    color: var(--terminal-accent);
-    font-family: 'Courier New', monospace;
-}
-
-/* Blinking cursor effect */
-.terminal-cursor::after {
-    content: '█';
-    color: var(--terminal-accent);
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
-}
-
-/* Loading animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -640,62 +421,24 @@ body {
 }
 
 .fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 /* Staggered animation for cards */
-.stagger-1 {
-    animation-delay: 0.1s;
-}
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
 
-.stagger-2 {
-    animation-delay: 0.2s;
-}
+/* ================================================
+   RESPONSIVE ADJUSTMENTS
+   ================================================ */
 
-.stagger-3 {
-    animation-delay: 0.3s;
-}
-
-.stagger-4 {
-    animation-delay: 0.4s;
-}
-
-.stagger-5 {
-    animation-delay: 0.5s;
-}
-
-.stagger-6 {
-    animation-delay: 0.6s;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .section {
-        padding: 3rem 1rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    /* Reduce card padding on mobile */
-    .skill-card,
-    .experience-card,
-    .project-card,
-    .achievement-card,
-    .competition-card {
-        padding: 1.25rem !important;
-    }
-
-    /* Hide experience timeline dots on mobile — they get clipped */
-    .experience-card::before,
-    .experience-card::after {
-        display: none;
-    }
-
-    .experience-card {
-        padding-left: 1.25rem;
-        margin-left: 0;
+    body {
+        padding: 0.5rem;
     }
 
     /* Prevent monospace text from overflowing on mobile */
@@ -704,169 +447,10 @@ body {
         word-break: break-word;
         overflow-wrap: break-word;
     }
-
-    /* Section header terminal commands — allow wrapping & smaller text */
-    .section .inline-block {
-        max-width: 100%;
-        word-break: break-all;
-    }
-
-    .section .inline-block span {
-        font-size: 0.75rem;
-    }
-
-    /* Contact info — stack vertically on mobile */
-    .section .space-y-5 .flex.items-center.justify-center {
-        flex-direction: column;
-        gap: 0.25rem;
-        text-align: center;
-    }
-
-    .section .space-y-5 .flex.items-center.justify-center i {
-        margin-right: 0;
-        margin-bottom: 0.25rem;
-    }
-
-    /* Footer links wrap nicely */
-    footer .flex.justify-center.space-x-6 {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    /* Scale down badges and skill items */
-    .tech-badge,
-    .terminal-badge {
-        font-size: 0.7rem;
-        padding: 0.25rem 0.6rem;
-    }
-
-    .skill-item {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .section {
-        padding: 2rem 0.75rem;
+    body {
+        padding: 0.25rem;
     }
-
-    /* About section text size reduction for very small screens */
-    .section p.text-lg {
-        font-size: 0.875rem;
-        line-height: 1.6;
-    }
-
-    /* Specialization tags — smaller on tiny screens */
-    .section .flex.flex-wrap.gap-4 span {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.6rem;
-    }
-
-    /* Mobile header smaller */
-    .section h2.text-4xl {
-        font-size: 1.75rem;
-    }
-
-    /* Contact social icons smaller */
-    .section .w-16.h-16 {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .section .w-16.h-16 i.text-2xl {
-        font-size: 1.25rem;
-    }
-}
-
-/* Button hover effects */
-.btn-primary {
-    background: linear-gradient(135deg, var(--terminal-accent) 0%, #16a34a 100%);
-    color: var(--terminal-bg);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-family: 'Courier New', monospace;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
-}
-
-/* Profile ring effect - clean solid border, no glow */
-.profile-glow-ring {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--terminal-accent);
-    padding: 3px;
-    border-radius: 50%;
-}
-
-/* Profile image animations */
-.profile-image {
-    transition: all 0.3s ease;
-}
-
-.profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
-}
-
-/* Skill items styling - Terminal theme */
-.skill-item {
-    background: var(--terminal-bg);
-    padding: 0.55rem 1.1rem;
-    border-radius: 0.5rem;
-    margin: 0.25rem;
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--terminal-text);
-    border: 1px solid var(--terminal-border);
-    box-shadow: 0 1px 3px rgba(34, 197, 94, 0.2);
-    transition: all 0.2s ease;
-    font-family: 'Courier New', monospace;
-}
-
-.skill-item:hover {
-    background: var(--terminal-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(34, 197, 94, 0.25);
-    border-color: var(--terminal-accent);
-}
-
-/* Contact links styling */
-.contact-link {
-    transition: all 0.2s ease;
-}
-
-.contact-link:hover {
-    transform: translateX(5px);
-}
-
-/* Progress bars for skills (if needed) */
-.progress-bar {
-    background: var(--terminal-secondary);
-    border-radius: 9999px;
-    height: 0.5rem;
-    overflow: hidden;
-}
-
-.progress-fill {
-    background: linear-gradient(90deg, var(--terminal-text), var(--terminal-accent));
-    height: 100%;
-    border-radius: 9999px;
-    transition: width 1s ease-in-out;
-}
-
-/* Footer styling */
-footer {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
