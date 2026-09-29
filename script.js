@@ -634,3 +634,225 @@ function createCompetitionCard(competition, index) {
         setTimeout(dismissPreloader, remaining);
     });
 })();
+
+// ============================
+// GITHUB STATS MODAL
+// ============================
+const GITHUB_USERNAME = 'NiazBinSiraj';
+const GITHUB_ORG = 'nbslabs';
+let githubDataLoaded = false;
+
+const LANG_COLORS = {
+    'JavaScript': '#f1e05a',
+    'HTML': '#e34c26',
+    'CSS': '#563d7c',
+    'Java': '#b07219',
+    'Python': '#3572A5',
+    'C#': '#178600',
+    'TypeScript': '#2b7489',
+    'Shell': '#89e051',
+    'C++': '#f34b7d',
+    'Go': '#00ADD8',
+    'Rust': '#dea584',
+    'Ruby': '#701516',
+    'PHP': '#4F5D95',
+    'Kotlin': '#A97BFF',
+    'Swift': '#ffac45',
+    'Dart': '#00B4AB',
+};
+
+function openGithubModal() {
+    const overlay = document.getElementById('github-modal-overlay');
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+
+    if (!githubDataLoaded) {
+        fetchGithubData();
+        githubDataLoaded = true;
+    }
+}
+
+function closeGithubModal() {
+    const overlay = document.getElementById('github-modal-overlay');
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
+    document.body.style.overflow = '';
+}
+
+function switchGithubTab(tabName) {
+    // Update tab buttons
+    document.querySelectorAll('.github-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    // Update tab panels
+    document.querySelectorAll('.github-tab-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === `tab-${tabName}`);
+    });
+}
+
+async function fetchGithubData() {
+    try {
+        const [userRes, reposRes, orgRes, orgReposRes] = await Promise.all([
+            fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+            fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`),
+            fetch(`https://api.github.com/orgs/${GITHUB_ORG}`),
+            fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?sort=updated&per_page=100`)
+        ]);
+
+        const user = await userRes.json();
+        const repos = await reposRes.json();
+        const org = await orgRes.json();
+        const orgRepos = await orgReposRes.json();
+
+        // Tag org repos so we can badge them
+        const taggedOrgRepos = (Array.isArray(orgRepos) ? orgRepos : []).map(r => ({ ...r, _org: GITHUB_ORG }));
+        const allRepos = [...(Array.isArray(repos) ? repos : []), ...taggedOrgRepos];
+
+        renderGithubProfile(user);
+        renderGithubStats(user, allRepos, org);
+        renderLanguageDistribution(allRepos);
+        renderReposList(allRepos);
+        renderActivityTab();
+
+        document.getElementById('gh-last-updated').textContent =
+            `Updated ${new Date().toLocaleTimeString()}`;
+
+    } catch (err) {
+        console.error('Failed to fetch GitHub data:', err);
+    }
+}
+
+function renderGithubProfile(user) {
+    document.getElementById('gh-avatar').src = user.avatar_url;
+    document.getElementById('gh-name').textContent = user.name || user.login;
+    document.getElementById('gh-bio').textContent = user.bio || 'Software Engineer • Backend Systems • AI-Native Architecture';
+    document.getElementById('gh-location').textContent = user.location || 'Dhaka, Bangladesh';
+
+    const joined = new Date(user.created_at);
+    document.getElementById('gh-joined').textContent =
+        joined.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+
+function renderGithubStats(user, allRepos, org) {
+    const totalRepos = user.public_repos + (org && org.public_repos ? org.public_repos : 0);
+    document.getElementById('gh-repos-count').textContent = totalRepos;
+    document.getElementById('gh-followers').textContent = user.followers + (org && org.followers ? org.followers : 0);
+    document.getElementById('gh-following').textContent = user.following;
+
+    const totalStars = allRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+    document.getElementById('gh-stars-count').textContent = totalStars;
+}
+
+function renderLanguageDistribution(repos) {
+    const langCounts = {};
+    repos.forEach(repo => {
+        if (repo.language) {
+            langCounts[repo.language] = (langCounts[repo.language] || 0) + 1;
+        }
+    });
+
+    const total = Object.values(langCounts).reduce((a, b) => a + b, 0);
+    const sorted = Object.entries(langCounts).sort((a, b) => b[1] - a[1]);
+
+    // Render bar
+    const barsEl = document.getElementById('gh-lang-bars');
+    barsEl.innerHTML = sorted.map(([lang, count]) => {
+        const pct = ((count / total) * 100).toFixed(1);
+        const color = LANG_COLORS[lang] || '#8b949e';
+        return `<div style="width:${pct}%;background:${color};transition:width 0.5s ease" title="${lang} ${pct}%"></div>`;
+    }).join('');
+
+    // Render labels
+    const labelsEl = document.getElementById('gh-lang-labels');
+    labelsEl.innerHTML = sorted.map(([lang, count]) => {
+        const pct = ((count / total) * 100).toFixed(1);
+        const color = LANG_COLORS[lang] || '#8b949e';
+        return `<span class="flex items-center">
+            <span class="lang-dot" style="background:${color}"></span>
+            <span class="text-gray-300">${lang}</span>
+            <span class="text-gray-600 ml-1">${pct}%</span>
+        </span>`;
+    }).join('');
+
+    // Contribution graph
+    document.getElementById('gh-contrib-graph').src =
+        `https://ghchart.rshah.org/00FF66/${GITHUB_USERNAME}`;
+}
+
+function renderReposList(repos) {
+    const container = document.getElementById('gh-repos-list');
+    const nonForkRepos = repos.filter(r => !r.fork)
+        .sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
+
+    container.innerHTML = nonForkRepos.map(repo => {
+        const lang = repo.language || 'N/A';
+        const langColor = LANG_COLORS[lang] || '#8b949e';
+        const desc = repo.description || 'No description';
+        const updated = new Date(repo.pushed_at).toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric'
+        });
+        const topics = (repo.topics || []).slice(0, 3);
+        const orgBadge = repo._org
+            ? `<span class="text-[9px] px-1.5 py-0.5 bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 rounded-sm">${repo._org}</span>`
+            : '';
+
+        return `
+        <a href="${repo.html_url}" target="_blank" class="github-repo-card block">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fas fa-book text-neon-green/60 text-xs"></i>
+                        <span class="text-neon-green font-semibold text-xs truncate">${repo.name}</span>
+                        <span class="text-[9px] px-1.5 py-0.5 border border-emerald-900/40 text-gray-500 rounded-sm">${repo.visibility}</span>
+                        ${orgBadge}
+                    </div>
+                    <p class="text-gray-500 text-[11px] leading-relaxed mb-2 line-clamp-2">${desc}</p>
+                    ${topics.length ? `<div class="flex flex-wrap gap-1.5 mb-2">
+                        ${topics.map(t => `<span class="text-[9px] px-1.5 py-0.5 bg-emerald-950/60 border border-emerald-900/30 text-emerald-400 rounded-sm">${t}</span>`).join('')}
+                    </div>` : ''}
+                </div>
+                <div class="flex items-center gap-3 text-[11px] text-gray-500 shrink-0 pt-1">
+                    <span class="flex items-center gap-1" title="Stars">
+                        <i class="fas fa-star text-yellow-500/60"></i>${repo.stargazers_count}
+                    </span>
+                    <span class="flex items-center gap-1" title="Forks">
+                        <i class="fas fa-code-branch text-neon-cyan/60"></i>${repo.forks_count}
+                    </span>
+                </div>
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-gray-600 mt-1">
+                <span class="flex items-center">
+                    <span class="lang-dot" style="background:${langColor}"></span>${lang}
+                </span>
+                <span>Updated ${updated}</span>
+            </div>
+        </a>`;
+    }).join('');
+}
+
+function renderActivityTab() {
+    const theme = 'dark';
+    const bg = '090e0c';
+    const border = '10b98140';
+    const titleColor = '00FF66';
+    const textColor = 'd1fae5';
+    const iconColor = '00F0FF';
+    const ring = '00FF66';
+
+    document.getElementById('gh-stats-card').src =
+        `https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=${theme}&bg_color=${bg}&border_color=${border}&title_color=${titleColor}&text_color=${textColor}&icon_color=${iconColor}&ring_color=${ring}&hide_border=false&count_private=true`;
+
+    document.getElementById('gh-streak-card').src =
+        `https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=dark&background=${bg}&border=${border}&ring=${titleColor}&fire=${titleColor}&currStreakLabel=${titleColor}&sideLabels=${textColor}&currStreakNum=${textColor}&sideNums=${textColor}&dates=${border}`;
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        const ghModal = document.getElementById('github-modal-overlay');
+        if (ghModal && !ghModal.classList.contains('hidden')) {
+            closeGithubModal();
+        }
+    }
+});

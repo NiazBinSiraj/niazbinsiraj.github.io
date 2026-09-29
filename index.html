@@ -169,7 +169,7 @@
                 <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#achievements">[ACHIEVEMENTS]</a>
                 <a class="py-1.5 border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 hover:border-neon-green hover:text-neon-green hover:bg-neon-green/10 transition-all whitespace-nowrap" href="#competitions">[COMPETITIONS]</a>
                 <a class="py-1.5 border border-neon-cyan/40 bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all whitespace-nowrap" href="#contact">[CONTACT]</a>
-                <a class="py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://github.com/NiazBinSiraj" rel="noreferrer" target="_blank">GITHUB &gt;</a>
+                <button class="py-1.5 border border-yellow-500/50 text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 transition-all whitespace-nowrap cursor-pointer" style="text-shadow: 0 0 8px rgba(255,215,0,0.4)" onclick="openGithubModal()">GITHUB &gt;</button>
                 <a class="py-1.5 border border-emerald-500/40 text-gray-300 hover:text-white hover:border-gray-300 transition-all whitespace-nowrap" href="https://blog.niazbinsiraj.com" target="_blank">BLOG &gt;</a>
             </div>
         </div>
@@ -430,6 +430,193 @@
                 <span class="text-neon-green font-semibold whitespace-nowrap">niaz@backend:~$</span>
                 <input id="terminal-input" type="text" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs placeholder-gray-700 caret-neon-green p-0 m-0 focus:ring-0 focus:border-none focus:outline-none shadow-none" style="box-shadow:none" placeholder="" autocomplete="off" spellcheck="false">
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Infinite Scrolling Ticker Bar -->
+<div class="ticker-bar" id="ticker-bar">
+    <!-- Social Icons — fixed left side -->
+    <div class="ticker-socials">
+        <a href="https://github.com/NiazBinSiraj" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/niazbinsiraj" target="_blank" rel="noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/niazbinsiraj" target="_blank" rel="noreferrer" title="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/niazbinsiraj/" target="_blank" rel="noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <div class="ticker-track">
+        <!-- First copy of items -->
+        <div class="ticker-content">
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">◆ STATUS:</span> OPEN TO OPPORTUNITIES</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ STACK:</span> JAVA 21 / SPRING BOOT / PYTHON</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">↑ 3+ YRS</span> PRODUCTION BACKEND EXPERIENCE</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">◆ AI:</span> LANGGRAPH • MCP • RAG • LLM INTEGRATION</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ DEVOPS:</span> DOCKER • NGINX • JENKINS • CI/CD</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">◆ DB:</span> ORACLE • POSTGRESQL • REDIS • RABBITMQ</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">🏆 ICPC</span> DHAKA REGIONAL ONSITE FINALIST</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ GOOGLE</span> CODE JAM — TOP 5901 / 40K+</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">↑ 40%</span> DEV TIME REDUCED VIA CONTEXT ENGINEERING</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">📍 DHAKA</span> BANGLADESH</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">✉ EMAIL:</span> NIAZBINSIRAJ@GMAIL.COM</span>
+            <span class="ticker-sep">◇</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="ticker-content" aria-hidden="true">
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">◆ STATUS:</span> OPEN TO OPPORTUNITIES</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ STACK:</span> JAVA 21 / SPRING BOOT / PYTHON</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">↑ 3+ YRS</span> PRODUCTION BACKEND EXPERIENCE</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">◆ AI:</span> LANGGRAPH • MCP • RAG • LLM INTEGRATION</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ DEVOPS:</span> DOCKER • NGINX • JENKINS • CI/CD</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">◆ DB:</span> ORACLE • POSTGRESQL • REDIS • RABBITMQ</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">🏆 ICPC</span> DHAKA REGIONAL ONSITE FINALIST</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">⚡ GOOGLE</span> CODE JAM — TOP 5901 / 40K+</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-emerald-400">↑ 40%</span> DEV TIME REDUCED VIA CONTEXT ENGINEERING</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-green">📍 DHAKA</span> BANGLADESH</span>
+            <span class="ticker-sep">◇</span>
+            <span class="ticker-item"><span class="ticker-highlight text-neon-cyan">✉ EMAIL:</span> NIAZBINSIRAJ@GMAIL.COM</span>
+            <span class="ticker-sep">◇</span>
+        </div>
+    </div>
+</div>
+
+<!-- GitHub Stats Modal -->
+<div id="github-modal-overlay" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden items-center justify-center" onclick="if(event.target===this)closeGithubModal()">
+    <div class="github-modal term-box corner-mark w-full max-w-3xl mx-4 shadow-[0_0_50px_rgba(0,255,102,0.12)]">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-5 py-3 border-b border-emerald-900/60">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <i class="fab fa-github text-neon-green text-lg"></i>
+                    <span class="text-white font-bold text-sm tracking-wide">$GITHUB LIVE STATS</span>
+                </div>
+                <div class="flex items-center gap-1.5 ml-3">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
+                    </span>
+                    <span class="text-neon-green text-[10px] font-bold tracking-wider">LIVE</span>
+                </div>
+            </div>
+            <button onclick="closeGithubModal()" class="text-gray-500 hover:text-neon-green transition-colors text-sm font-bold px-2 py-1">✕</button>
+        </div>
+
+        <!-- Profile Banner -->
+        <div class="px-5 py-4 border-b border-emerald-900/40 flex items-center gap-4">
+            <img id="gh-avatar" src="" alt="GitHub Avatar" class="w-14 h-14 rounded-full border-2 border-neon-green/50 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+            <div class="flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="text-white font-bold text-base" id="gh-name">NiazBinSiraj</span>
+                    <a href="https://github.com/NiazBinSiraj" target="_blank" class="text-gray-500 hover:text-neon-green transition-colors text-xs">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="text-gray-400 text-xs mt-0.5" id="gh-bio">Loading...</div>
+                <div class="flex items-center gap-4 mt-1.5 text-[11px]">
+                    <span class="text-gray-400"><i class="fas fa-map-marker-alt text-neon-green/60 mr-1"></i><span id="gh-location">—</span></span>
+                    <span class="text-gray-400"><i class="fas fa-calendar text-neon-green/60 mr-1"></i>Joined <span id="gh-joined">—</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex border-b border-emerald-900/40">
+            <button class="github-tab active" data-tab="stats" onclick="switchGithubTab('stats')">
+                <i class="fas fa-chart-bar mr-1.5"></i> Stats
+            </button>
+            <button class="github-tab" data-tab="repos" onclick="switchGithubTab('repos')">
+                <i class="fas fa-code-branch mr-1.5"></i> Repos
+            </button>
+            <button class="github-tab" data-tab="activity" onclick="switchGithubTab('activity')">
+                <i class="fas fa-fire mr-1.5"></i> Activity
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="github-tab-content">
+
+            <!-- STATS TAB -->
+            <div id="tab-stats" class="github-tab-panel active">
+                <!-- Metric Cards Row -->
+                <div class="grid grid-cols-4 gap-3 p-5">
+                    <div class="github-metric-card">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">PUBLIC REPOS</div>
+                        <div class="text-neon-green font-bold text-xl" id="gh-repos-count">—</div>
+                    </div>
+                    <div class="github-metric-card">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">TOTAL STARS</div>
+                        <div class="text-neon-cyan font-bold text-xl" id="gh-stars-count">—</div>
+                    </div>
+                    <div class="github-metric-card">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">FOLLOWERS</div>
+                        <div class="text-emerald-400 font-bold text-xl" id="gh-followers">—</div>
+                    </div>
+                    <div class="github-metric-card">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">FOLLOWING</div>
+                        <div class="text-gray-300 font-bold text-xl" id="gh-following">—</div>
+                    </div>
+                </div>
+
+                <!-- Language Distribution -->
+                <div class="px-5 pb-5">
+                    <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-3 font-semibold">LANGUAGE DISTRIBUTION</div>
+                    <div id="gh-lang-bars" class="flex h-3 rounded-full overflow-hidden mb-3 bg-terminal-800"></div>
+                    <div id="gh-lang-labels" class="flex flex-wrap gap-x-4 gap-y-1.5 text-[11px]"></div>
+                </div>
+
+                <!-- Contribution Graph -->
+                <div class="px-5 pb-5">
+                    <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-3 font-semibold">CONTRIBUTION GRAPH</div>
+                    <div class="bg-terminal-950 border border-emerald-900/30 rounded overflow-hidden">
+                        <img id="gh-contrib-graph" src="" alt="GitHub Contribution Graph" class="w-full" style="filter: invert(1) hue-rotate(130deg) brightness(0.85);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- REPOS TAB -->
+            <div id="tab-repos" class="github-tab-panel">
+                <div id="gh-repos-list" class="p-4 space-y-3 max-h-[420px] overflow-y-auto">
+                    <div class="text-center text-gray-500 text-xs py-8">Loading repositories...</div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY TAB -->
+            <div id="tab-activity" class="github-tab-panel">
+                <div class="p-5">
+                    <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-3 font-semibold">GITHUB STATS</div>
+                    <div class="bg-terminal-950 border border-emerald-900/30 rounded overflow-hidden mb-4">
+                        <img id="gh-stats-card" src="" alt="GitHub Stats" class="w-full">
+                    </div>
+                    <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-3 font-semibold">STREAK</div>
+                    <div class="bg-terminal-950 border border-emerald-900/30 rounded overflow-hidden">
+                        <img id="gh-streak-card" src="" alt="GitHub Streak" class="w-full">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex items-center justify-between px-5 py-2.5 border-t border-emerald-900/40 text-[10px] text-gray-600">
+            <span>Powered by <span class="text-gray-500">GitHub API</span></span>
+            <span id="gh-last-updated">—</span>
         </div>
     </div>
 </div>
