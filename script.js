@@ -714,27 +714,40 @@ function switchGithubTab(tabName) {
 
 async function fetchGithubData() {
     try {
-        const [userRes, reposRes, orgRes, orgReposRes] = await Promise.all([
+        const [userRes, reposRes, orgRes, orgReposRes, eventsRes] = await Promise.all([
             fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
             fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`),
             fetch(`https://api.github.com/orgs/${GITHUB_ORG}`),
-            fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?sort=updated&per_page=100`)
+            fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?sort=updated&per_page=100`),
+            fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=30`)
         ]);
 
         const user = await userRes.json();
         const repos = await reposRes.json();
         const org = await orgRes.json();
         const orgRepos = await orgReposRes.json();
+        const events = await eventsRes.json();
 
         // Tag org repos so we can badge them
         const taggedOrgRepos = (Array.isArray(orgRepos) ? orgRepos : []).map(r => ({ ...r, _org: GITHUB_ORG }));
-        const allRepos = [...(Array.isArray(repos) ? repos : []), ...taggedOrgRepos];
+        const personalRepos = Array.isArray(repos) ? repos : [];
+        const allRepos = [...personalRepos, ...taggedOrgRepos];
 
         renderGithubProfile(user);
         renderGithubStats(user, allRepos, org);
         renderLanguageDistribution(allRepos);
         renderReposList(allRepos);
-        renderActivityTab();
+        renderActivityTab(user, allRepos, Array.isArray(events) ? events : []);
+
+        // New render functions
+        renderDerivedScores(user, allRepos);
+        renderMostStarred(allRepos);
+        renderInsightsTab(allRepos);
+        renderEventsFeed(Array.isArray(events) ? events : []);
+        renderOrgTab(org, personalRepos, taggedOrgRepos);
+
+        // Fetch org members separately (doesn't block main render)
+        fetchOrgMembers();
 
         document.getElementById('gh-last-updated').textContent =
             `Updated ${new Date().toLocaleTimeString()}`;
@@ -753,6 +766,13 @@ function renderGithubProfile(user) {
     const joined = new Date(user.created_at);
     document.getElementById('gh-joined').textContent =
         joined.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+    // Account age
+    const now = new Date();
+    const years = Math.floor((now - joined) / (365.25 * 24 * 60 * 60 * 1000));
+    const months = Math.floor(((now - joined) % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
+    document.getElementById('gh-account-age').textContent =
+        years > 0 ? `${years}y ${months}m on GitHub` : `${months}m on GitHub`;
 }
 
 function renderGithubStats(user, allRepos, org) {
@@ -763,6 +783,93 @@ function renderGithubStats(user, allRepos, org) {
 
     const totalStars = allRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
     document.getElementById('gh-stars-count').textContent = totalStars;
+
+    // New metrics
+    const totalForks = allRepos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+    const totalWatchers = allRepos.reduce((sum, r) => sum + (r.watchers_count || 0), 0);
+    const avgStars = totalRepos > 0 ? (totalStars / totalRepos).toFixed(1) : '0';
+
+    document.getElementById('gh-forks-count').textContent = totalForks;
+    document.getElementById('gh-watchers-count').textContent = totalWatchers;
+    document.getElementById('gh-avg-stars').textContent = avgStars;
+
+    // Top language
+    const langCounts = {};
+    allRepos.forEach(r => {
+        if (r.language) langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+    });
+    const topLang = Object.entries(langCounts).sort((a, b) => b[1] - a[1])[0];
+    document.getElementById('gh-top-language').textContent = topLang ? topLang[0] : 'N/A';
+}
+
+function renderDerivedScores(user, allRepos) {
+    // Code Diversity Score
+    const uniqueLangs = new Set(allRepos.map(r => r.language).filter(Boolean));
+    document.getElementById('gh-diversity-score').textContent = uniqueLangs.size;
+    document.getElementById('gh-diversity-label').textContent =
+        uniqueLangs.size === 1 ? 'language' : 'languages';
+
+    // Open Source Impact
+    const totalStars = allRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+    const totalForks = allRepos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+    const totalWatchers = allRepos.reduce((sum, r) => sum + (r.watchers_count || 0), 0);
+    document.getElementById('gh-impact-score').textContent = totalStars + totalForks + totalWatchers;
+
+    // Consistency Score
+    const latestPush = allRepos.reduce((latest, r) => {
+        const d = new Date(r.pushed_at);
+        return d > latest ? d : latest;
+    }, new Date(0));
+    const daysSinceLastPush = Math.floor((new Date() - latestPush) / (24 * 60 * 60 * 1000));
+    const joined = new Date(user.created_at);
+    const accountDays = Math.floor((new Date() - joined) / (24 * 60 * 60 * 1000));
+
+    let consistencyLabel, consistencyValue;
+    if (daysSinceLastPush <= 1) {
+        consistencyValue = 'TODAY';
+        consistencyLabel = 'last push';
+    } else if (daysSinceLastPush <= 7) {
+        consistencyValue = `${daysSinceLastPush}d`;
+        consistencyLabel = 'ago · Active';
+    } else if (daysSinceLastPush <= 30) {
+        consistencyValue = `${daysSinceLastPush}d`;
+        consistencyLabel = 'ago · Regular';
+    } else {
+        consistencyValue = `${daysSinceLastPush}d`;
+        consistencyLabel = 'ago · Dormant';
+    }
+    document.getElementById('gh-consistency-score').textContent = consistencyValue;
+    document.getElementById('gh-consistency-label').textContent = consistencyLabel;
+}
+
+function renderMostStarred(allRepos) {
+    const container = document.getElementById('gh-most-starred');
+    const top = allRepos.filter(r => !r.fork).sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0))[0];
+
+    if (!top) {
+        container.innerHTML = '<div class="text-gray-500 text-xs">No repos found</div>';
+        return;
+    }
+
+    const langColor = LANG_COLORS[top.language] || '#8b949e';
+    const orgBadge = top._org
+        ? `<span class="text-[9px] px-1.5 py-0.5 bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 rounded-sm">${top._org}</span>`
+        : '';
+
+    container.innerHTML = `
+        <a href="${top.html_url}" target="_blank" class="block hover:border-neon-green/40 transition-colors">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="text-neon-green font-bold text-sm">${top.name}</span>
+                ${orgBadge}
+            </div>
+            <p class="text-gray-400 text-[11px] mb-2">${top.description || 'No description'}</p>
+            <div class="flex items-center gap-4 text-[11px] text-gray-500">
+                <span class="flex items-center"><span class="lang-dot" style="background:${langColor}"></span>${top.language || 'N/A'}</span>
+                <span><i class="fas fa-star text-yellow-500/60 mr-1"></i>${top.stargazers_count}</span>
+                <span><i class="fas fa-code-branch text-neon-cyan/60 mr-1"></i>${top.forks_count}</span>
+            </div>
+        </a>`;
 }
 
 function renderLanguageDistribution(repos) {
@@ -797,9 +904,263 @@ function renderLanguageDistribution(repos) {
     }).join('');
 
     // Contribution graph
-    document.getElementById('gh-contrib-graph').src =
-        `https://ghchart.rshah.org/00FF66/${GITHUB_USERNAME}`;
+    const contribImg = document.getElementById('gh-contrib-graph');
+    contribImg.onerror = function() {
+        this.parentElement.innerHTML = '<div class="py-4 px-4 text-center text-gray-600 text-[11px] font-mono"><i class="fas fa-exclamation-triangle text-yellow-500/50 mr-1.5"></i>Contribution graph unavailable</div>';
+    };
+    contribImg.src = `https://ghchart.rshah.org/00FF66/${GITHUB_USERNAME}`;
 }
+
+// ============================
+// INSIGHTS TAB
+// ============================
+
+function renderInsightsTab(allRepos) {
+    renderTopicsCloud(allRepos);
+    renderRepoTimeline(allRepos);
+    renderMostActiveRepos(allRepos);
+    renderOldestRepos(allRepos);
+    renderLicenseBreakdown(allRepos);
+    renderForkRatio(allRepos);
+    renderSizeDistribution(allRepos);
+}
+
+function renderTopicsCloud(repos) {
+    const container = document.getElementById('gh-topics-cloud');
+    const topicCounts = {};
+    repos.forEach(r => {
+        (r.topics || []).forEach(t => {
+            topicCounts[t] = (topicCounts[t] || 0) + 1;
+        });
+    });
+
+    const sorted = Object.entries(topicCounts).sort((a, b) => b[1] - a[1]);
+    if (sorted.length === 0) {
+        container.innerHTML = '<span class="text-gray-600 text-xs italic">No topics found across repos</span>';
+        return;
+    }
+
+    const maxCount = sorted[0][1];
+    container.innerHTML = sorted.map(([topic, count]) => {
+        const weight = Math.max(0.5, count / maxCount);
+        const size = Math.round(10 + weight * 4);
+        const opacity = (0.4 + weight * 0.6).toFixed(2);
+        return `<span class="gh-topic-tag" style="font-size:${size}px;opacity:${opacity}" title="${count} repo${count > 1 ? 's' : ''}">${topic}<sup class="text-gray-600 ml-0.5">${count}</sup></span>`;
+    }).join('');
+}
+
+// Timeline data cache
+const timelineCache = { repos: null, prs: null, commits: null };
+
+function renderRepoTimeline(repos) {
+    // Cache repo year data for switching
+    const nonFork = repos.filter(r => !r.fork);
+    const yearCounts = {};
+    nonFork.forEach(r => {
+        const year = new Date(r.created_at).getFullYear();
+        yearCounts[year] = (yearCounts[year] || 0) + 1;
+    });
+    timelineCache.repos = { yearCounts, total: nonFork.length, singular: 'repo', plural: 'repos' };
+    renderTimelineChart(timelineCache.repos);
+}
+
+function renderTimelineChart(data) {
+    const container = document.getElementById('gh-timeline');
+    const { yearCounts, total, singular, plural } = data;
+
+    const years = Object.keys(yearCounts).sort();
+    if (years.length === 0) {
+        container.innerHTML = '<span class="text-gray-600 text-xs italic">No data found</span>';
+        return;
+    }
+
+    const maxCount = Math.max(...Object.values(yearCounts));
+
+    container.innerHTML = `
+        <div class="flex items-end gap-2 sm:gap-3" style="height:140px;padding-bottom:24px">
+            ${years.map(y => {
+                const count = yearCounts[y];
+                const barHeight = Math.max(12, (count / maxCount) * 100);
+                const label = count === 1 ? singular : plural;
+                return `<div class="flex-1 flex flex-col items-center justify-end h-full" title="${count} ${label} in ${y}">
+                    <span class="text-neon-green text-[11px] font-bold mb-1">${count}</span>
+                    <div class="w-full rounded-sm" style="height:${barHeight}%;background:linear-gradient(180deg, rgba(0,255,102,0.7) 0%, rgba(0,255,102,0.25) 100%);min-height:8px;transition:height 0.5s ease"></div>
+                    <span class="text-gray-400 text-[10px] font-semibold mt-1.5">${y}</span>
+                </div>`;
+            }).join('')}
+        </div>
+        <div class="text-center text-gray-600 text-[9px] mt-1">${total} total ${plural} across ${years.length} years</div>`;
+}
+
+async function switchTimelineView(type) {
+    // Update active button
+    document.querySelectorAll('.gh-timeline-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.timeline === type);
+    });
+
+    // Use cache if available
+    if (timelineCache[type]) {
+        renderTimelineChart(timelineCache[type]);
+        return;
+    }
+
+    const container = document.getElementById('gh-timeline');
+    container.innerHTML = '<div class="text-gray-500 text-xs py-8 text-center"><i class="fas fa-spinner fa-spin mr-1.5"></i>Fetching data...</div>';
+
+    try {
+        if (type === 'prs') {
+            const res = await fetch(`https://api.github.com/search/issues?q=author:${GITHUB_USERNAME}+type:pr&per_page=100&sort=created`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            const yearCounts = {};
+            (data.items || []).forEach(pr => {
+                const year = new Date(pr.created_at).getFullYear();
+                yearCounts[year] = (yearCounts[year] || 0) + 1;
+            });
+            const itemTotal = Object.values(yearCounts).reduce((a, b) => a + b, 0);
+            timelineCache.prs = { yearCounts, total: data.total_count || itemTotal, singular: 'PR', plural: 'PRs' };
+            renderTimelineChart(timelineCache.prs);
+
+        } else if (type === 'commits') {
+            const res = await fetch(`https://api.github.com/search/commits?q=author:${GITHUB_USERNAME}&per_page=100&sort=author-date`, {
+                headers: { 'Accept': 'application/vnd.github.cloak-preview+json' }
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            const yearCounts = {};
+            (data.items || []).forEach(c => {
+                const date = c.commit?.author?.date || c.commit?.committer?.date;
+                if (date) {
+                    const year = new Date(date).getFullYear();
+                    yearCounts[year] = (yearCounts[year] || 0) + 1;
+                }
+            });
+            const itemTotal = Object.values(yearCounts).reduce((a, b) => a + b, 0);
+            timelineCache.commits = { yearCounts, total: data.total_count || itemTotal, singular: 'commit', plural: 'commits' };
+            renderTimelineChart(timelineCache.commits);
+        }
+    } catch (err) {
+        container.innerHTML = `<div class="text-gray-600 text-xs py-4 text-center"><i class="fas fa-exclamation-triangle text-yellow-500/50 mr-1.5"></i>Could not load ${type} data</div>`;
+        console.warn('Timeline fetch error:', err);
+    }
+}
+
+function renderMostActiveRepos(repos) {
+    const container = document.getElementById('gh-most-active');
+    const active = repos.filter(r => !r.fork)
+        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+        .slice(0, 5);
+
+    container.innerHTML = active.map(r => {
+        const updated = new Date(r.pushed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        return `<a href="${r.html_url}" target="_blank" class="gh-mini-repo-card block">
+            <div class="flex items-center justify-between">
+                <span class="text-neon-green text-[11px] font-semibold truncate flex-1">${r.name}</span>
+                <span class="text-gray-600 text-[10px] ml-2 shrink-0">${updated}</span>
+            </div>
+        </a>`;
+    }).join('');
+}
+
+function renderOldestRepos(repos) {
+    const container = document.getElementById('gh-oldest-repos');
+    const oldest = repos.filter(r => !r.fork)
+        .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+        .slice(0, 5);
+
+    container.innerHTML = oldest.map(r => {
+        const created = new Date(r.created_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        return `<a href="${r.html_url}" target="_blank" class="gh-mini-repo-card block">
+            <div class="flex items-center justify-between">
+                <span class="text-purple-400 text-[11px] font-semibold truncate flex-1">${r.name}</span>
+                <span class="text-gray-600 text-[10px] ml-2 shrink-0">${created}</span>
+            </div>
+        </a>`;
+    }).join('');
+}
+
+function renderLicenseBreakdown(repos) {
+    const container = document.getElementById('gh-license-breakdown');
+    const licenseCounts = {};
+    repos.forEach(r => {
+        const lic = r.license ? r.license.spdx_id : 'None';
+        licenseCounts[lic] = (licenseCounts[lic] || 0) + 1;
+    });
+
+    const total = repos.length;
+    const sorted = Object.entries(licenseCounts).sort((a, b) => b[1] - a[1]);
+
+    const colors = {
+        'MIT': '#00FF66', 'Apache-2.0': '#00F0FF', 'GPL-3.0': '#A97BFF',
+        'GPL-2.0': '#A97BFF', 'BSD-2-Clause': '#f1e05a', 'BSD-3-Clause': '#f1e05a',
+        'None': '#4b5563', 'NOASSERTION': '#6b7280'
+    };
+
+    container.innerHTML = sorted.map(([lic, count]) => {
+        const pct = ((count / total) * 100).toFixed(0);
+        const color = colors[lic] || '#8b949e';
+        return `<div class="flex items-center gap-2">
+            <div class="flex-1 h-2 bg-terminal-800 rounded-full overflow-hidden">
+                <div style="width:${pct}%;background:${color}" class="h-full rounded-full transition-all duration-500"></div>
+            </div>
+            <span class="text-[10px] text-gray-400 w-24 text-right shrink-0">${lic === 'NOASSERTION' ? 'Other' : lic} <span class="text-gray-600">${pct}%</span></span>
+        </div>`;
+    }).join('');
+}
+
+function renderForkRatio(repos) {
+    const container = document.getElementById('gh-fork-ratio');
+    const forks = repos.filter(r => r.fork).length;
+    const originals = repos.length - forks;
+    const total = repos.length;
+
+    const origPct = total > 0 ? ((originals / total) * 100).toFixed(0) : 0;
+    const forkPct = total > 0 ? ((forks / total) * 100).toFixed(0) : 0;
+
+    container.innerHTML = `
+        <div class="flex h-4 rounded-full overflow-hidden bg-terminal-800">
+            <div style="width:${origPct}%" class="bg-neon-green/70 transition-all duration-500" title="Original ${origPct}%"></div>
+            <div style="width:${forkPct}%" class="bg-neon-cyan/50 transition-all duration-500" title="Forked ${forkPct}%"></div>
+        </div>
+        <div class="flex justify-between text-[10px]">
+            <span class="text-neon-green flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-full bg-neon-green/70"></span>Original: ${originals} (${origPct}%)</span>
+            <span class="text-neon-cyan flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-full bg-neon-cyan/50"></span>Forked: ${forks} (${forkPct}%)</span>
+        </div>`;
+}
+
+function renderSizeDistribution(repos) {
+    const container = document.getElementById('gh-size-distribution');
+    const buckets = { 'Tiny (<100KB)': 0, 'Small (100KB–1MB)': 0, 'Medium (1–10MB)': 0, 'Large (10–100MB)': 0, 'Huge (>100MB)': 0 };
+    const bucketColors = ['#00FF66', '#00F0FF', '#f1e05a', '#ff9800', '#ff4444'];
+
+    repos.forEach(r => {
+        const sizeKB = r.size || 0;
+        if (sizeKB < 100) buckets['Tiny (<100KB)']++;
+        else if (sizeKB < 1024) buckets['Small (100KB–1MB)']++;
+        else if (sizeKB < 10240) buckets['Medium (1–10MB)']++;
+        else if (sizeKB < 102400) buckets['Large (10–100MB)']++;
+        else buckets['Huge (>100MB)']++;
+    });
+
+    const total = repos.length;
+    const entries = Object.entries(buckets).filter(([, c]) => c > 0);
+
+    container.innerHTML = entries.map(([label, count], i) => {
+        const pct = ((count / total) * 100).toFixed(0);
+        const color = bucketColors[Object.keys(buckets).indexOf(label)];
+        return `<div class="flex items-center gap-2">
+            <span class="text-[10px] text-gray-400 w-28 shrink-0 truncate">${label}</span>
+            <div class="flex-1 h-2.5 bg-terminal-800 rounded-full overflow-hidden">
+                <div style="width:${pct}%;background:${color}" class="h-full rounded-full transition-all duration-500"></div>
+            </div>
+            <span class="text-[10px] text-gray-500 w-14 text-right shrink-0">${count} <span class="text-gray-600">(${pct}%)</span></span>
+        </div>`;
+    }).join('');
+}
+
+// ============================
+// REPOS TAB (unchanged)
+// ============================
 
 function renderReposList(repos) {
     const container = document.getElementById('gh-repos-list');
@@ -852,20 +1213,323 @@ function renderReposList(repos) {
     }).join('');
 }
 
-function renderActivityTab() {
-    const theme = 'dark';
-    const bg = '090e0c';
-    const border = '10b98140';
-    const titleColor = '00FF66';
-    const textColor = 'd1fae5';
-    const iconColor = '00F0FF';
-    const ring = '00FF66';
+// ============================
+// ACTIVITY TAB
+// ============================
 
-    document.getElementById('gh-stats-card').src =
-        `https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=${theme}&bg_color=${bg}&border_color=${border}&title_color=${titleColor}&text_color=${textColor}&icon_color=${iconColor}&ring_color=${ring}&hide_border=false&count_private=true`;
+function renderActivityTab(user, allRepos, events) {
+    renderGithubAchievements(user, allRepos);
+    renderTopLangsCustom(allRepos);
+    renderActivitySummary(user, allRepos, events);
+    renderWeeklyActivity(events);
+}
 
-    document.getElementById('gh-streak-card').src =
-        `https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=dark&background=${bg}&border=${border}&ring=${titleColor}&fire=${titleColor}&currStreakLabel=${titleColor}&sideLabels=${textColor}&currStreakNum=${textColor}&sideNums=${textColor}&dates=${border}`;
+function renderGithubAchievements(user, repos) {
+    const container = document.getElementById('gh-achievements');
+    const totalStars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+    const totalForks = repos.reduce((s, r) => s + (r.forks_count || 0), 0);
+    const uniqueLangs = new Set(repos.map(r => r.language).filter(Boolean)).size;
+    const originals = repos.filter(r => !r.fork).length;
+    const totalRepos = user.public_repos;
+    const followers = user.followers;
+
+    const badges = [
+        { icon: 'fa-star', label: 'Stargazer', value: totalStars >= 50 ? '🥇' : totalStars >= 10 ? '🥈' : '🥉', desc: `${totalStars} total stars`, color: 'text-yellow-400', unlocked: totalStars > 0 },
+        { icon: 'fa-code-branch', label: 'Forked', value: totalForks >= 20 ? '🥇' : totalForks >= 5 ? '🥈' : '🥉', desc: `${totalForks} total forks`, color: 'text-neon-cyan', unlocked: totalForks > 0 },
+        { icon: 'fa-book', label: 'Creator', value: originals >= 20 ? '🥇' : originals >= 10 ? '🥈' : '🥉', desc: `${originals} original repos`, color: 'text-neon-green', unlocked: originals > 0 },
+        { icon: 'fa-users', label: 'Popular', value: followers >= 100 ? '🥇' : followers >= 20 ? '🥈' : '🥉', desc: `${followers} followers`, color: 'text-emerald-400', unlocked: followers > 0 },
+        { icon: 'fa-globe', label: 'Polyglot', value: uniqueLangs >= 8 ? '🥇' : uniqueLangs >= 4 ? '🥈' : '🥉', desc: `${uniqueLangs} languages`, color: 'text-purple-400', unlocked: uniqueLangs > 1 },
+        { icon: 'fa-fire', label: 'Prolific', value: totalRepos >= 30 ? '🥇' : totalRepos >= 15 ? '🥈' : '🥉', desc: `${totalRepos} public repos`, color: 'text-orange-400', unlocked: totalRepos >= 5 },
+        { icon: 'fa-clock', label: 'Veteran', value: (() => { const y = Math.floor((new Date() - new Date(user.created_at)) / (365.25*24*60*60*1000)); return y >= 5 ? '🥇' : y >= 2 ? '🥈' : '🥉'; })(), desc: `Since ${new Date(user.created_at).getFullYear()}`, color: 'text-amber-400', unlocked: true },
+        { icon: 'fa-building', label: 'Team Player', value: '🏅', desc: 'Org member', color: 'text-yellow-300', unlocked: repos.some(r => r._org) },
+    ];
+
+    container.innerHTML = badges.map(b => `
+        <div class="gh-achievement-card ${b.unlocked ? '' : 'opacity-30'}">
+            <div class="text-lg mb-1">${b.value}</div>
+            <div class="flex items-center justify-center gap-1 mb-0.5">
+                <i class="fas ${b.icon} ${b.color} text-[10px]"></i>
+                <span class="text-gray-300 text-[10px] font-bold uppercase">${b.label}</span>
+            </div>
+            <div class="text-gray-600 text-[9px]">${b.desc}</div>
+        </div>
+    `).join('');
+}
+
+function renderTopLangsCustom(repos) {
+    const container = document.getElementById('gh-top-langs-custom');
+    const langCounts = {};
+    repos.forEach(r => {
+        if (r.language) langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+    });
+
+    const total = Object.values(langCounts).reduce((a, b) => a + b, 0);
+    const sorted = Object.entries(langCounts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+
+    if (sorted.length === 0) {
+        container.innerHTML = '<span class="text-gray-600 text-xs italic">No language data available</span>';
+        return;
+    }
+
+    const maxCount = sorted[0][1];
+    container.innerHTML = sorted.map(([lang, count]) => {
+        const pct = ((count / total) * 100).toFixed(1);
+        const barWidth = ((count / maxCount) * 100).toFixed(0);
+        const color = LANG_COLORS[lang] || '#8b949e';
+        return `<div class="flex items-center gap-3">
+            <span class="text-[11px] text-gray-400 w-24 text-right shrink-0 truncate">${lang}</span>
+            <div class="flex-1 h-3 bg-terminal-800 rounded-sm overflow-hidden">
+                <div style="width:${barWidth}%;background:${color}" class="h-full rounded-sm transition-all duration-700"></div>
+            </div>
+            <span class="text-[10px] text-gray-500 w-12 shrink-0">${pct}%</span>
+        </div>`;
+    }).join('');
+}
+
+function renderActivitySummary(user, repos, events) {
+    const container = document.getElementById('gh-activity-summary');
+
+    // Count events by type
+    const pushEvents = events.filter(e => e.type === 'PushEvent').length;
+    const prEvents = events.filter(e => e.type === 'PullRequestEvent').length;
+    const issueEvents = events.filter(e => e.type === 'IssuesEvent' || e.type === 'IssueCommentEvent').length;
+    const totalCommits = events.filter(e => e.type === 'PushEvent').reduce((sum, e) => sum + (e.payload?.commits?.length || 0), 0);
+
+    // Most active day
+    const dayCounts = {};
+    events.forEach(e => {
+        const day = new Date(e.created_at).toLocaleDateString('en-US', { weekday: 'short' });
+        dayCounts[day] = (dayCounts[day] || 0) + 1;
+    });
+    const mostActiveDay = Object.entries(dayCounts).sort((a, b) => b[1] - a[1])[0];
+
+    // Latest push
+    const latestPush = repos.reduce((latest, r) => {
+        const d = new Date(r.pushed_at);
+        return d > latest ? d : latest;
+    }, new Date(0));
+    const daysSince = Math.floor((new Date() - latestPush) / (24 * 60 * 60 * 1000));
+
+    const cards = [
+        { label: 'RECENT COMMITS', value: totalCommits, color: 'text-neon-green', icon: 'fa-code-commit' },
+        { label: 'PUSH EVENTS', value: pushEvents, color: 'text-neon-cyan', icon: 'fa-arrow-up' },
+        { label: 'PR EVENTS', value: prEvents, color: 'text-purple-400', icon: 'fa-code-branch' },
+        { label: 'MOST ACTIVE', value: mostActiveDay ? mostActiveDay[0] : '—', color: 'text-yellow-400', icon: 'fa-calendar-day' },
+    ];
+
+    container.innerHTML = cards.map(c => `
+        <div class="github-metric-card">
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1"><i class="fas ${c.icon} mr-1 opacity-50"></i>${c.label}</div>
+            <div class="${c.color} font-bold text-lg">${c.value}</div>
+        </div>
+    `).join('');
+}
+
+function renderWeeklyActivity(events) {
+    const container = document.getElementById('gh-weekly-activity');
+    if (events.length === 0) {
+        container.innerHTML = '<span class="text-gray-600 text-xs italic">No recent events</span>';
+        return;
+    }
+
+    // Build last 7 calendar days (today + 6 days back)
+    const days = [];
+    const now = new Date();
+    for (let i = 6; i >= 0; i--) {
+        const d = new Date(now);
+        d.setDate(d.getDate() - i);
+        days.push({
+            date: d,
+            key: d.toISOString().slice(0, 10), // "YYYY-MM-DD"
+            label: d.toLocaleDateString('en-US', { weekday: 'short' }),
+            dateLabel: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+            isToday: i === 0,
+            count: 0
+        });
+    }
+
+    // Count events per day
+    events.forEach(e => {
+        const eventDay = new Date(e.created_at).toISOString().slice(0, 10);
+        const match = days.find(d => d.key === eventDay);
+        if (match) match.count++;
+    });
+
+    const maxCount = Math.max(...days.map(d => d.count), 1);
+
+    container.innerHTML = `
+        <div class="flex items-end gap-1 sm:gap-2 h-20">
+            ${days.map(d => {
+                const pct = d.count > 0 ? Math.max(8, (d.count / maxCount) * 100) : 4;
+                const barColor = d.isToday ? 'background:rgba(0,240,255,0.6)' : 'background:rgba(0,255,102,0.4)';
+                const emptyBar = d.count === 0 ? 'opacity:0.2' : '';
+                return `<div class="flex-1 flex flex-col items-center gap-1">
+                    <span class="text-neon-green text-[10px] font-bold">${d.count || ''}</span>
+                    <div class="w-full rounded-sm" style="height:${pct}%;${barColor};${emptyBar};min-height:3px;transition:height 0.5s ease"></div>
+                    <span class="text-[9px] ${d.isToday ? 'text-neon-cyan font-bold' : 'text-gray-600'}">${d.label}</span>
+                    <span class="text-[8px] text-gray-700">${d.dateLabel}</span>
+                </div>`;
+            }).join('')}
+        </div>
+        <div class="text-center text-gray-600 text-[9px] mt-2">Last 7 days</div>
+    `;
+}
+
+const EVENT_ICONS = {
+    'PushEvent': { icon: 'fa-arrow-up', color: 'text-neon-green', label: 'pushed to' },
+    'CreateEvent': { icon: 'fa-plus', color: 'text-neon-cyan', label: 'created' },
+    'DeleteEvent': { icon: 'fa-trash', color: 'text-red-400', label: 'deleted' },
+    'WatchEvent': { icon: 'fa-star', color: 'text-yellow-400', label: 'starred' },
+    'ForkEvent': { icon: 'fa-code-branch', color: 'text-purple-400', label: 'forked' },
+    'IssuesEvent': { icon: 'fa-exclamation-circle', color: 'text-orange-400', label: '' },
+    'IssueCommentEvent': { icon: 'fa-comment', color: 'text-gray-400', label: 'commented on' },
+    'PullRequestEvent': { icon: 'fa-code-branch', color: 'text-emerald-400', label: '' },
+    'PullRequestReviewEvent': { icon: 'fa-eye', color: 'text-neon-cyan', label: 'reviewed PR in' },
+    'ReleaseEvent': { icon: 'fa-tag', color: 'text-neon-green', label: 'released in' },
+    'PublicEvent': { icon: 'fa-globe', color: 'text-neon-green', label: 'made public' },
+};
+
+function getEventDescription(event) {
+    const meta = EVENT_ICONS[event.type] || { icon: 'fa-circle', color: 'text-gray-500', label: event.type };
+    const repoName = event.repo ? event.repo.name.split('/').pop() : '';
+
+    let action = meta.label;
+    if (event.type === 'PushEvent') {
+        const commits = event.payload?.commits?.length || 0;
+        action = `pushed ${commits} commit${commits !== 1 ? 's' : ''} to`;
+    } else if (event.type === 'IssuesEvent') {
+        action = `${event.payload?.action || 'updated'} issue in`;
+    } else if (event.type === 'PullRequestEvent') {
+        action = `${event.payload?.action || 'updated'} PR in`;
+    } else if (event.type === 'CreateEvent') {
+        action = `created ${event.payload?.ref_type || 'repo'}${event.payload?.ref ? ' ' + event.payload.ref : ''} in`;
+    }
+
+    return { ...meta, action, repoName, repoUrl: `https://github.com/${event.repo?.name}` };
+}
+
+function renderEventsFeed(events) {
+    const container = document.getElementById('gh-events-feed');
+    if (events.length === 0) {
+        container.innerHTML = '<div class="text-gray-600 text-xs py-4 text-center italic">No recent public events</div>';
+        return;
+    }
+
+    container.innerHTML = events.slice(0, 15).map(event => {
+        const { icon, color, action, repoName, repoUrl } = getEventDescription(event);
+        const time = getRelativeTime(new Date(event.created_at));
+
+        return `<div class="gh-event-row">
+            <i class="fas ${icon} ${color} text-[10px] w-4 shrink-0"></i>
+            <span class="text-gray-400 text-[11px] flex-1 truncate">
+                ${action} <a href="${repoUrl}" target="_blank" class="text-neon-green hover:underline">${repoName}</a>
+            </span>
+            <span class="text-gray-600 text-[10px] shrink-0 ml-2">${time}</span>
+        </div>`;
+    }).join('');
+}
+
+function getRelativeTime(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    if (seconds < 60) return 'just now';
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h`;
+    const days = Math.floor(hours / 24);
+    if (days < 30) return `${days}d`;
+    const months = Math.floor(days / 30);
+    return `${months}mo`;
+}
+
+// ============================
+// ORG TAB
+// ============================
+
+function renderOrgTab(org, personalRepos, orgRepos) {
+    renderOrgSpotlight(org);
+    renderOrgSplit(personalRepos, orgRepos);
+}
+
+function renderOrgSpotlight(org) {
+    const container = document.getElementById('gh-org-spotlight');
+    if (!org || org.message) {
+        container.innerHTML = '<div class="text-gray-600 text-xs py-4 text-center italic">Organization data unavailable</div>';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="flex items-center gap-4">
+            <img src="${org.avatar_url}" alt="${org.login}" class="w-14 h-14 rounded-lg border-2 border-yellow-500/30 shadow-[0_0_12px_rgba(255,215,0,0.1)]">
+            <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-white font-bold text-sm">${org.name || org.login}</span>
+                    <a href="${org.html_url || `https://github.com/${org.login}`}" target="_blank" class="text-gray-500 hover:text-yellow-400 transition-colors text-xs">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 text-[11px] mb-2">${org.description || 'No description'}</p>
+                <div class="flex items-center gap-4 text-[11px]">
+                    <span class="text-gray-400"><i class="fas fa-book text-yellow-400/60 mr-1"></i>${org.public_repos || 0} repos</span>
+                    <span class="text-gray-400"><i class="fas fa-users text-yellow-400/60 mr-1"></i>${org.followers || 0} followers</span>
+                    ${org.location ? `<span class="text-gray-400"><i class="fas fa-map-marker-alt text-yellow-400/60 mr-1"></i>${org.location}</span>` : ''}
+                </div>
+            </div>
+        </div>`;
+}
+
+function renderOrgSplit(personalRepos, orgRepos) {
+    const container = document.getElementById('gh-org-split');
+
+    const pStars = personalRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+    const oStars = orgRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+    const pForks = personalRepos.reduce((s, r) => s + (r.forks_count || 0), 0);
+    const oForks = orgRepos.reduce((s, r) => s + (r.forks_count || 0), 0);
+
+    const metrics = [
+        { label: 'REPOS', personal: personalRepos.length, org: orgRepos.length, pColor: '#00FF66', oColor: '#eab308' },
+        { label: 'STARS', personal: pStars, org: oStars, pColor: '#00FF66', oColor: '#eab308' },
+        { label: 'FORKS', personal: pForks, org: oForks, pColor: '#00FF66', oColor: '#eab308' },
+    ];
+
+    container.innerHTML = metrics.map(m => {
+        const total = m.personal + m.org;
+        const pPct = total > 0 ? ((m.personal / total) * 100).toFixed(0) : 50;
+        const oPct = total > 0 ? ((m.org / total) * 100).toFixed(0) : 50;
+        return `<div>
+            <div class="flex justify-between text-[10px] mb-1">
+                <span class="text-neon-green">Personal: ${m.personal}</span>
+                <span class="text-gray-500 font-semibold">${m.label}</span>
+                <span class="text-yellow-400">Org: ${m.org}</span>
+            </div>
+            <div class="flex h-2.5 rounded-full overflow-hidden bg-terminal-800">
+                <div style="width:${pPct}%;background:${m.pColor}" class="transition-all duration-500 opacity-70"></div>
+                <div style="width:${oPct}%;background:${m.oColor}" class="transition-all duration-500 opacity-70"></div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+async function fetchOrgMembers() {
+    const container = document.getElementById('gh-org-members');
+    try {
+        const res = await fetch(`https://api.github.com/orgs/${GITHUB_ORG}/members`);
+        const members = await res.json();
+
+        if (!Array.isArray(members) || members.length === 0) {
+            container.innerHTML = '<span class="text-gray-600 text-xs italic">No public members</span>';
+            return;
+        }
+
+        container.innerHTML = members.map(m => `
+            <a href="${m.html_url}" target="_blank" class="gh-member-card flex items-center gap-2" title="${m.login}">
+                <img src="${m.avatar_url}" alt="${m.login}" class="w-8 h-8 rounded-full border border-emerald-900/40">
+                <span class="text-gray-300 text-[11px] font-semibold">${m.login}</span>
+            </a>
+        `).join('');
+    } catch (err) {
+        container.innerHTML = '<span class="text-gray-600 text-xs italic">Could not load members</span>';
+    }
 }
 
 // Close modal on Escape key
@@ -877,3 +1541,4 @@ document.addEventListener('keydown', function (e) {
         }
     }
 });
+
