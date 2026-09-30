@@ -1358,20 +1358,20 @@ function renderWeeklyActivity(events) {
     const maxCount = Math.max(...days.map(d => d.count), 1);
 
     container.innerHTML = `
-        <div class="flex items-end gap-1 sm:gap-2 h-20">
+        <div class="flex items-end gap-1 sm:gap-2 h-20 pt-3">
             ${days.map(d => {
                 const pct = d.count > 0 ? Math.max(8, (d.count / maxCount) * 100) : 4;
                 const barColor = d.isToday ? 'background:rgba(0,240,255,0.6)' : 'background:rgba(0,255,102,0.4)';
                 const emptyBar = d.count === 0 ? 'opacity:0.2' : '';
                 return `<div class="flex-1 flex flex-col items-center gap-1">
                     <span class="text-neon-green text-[10px] font-bold">${d.count || ''}</span>
+
                     <div class="w-full rounded-sm" style="height:${pct}%;${barColor};${emptyBar};min-height:3px;transition:height 0.5s ease"></div>
                     <span class="text-[9px] ${d.isToday ? 'text-neon-cyan font-bold' : 'text-gray-600'}">${d.label}</span>
                     <span class="text-[8px] text-gray-700">${d.dateLabel}</span>
                 </div>`;
             }).join('')}
         </div>
-        <div class="text-center text-gray-600 text-[9px] mt-2">Last 7 days</div>
     `;
 }
 
