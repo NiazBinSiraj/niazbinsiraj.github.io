@@ -130,7 +130,7 @@ function handleTerminalCommand(cmd) {
 
         'competitions': `<span class="text-neon-cyan">Programming Competitions:</span>\n<span class="text-gray-400">• ACM ICPC Dhaka Regional Online Preliminary — 118th (2020)</span>\n<span class="text-gray-400">• ACM ICPC Dhaka Regional Onsite — 120th (2019)</span>\n<span class="text-gray-400">• ACM ICPC Dhaka Regional Online Preliminary — 137th (2019)</span>\n<span class="text-gray-400">• ACM ICPC Dhaka Regional Online Preliminary — 247th (2021)</span>\n<span class="text-gray-400">• Google Code Jam — 5901st / 40,000+ (2020)</span>\n<span class="text-gray-400">• SRBD Coding Contest — 89th (2018)</span>`,
 
-        'contact': `<span class="text-neon-cyan">Get In Touch:</span>\n<span class="text-gray-400">Email: niazbinsiraj@gmail.com</span>\n<span class="text-gray-400">Phone: +880 1755 931 751</span>\n<span class="text-gray-400">GitHub: github.com/NiazBinSiraj</span>\n<span class="text-gray-400">LinkedIn: linkedin.com/in/niazbinsiraj</span>\n<span class="text-gray-400">Location: Dhaka, Bangladesh</span>`
+        'contact': `<span class="text-neon-cyan">Get In Touch:</span>\n<span class="text-gray-400">Email: contact@niazbinsiraj.com</span>\n<span class="text-gray-400">Phone: +880 1755 931 751</span>\n<span class="text-gray-400">GitHub: github.com/NiazBinSiraj</span>\n<span class="text-gray-400">LinkedIn: linkedin.com/in/niazbinsiraj</span>\n<span class="text-gray-400">Location: Dhaka, Bangladesh</span>`
     };
 
     if (commands[cmd]) {
